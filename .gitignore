@@ -1,5 +1,7 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
-export/
-local/
+export/*
+!export/.gdignore
+local/*
+!local/.gdignore
