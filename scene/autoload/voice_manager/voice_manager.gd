@@ -17,8 +17,12 @@ extends AudioStreamPlayer
 @onready var voices_fall_trash: Array[AudioStream]
 @onready var voices_placement_trash: Array[AudioStream]
 
+@onready var timer: Timer = $Timer
 
-# Called when the node enters the scene tree for the first time.
+var voice_ready: bool = true
+const VOICE_BUFFER: int = 5
+
+
 func _ready() -> void:
 	voices_correct.append_array(load_streams_at_path("res://audio/voice/correct/"))
 	voices_wrong.append_array(load_streams_at_path("res://audio/voice/wrong/"))
@@ -27,6 +31,10 @@ func _ready() -> void:
 	voices_start.append_array(load_streams_at_path("res://audio/voice/triggered/start/"))
 	voices_fall.append_array(load_streams_at_path("res://audio/voice/triggered/fall/"))
 	voices_placement.append_array(load_streams_at_path("res://audio/voice/triggered/placement/"))
+	
+	GameEvents.pan_entered.connect(on_pan_entered)
+	GameEvents.pan_exited.connect(on_pan_exited)
+	timer.timeout.connect(on_timeout)
 
 
 func load_streams_at_path(path: String) -> Array[AudioStream]:
@@ -115,3 +123,25 @@ func play_random_placement() -> void:
 	if voices_placement.size() == 0:
 		voices_placement.append_array(voices_placement_trash)
 		voices_placement_trash.clear()
+
+
+func on_timeout() -> void:
+	voice_ready = true
+	
+	
+func voice_cooldown() -> void:
+	timer.wait_time = stream.get_length() + VOICE_BUFFER
+	timer.start()
+
+func on_pan_entered() -> void:
+	if voice_ready:
+		voice_ready = false
+		play_random_placement()
+		voice_cooldown()
+
+	
+func on_pan_exited() -> void:
+	if voice_ready:
+		voice_ready = false
+		play_random_fall()
+		voice_cooldown()
