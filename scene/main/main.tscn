@@ -1,11 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://co1nhvml5ve6y"]
+[gd_scene load_steps=6 format=3 uid="uid://co1nhvml5ve6y"]
 
 [ext_resource type="PackedScene" uid="uid://ce6b0dfduypqr" path="res://scene/scale/scale.tscn" id="1_ceiqc"]
+[ext_resource type="PackedScene" uid="uid://dhgqdwpcy37iw" path="res://scene/ui/main_menu/main_menu.tscn" id="1_x18xv"]
 [ext_resource type="PackedScene" uid="uid://dbr2vgtnsucf0" path="res://scene/grabber/grabber.tscn" id="2_ygo0o"]
 [ext_resource type="PackedScene" uid="uid://4ej2b1sscx27" path="res://scene/draggable_entities/debug_box/debug_box.tscn" id="3_ohibm"]
 [ext_resource type="PackedScene" uid="uid://d3pwgvo15efba" path="res://scene/draggable_entities/debug_sphere/debug_sphere.tscn" id="4_oldih"]
 
 [node name="Main" type="Node3D"]
+
+[node name="MainMenu" parent="." instance=ExtResource("1_x18xv")]
 
 [node name="Grabber" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("2_ygo0o")]
 camera = NodePath("../Camera3D")
