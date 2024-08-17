@@ -1,0 +1,78 @@
+[gd_scene load_steps=10 format=3 uid="uid://ceuhtmfflih7c"]
+
+[ext_resource type="PackedScene" uid="uid://bt8bif40er8kr" path="res://scene/dungeon/scaledungeon.glb" id="1_5sgjf"]
+[ext_resource type="Texture2D" uid="uid://blesrlm3igbkx" path="res://scene/dungeon/fireparticle.png" id="2_llif3"]
+[ext_resource type="PackedScene" uid="uid://bhlp8xn50igxa" path="res://scene/flickering_light/flickering_light.tscn" id="2_vpo5c"]
+
+[sub_resource type="Environment" id="Environment_dcab7"]
+ambient_light_source = 3
+ambient_light_color = Color(0.229787, 0.0708131, 0.0605233, 1)
+ambient_light_energy = 1.01
+glow_enabled = true
+glow_intensity = 0.29
+glow_bloom = 0.34
+fog_enabled = true
+fog_light_color = Color(0.249493, 0.0969925, 0.016814, 1)
+fog_light_energy = 0.72
+
+[sub_resource type="Curve" id="Curve_dl1u7"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.0219779), -2.4938, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_53nc3"]
+curve = SubResource("Curve_dl1u7")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gsuma"]
+emission_shape = 1
+emission_sphere_radius = 0.3
+angle_min = 1.07288e-05
+angle_max = 360.0
+direction = Vector3(0, 1, 0)
+initial_velocity_min = 0.3
+initial_velocity_max = 0.6
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_53nc3")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pnou2"]
+transparency = 1
+albedo_texture = ExtResource("2_llif3")
+emission_enabled = true
+emission = Color(0.871746, 0.504091, 0.188262, 1)
+emission_energy_multiplier = 1.28
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_cqo0s"]
+material = SubResource("StandardMaterial3D_pnou2")
+size = Vector2(0.2, 0.2)
+orientation = 2
+
+[node name="ScaledDungeonTest" type="Node"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_dcab7")
+
+[node name="scaledungeon" parent="." instance=ExtResource("1_5sgjf")]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.993411, 0.114608, 0, -0.114608, 0.993411, 0, 1.40286, 2.91137)
+fov = 40.6
+
+[node name="Lights" type="Node" parent="."]
+
+[node name="FlickeringLight" parent="Lights" instance=ExtResource("2_vpo5c")]
+
+[node name="FlickeringLight2" parent="Lights" instance=ExtResource("2_vpo5c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.66972, 2.43806, -0.765376)
+light_energy = 1.369
+omni_range = 5.0
+
+[node name="FlickeringLight3" parent="Lights" instance=ExtResource("2_vpo5c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5355, 2.43806, -0.765376)
+light_energy = 1.369
+omni_range = 5.0
+
+[node name="TorchParticles" type="Node" parent="."]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="TorchParticles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.36303, 2.43806, -2.67922)
+process_material = SubResource("ParticleProcessMaterial_gsuma")
+draw_pass_1 = SubResource("PlaneMesh_cqo0s")

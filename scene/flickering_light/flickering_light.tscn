@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://bhlp8xn50igxa"]
+
+[ext_resource type="Script" path="res://scene/flickering_light/flickering_light.gd" id="1_oa37h"]
+
+[node name="FlickeringLight" type="OmniLight3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.36303, 2.43806, -2.67922)
+shadow_enabled = true
+omni_range = 3.871
+omni_attenuation = 2.0
+script = ExtResource("1_oa37h")
+
+[node name="Timer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.15
+autostart = true
