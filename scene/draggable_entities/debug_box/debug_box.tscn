@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://4ej2b1sscx27"]
+
+[ext_resource type="PackedScene" uid="uid://cbxnphdc8ujhb" path="res://scene/grabbable/grabbable.tscn" id="1_jfjo5"]
+[ext_resource type="PackedScene" uid="uid://baaafw334tec2" path="res://scene/weighable/weighable.tscn" id="2_pnmfv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wvnij"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_4c4e8"]
+
+[node name="Grabbable" node_paths=PackedStringArray("weighable") instance=ExtResource("1_jfjo5")]
+weighable = NodePath("Weighable")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="0"]
+shape = SubResource("BoxShape3D_wvnij")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="1"]
+mesh = SubResource("BoxMesh_4c4e8")
+skeleton = NodePath("")
+
+[node name="Weighable" parent="." index="2" instance=ExtResource("2_pnmfv")]
+weight = 1.0

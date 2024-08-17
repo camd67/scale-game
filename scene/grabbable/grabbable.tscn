@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://cbxnphdc8ujhb"]
+[gd_scene load_steps=2 format=3 uid="uid://cbxnphdc8ujhb"]
+
+[ext_resource type="Script" path="res://scene/grabbable/grabbable.gd" id="1_k4w43"]
 
 [node name="Grabbable" type="RigidBody3D"]
 collision_layer = 3
@@ -7,3 +9,4 @@ axis_lock_linear_z = true
 axis_lock_angular_x = true
 axis_lock_angular_y = true
 freeze_mode = 1
+script = ExtResource("1_k4w43")
