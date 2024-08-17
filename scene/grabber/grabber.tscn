@@ -8,3 +8,4 @@ script = ExtResource("1_bvcfn")
 [node name="GrabRay" type="RayCast3D" parent="."]
 collision_mask = 2
 debug_shape_custom_color = Color(0.84788, 0.1504, 0.94, 0.0980392)
+debug_shape_thickness = 1

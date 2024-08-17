@@ -37,6 +37,10 @@ folder_colors={
 "res://website/": "pink"
 }
 
+[global_group]
+
+weighable="Something that can report its weight back to the caller"
+
 [layer_names]
 
 3d_physics/layer_1="WorldDefault"
