@@ -41,12 +41,14 @@ func _on_left_pan_body_entered(body: Node3D) -> void:
 	if body is Grabbable and body.weighable != null:
 		left_pan_weight += body.weighable.weight
 		update_labels()
+		GameEvents.emit_pan_entered()
 
 
 func _on_left_pan_body_exited(body: Node3D) -> void:
 	if body is Grabbable and body.weighable != null:
 		left_pan_weight -= body.weighable.weight
 		update_labels()
+		GameEvents.emit_pan_exited()
 
 
 func _on_right_pan_body_entered(body: Node3D) -> void:
