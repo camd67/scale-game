@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://co1nhvml5ve6y"]
+[gd_scene load_steps=8 format=3 uid="uid://co1nhvml5ve6y"]
 
 [ext_resource type="PackedScene" uid="uid://ce6b0dfduypqr" path="res://scene/scale/scale.tscn" id="1_ceiqc"]
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_hru73"]
-friction = 0.8
+[ext_resource type="PackedScene" uid="uid://dbr2vgtnsucf0" path="res://scene/grabber/grabber.tscn" id="2_ygo0o"]
+[ext_resource type="PackedScene" uid="uid://cbxnphdc8ujhb" path="res://scene/grabbable/grabbable.tscn" id="3_sbhlc"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_eat20"]
 
@@ -15,7 +14,11 @@ friction = 0.8
 
 [node name="Main" type="Node3D"]
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="Grabber" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("2_ygo0o")]
+camera = NodePath("../Camera3D")
+max_grab_distance = 15.0
+
+[node name="Camera3D" type="Camera3D" parent="." groups=["camera"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.49245, 7.5065)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -24,100 +27,102 @@ transform = Transform3D(0.600783, -0.648815, 0.467011, 0, 0.584193, 0.811615, -0
 [node name="Scale" parent="." instance=ExtResource("1_ceiqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0283279)
 
-[node name="Box 1" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.64318, 13.7293, 0)
-collision_layer = 3
-axis_lock_linear_z = true
-axis_lock_angular_x = true
-axis_lock_angular_y = true
-physics_material_override = SubResource("PhysicsMaterial_hru73")
+[node name="Box 1" parent="." instance=ExtResource("3_sbhlc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.83738, 13.706, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Box 1"]
 mesh = SubResource("BoxMesh_eat20")
+skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Box 1"]
 shape = SubResource("BoxShape3D_hqjwl")
 
-[node name="Box 2" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.02986, 13.7293, 0)
-collision_layer = 3
-axis_lock_linear_z = true
-axis_lock_angular_x = true
-axis_lock_angular_y = true
-physics_material_override = SubResource("PhysicsMaterial_hru73")
+[node name="Box 2" parent="." instance=ExtResource("3_sbhlc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.72357, 15.7063, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Box 2"]
 mesh = SubResource("BoxMesh_eat20")
+skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Box 2"]
 shape = SubResource("BoxShape3D_hqjwl")
 
-[node name="Box 3" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.10579, 15.9709, 0)
-collision_layer = 3
-axis_lock_linear_z = true
-axis_lock_angular_x = true
-axis_lock_angular_y = true
-physics_material_override = SubResource("PhysicsMaterial_hru73")
+[node name="Box 3" parent="." instance=ExtResource("3_sbhlc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.08909, 16.9708, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Box 3"]
 mesh = SubResource("BoxMesh_eat20")
+skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Box 3"]
 shape = SubResource("BoxShape3D_hqjwl")
 
-[node name="Box 4" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.64865, 15.9709, 0)
-collision_layer = 3
-axis_lock_linear_z = true
-axis_lock_angular_x = true
-axis_lock_angular_y = true
-physics_material_override = SubResource("PhysicsMaterial_hru73")
+[node name="Box 4" parent="." instance=ExtResource("3_sbhlc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.17792, 16.5634, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Box 4"]
 mesh = SubResource("BoxMesh_eat20")
+skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Box 4"]
 shape = SubResource("BoxShape3D_hqjwl")
 
-[node name="Sphere 1" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.1206, 20.876, 0)
-collision_layer = 3
-axis_lock_linear_z = true
-axis_lock_angular_x = true
-axis_lock_angular_y = true
-physics_material_override = SubResource("PhysicsMaterial_hru73")
+[node name="Box 5" parent="." instance=ExtResource("3_sbhlc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.09529, 16.4732, -0.228616)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Box 5"]
+mesh = SubResource("BoxMesh_eat20")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Box 5"]
+shape = SubResource("BoxShape3D_hqjwl")
+
+[node name="Sphere 1" parent="." instance=ExtResource("3_sbhlc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.75954, 18.2337, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Sphere 1"]
 mesh = SubResource("SphereMesh_1ed4l")
+skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sphere 1"]
 shape = SubResource("SphereShape3D_ua2m6")
 
-[node name="Sphere 2" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.97251, 19.0193, 0)
-collision_layer = 3
-axis_lock_linear_z = true
-axis_lock_angular_x = true
-axis_lock_angular_y = true
-physics_material_override = SubResource("PhysicsMaterial_hru73")
+[node name="Sphere 2" parent="." instance=ExtResource("3_sbhlc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.30208, 19.7922, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Sphere 2"]
 mesh = SubResource("SphereMesh_1ed4l")
+skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sphere 2"]
 shape = SubResource("SphereShape3D_ua2m6")
 
-[node name="Sphere 3" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.74073, 19.0193, 0)
-collision_layer = 3
-axis_lock_linear_z = true
-axis_lock_angular_x = true
-axis_lock_angular_y = true
-physics_material_override = SubResource("PhysicsMaterial_hru73")
+[node name="Sphere 3" parent="." instance=ExtResource("3_sbhlc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1174, 21.2, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Sphere 3"]
 mesh = SubResource("SphereMesh_1ed4l")
+skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sphere 3"]
+shape = SubResource("SphereShape3D_ua2m6")
+
+[node name="Sphere 4" parent="." instance=ExtResource("3_sbhlc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.55332, 21.2586, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Sphere 4"]
+mesh = SubResource("SphereMesh_1ed4l")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sphere 4"]
+shape = SubResource("SphereShape3D_ua2m6")
+
+[node name="Sphere 5" parent="." instance=ExtResource("3_sbhlc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.68131, 22.4102, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Sphere 5"]
+mesh = SubResource("SphereMesh_1ed4l")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sphere 5"]
 shape = SubResource("SphereShape3D_ua2m6")
