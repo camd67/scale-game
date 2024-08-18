@@ -1,4 +1,5 @@
 extends Node3D
+class_name Grabber
 
 @export_group("Required Fields")
 # Camera for raycast stuff
