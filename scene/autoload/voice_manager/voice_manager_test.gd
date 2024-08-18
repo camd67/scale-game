@@ -1,4 +1,4 @@
-extends Node2DS
+extends Node2D
 
 
 @onready var timer: Timer = $Timer
