@@ -148,6 +148,7 @@ func voice_cooldown() -> void:
 	timer.wait_time = stream.get_length() + VOICE_BUFFER
 	timer.start()
 
+
 func on_pan_entered() -> void:
 	if voice_ready:
 		voice_ready = false

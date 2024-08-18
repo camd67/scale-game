@@ -1,12 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://cwbr1xaprxh4c"]
+[gd_scene load_steps=8 format=3 uid="uid://cwbr1xaprxh4c"]
 
 [ext_resource type="Script" path="res://scene/autoload/sound_manager/sound_manager.gd" id="1_jtwni"]
 [ext_resource type="AudioStream" uid="uid://dmv5r6tflx0e6" path="res://audio/sfx/stone_door_open.mp3" id="2_a27bx"]
+[ext_resource type="AudioStream" uid="uid://codobm26vsj0f" path="res://audio/sfx/lock_move.mp3" id="3_xv1n2"]
+[ext_resource type="AudioStream" uid="uid://bwvshk4ya2ufj" path="res://audio/sfx/lock_unlock.mp3" id="4_qa3sk"]
+[ext_resource type="AudioStream" uid="uid://dfb132gvndth4" path="res://audio/sfx/lock_fall.mp3" id="5_m0hfg"]
+[ext_resource type="AudioStream" uid="uid://6i48hyyiu0v2" path="res://audio/sfx/distant_booms.mp3" id="6_nmp43"]
+[ext_resource type="AudioStream" uid="uid://c7ug1yihwgub5" path="res://audio/sfx/low_growl.mp3" id="7_dunte"]
 
 [node name="SoundManager" type="AudioStreamPlayer"]
 script = ExtResource("1_jtwni")
-sfx_list = Array[AudioStream]([ExtResource("2_a27bx")])
+sfx_list = Array[AudioStream]([ExtResource("2_a27bx"), ExtResource("3_xv1n2"), ExtResource("4_qa3sk"), ExtResource("5_m0hfg"), ExtResource("6_nmp43"), ExtResource("7_dunte")])
 
 [node name="PlayOpenTimer" type="Timer" parent="."]
 wait_time = 3.0
 one_shot = true
+
+[node name="RandomNoisePlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="RandomNoiseTimer" type="Timer" parent="RandomNoisePlayer"]

@@ -28,3 +28,11 @@ func on_lock_mouse_enter() -> void:
 		return
 
 	lock_animation_player.play("hover")
+
+
+func play_lock_move() -> void:
+	SoundManager.play_lock_move()
+	
+	
+func play_lock_unlock() -> void:
+	SoundManager.play_lock_unlock()
