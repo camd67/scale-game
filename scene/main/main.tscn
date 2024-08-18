@@ -130,6 +130,9 @@ script = ExtResource("1_er31i")
 [node name="Grabber" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("2_ygo0o")]
 camera = NodePath("../MainCamera")
 max_grab_distance = 15.0
+snap_velocity = 10.0
+drop_distance = 0.1
+max_drag_distance = 0.5
 
 [node name="Scale" parent="." instance=ExtResource("1_ceiqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00339153, 0.76768, 1.82433)
@@ -210,30 +213,37 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.856, 1.82476)
 [node name="Grabbable" parent="DEBUG Test Objects" instance=ExtResource("3_ohibm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.626641, 0.101365, 1.19209e-07)
 can_sleep = false
+max_contacts_reported = 0
 
 [node name="Grabbable7" parent="DEBUG Test Objects" instance=ExtResource("3_ohibm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.418563, 0.261865, 1.19209e-07)
 can_sleep = false
+max_contacts_reported = 0
 
 [node name="Grabbable2" parent="DEBUG Test Objects" instance=ExtResource("3_ohibm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.549095, 0.226536, 1.19209e-07)
 can_sleep = false
+max_contacts_reported = 0
 
 [node name="Grabbable3" parent="DEBUG Test Objects" instance=ExtResource("3_ohibm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.500438, 0.0873112, 1.19209e-07)
 can_sleep = false
+max_contacts_reported = 0
 
 [node name="Grabbable4" parent="DEBUG Test Objects" instance=ExtResource("3_ohibm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.584516, 0.282969, -0.00727856)
 can_sleep = false
+max_contacts_reported = 0
 
 [node name="Grabbable5" parent="DEBUG Test Objects" instance=ExtResource("4_oldih")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.557539, 0.500166, 0)
 can_sleep = false
+max_contacts_reported = 0
 
 [node name="Grabbable6" parent="DEBUG Test Objects" instance=ExtResource("4_oldih")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.278791, 0.322483, 0)
 can_sleep = false
+max_contacts_reported = 0
 
 [node name="CameraAnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
