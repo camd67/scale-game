@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://dhgqdwpcy37iw"]
+[gd_scene load_steps=12 format=3 uid="uid://dhgqdwpcy37iw"]
 
 [ext_resource type="Script" path="res://scene/ui/main_menu/main_menu.gd" id="1_ay1vl"]
 [ext_resource type="Shader" path="res://scene/ui/main_menu/main_menu.gdshader" id="2_lsi7y"]
+[ext_resource type="Script" path="res://scene/ui/main_menu/settings_menu.gd" id="3_sjsop"]
 
 [sub_resource type="Animation" id="Animation_c48ut"]
 length = 0.001
@@ -214,6 +215,7 @@ theme_override_constants/margin_bottom = 32
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/margin_right = -500
+script = ExtResource("3_sjsop")
 
 [node name="Settings Section" type="VBoxContainer" parent="MarginContainer/SettingsMargin"]
 layout_mode = 2
@@ -223,7 +225,65 @@ theme_override_constants/separation = 16
 
 [node name="Label" type="Label" parent="MarginContainer/SettingsMargin/Settings Section"]
 layout_mode = 2
-text = "This is where settings will live in the future"
+theme_override_font_sizes/font_size = 24
+text = "Volume"
+
+[node name="MusicSliderBox" type="HBoxContainer" parent="MarginContainer/SettingsMargin/Settings Section"]
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="MarginContainer/SettingsMargin/Settings Section/MusicSliderBox"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "Music"
+vertical_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="MarginContainer/SettingsMargin/Settings Section/MusicSliderBox"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 1
+max_value = 1.0
+step = 0.01
+
+[node name="SfxSliderBox" type="HBoxContainer" parent="MarginContainer/SettingsMargin/Settings Section"]
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="MarginContainer/SettingsMargin/Settings Section/SfxSliderBox"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "SFX"
+vertical_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="MarginContainer/SettingsMargin/Settings Section/SfxSliderBox"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 1
+max_value = 1.0
+step = 0.01
+
+[node name="MainSliderBox" type="HBoxContainer" parent="MarginContainer/SettingsMargin/Settings Section"]
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="MarginContainer/SettingsMargin/Settings Section/MainSliderBox"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "Main"
+vertical_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="MarginContainer/SettingsMargin/Settings Section/MainSliderBox"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 1
+max_value = 1.0
+step = 0.01
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/SettingsMargin/Settings Section"]
+layout_mode = 2
 
 [node name="SettingsBackButton" type="Button" parent="MarginContainer/SettingsMargin/Settings Section"]
 unique_name_in_owner = true

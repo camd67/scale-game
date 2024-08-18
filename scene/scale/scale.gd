@@ -55,7 +55,6 @@ func _on_left_pan_body_exited(body: Node3D) -> void:
 
 func _on_right_pan_body_entered(body: Node3D) -> void:
 	if body is Grabbable and body.weighable != null and not body.is_player_grabbable:
-		print(body.name)
 		right_pan_weight += body.weighable.weight
 		update_labels()
 

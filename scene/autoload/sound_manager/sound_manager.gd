@@ -27,18 +27,18 @@ func _ready() -> void:
 	random_noise_timer.timeout.connect(on_random_noise_timeout)
 	random_noise_timer.wait_time = MIN_NOISE_BUFFER + randi_range(0,NOISE_RANGE)
 	random_noise_timer.start()
-	
-	
+
 func on_play_pressed() -> void:
 	stream = sfx_list[SFX.DOOR_OPEN]
 	play()
 	timer.wait_time = stream.get_length() + 1
 	timer.start()
-	
+
+
 func on_play_open_timeout() -> void:
 	VoiceManager.play_random_start()
 	VoiceManager.start_random_timer()
-	
+
 
 func on_random_noise_timeout() -> void:
 	var sfx_choice: int = randi_range(4,SFX.keys().size())
@@ -48,16 +48,16 @@ func on_random_noise_timeout() -> void:
 	timer_wait += random_noise_player.stream.get_length() + randi_range(0,NOISE_RANGE)
 	random_noise_timer.wait_time = timer_wait
 	random_noise_timer.start()
-	
-	
+
+
 func play_lock_move() -> void:
 	stream = sfx_list[SFX.LOCK_MOVE]
 	play()
-	
+
 func play_lock_unlock() -> void:
 	stream = sfx_list[SFX.LOCK_UNLOCK]
 	play()
-	
+
 func play_lock_fall() -> void:
 	stream = sfx_list[SFX.LOCK_FALL]
 	play()

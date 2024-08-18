@@ -12,6 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://k31rx4u7cqsj" path="res://audio/sfx/rattle.mp3" id="10_nr482"]
 
 [node name="SoundManager" type="AudioStreamPlayer"]
+bus = &"sfx"
 script = ExtResource("1_jtwni")
 sfx_list = Array[AudioStream]([ExtResource("2_a27bx"), ExtResource("3_xv1n2"), ExtResource("4_qa3sk"), ExtResource("5_m0hfg"), ExtResource("6_nmp43"), ExtResource("7_dunte"), ExtResource("8_q1sr6"), ExtResource("9_rwymp"), ExtResource("10_nr482")])
 
