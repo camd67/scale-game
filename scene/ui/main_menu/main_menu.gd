@@ -18,6 +18,7 @@ func _ready() -> void:
 		$ColorRect.gui_input.connect(func(e: InputEvent) -> void: if e is InputEventMouseButton: queue_free())
 		add_child(quick_button)
 
+
 	if OS.has_feature("web"):
 		quit_button.visible = false
 

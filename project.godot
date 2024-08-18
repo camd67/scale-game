@@ -23,6 +23,7 @@ config/icon="res://icon.svg"
 
 GameEvents="*res://scene/autoload/game_events/game_events.tscn"
 VoiceManager="*res://scene/autoload/voice_manager/voice_manager.tscn"
+MusicManager="*res://scene/autoload/music_manager/music_manager.tscn"
 
 [debug]
 
