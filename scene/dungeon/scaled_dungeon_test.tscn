@@ -67,12 +67,14 @@ light_energy = 0.262
 
 [node name="FlickeringLight2" parent="Lights" instance=ExtResource("2_vpo5c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.66972, 2.43806, -0.765376)
-light_energy = 1.369
+light_color = Color(0.833697, 0.79629, 0.733279, 1)
+light_energy = 4.323
 omni_range = 5.0
 
 [node name="FlickeringLight3" parent="Lights" instance=ExtResource("2_vpo5c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5355, 2.43806, -0.765376)
-light_energy = 1.369
+light_color = Color(0.833697, 0.79629, 0.733279, 1)
+light_energy = 4.323
 omni_range = 5.0
 
 [node name="TorchParticles" type="Node" parent="."]
