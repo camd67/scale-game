@@ -1,13 +1,13 @@
 extends AudioStreamPlayer
 
 
-@onready var voices_correct: Array[AudioStream]
-@onready var voices_wrong: Array[AudioStream]
-@onready var voices_random: Array[AudioStream]
-@onready var voices_time: Array[AudioStream]
-@onready var voices_start: Array[AudioStream]
-@onready var voices_fall: Array[AudioStream]
-@onready var voices_placement: Array[AudioStream]
+@export var voices_correct: Array[AudioStream]
+@export var voices_wrong: Array[AudioStream]
+@export var voices_random: Array[AudioStream]
+@export var voices_time: Array[AudioStream]
+@export var voices_start: Array[AudioStream]
+@export var voices_fall: Array[AudioStream]
+@export var voices_placement: Array[AudioStream]
 
 @onready var voices_correct_trash: Array[AudioStream]
 @onready var voices_wrong_trash: Array[AudioStream]
@@ -24,6 +24,8 @@ const VOICE_BUFFER: int = 2
 
 
 func _ready() -> void:
+	#DirAccess does not work with web
+	"""
 	voices_correct.append_array(load_streams_at_path("res://audio/voice/correct/"))
 	voices_wrong.append_array(load_streams_at_path("res://audio/voice/wrong/"))
 	voices_random.append_array(load_streams_at_path("res://audio/voice/random/"))
@@ -31,6 +33,7 @@ func _ready() -> void:
 	voices_start.append_array(load_streams_at_path("res://audio/voice/triggered/start/"))
 	voices_fall.append_array(load_streams_at_path("res://audio/voice/triggered/fall/"))
 	voices_placement.append_array(load_streams_at_path("res://audio/voice/triggered/placement/"))
+	"""
 
 	GameEvents.pan_entered.connect(on_pan_entered)
 	GameEvents.pan_exited.connect(on_pan_exited)
@@ -123,9 +126,7 @@ func play_random_fall() -> void:
 
 func play_random_placement() -> void:
 	if voices_placement.size() > 0:
-		print_debug("placement size = " + str(voices_placement.size()))
 		var index: int = randi_range(0, voices_placement.size() - 1)
-		print_debug("index = " + str(index))
 		var chosen_stream: AudioStream = voices_placement.pop_at(index)
 		voices_placement_trash.append(chosen_stream)
 		stream = chosen_stream
