@@ -1,4 +1,4 @@
-extends Node2DS
+extends Node2D
 
 
 @onready var timer: Timer = $Timer
@@ -26,7 +26,7 @@ func on_timeout() -> void:
 		voice_manager.play_random_fall()
 	if voice_type == 7:
 		voice_manager.play_random_placement()
-	
+
 	var seconds: int = voice_manager.stream.get_length()
 	timer.wait_time = seconds + 1
 	timer.start()

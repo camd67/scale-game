@@ -31,7 +31,7 @@ func _ready() -> void:
 	voices_start.append_array(load_streams_at_path("res://audio/voice/triggered/start/"))
 	voices_fall.append_array(load_streams_at_path("res://audio/voice/triggered/fall/"))
 	voices_placement.append_array(load_streams_at_path("res://audio/voice/triggered/placement/"))
-	
+
 	GameEvents.pan_entered.connect(on_pan_entered)
 	GameEvents.pan_exited.connect(on_pan_exited)
 	timer.timeout.connect(on_timeout)
@@ -42,12 +42,13 @@ func load_streams_at_path(path: String) -> Array[AudioStream]:
 	for file in DirAccess.get_files_at(path):
 		if file.get_extension() == "mp3":
 			file = path + file
-			print("Loading Audio File: " + file)
+			# Uncomment to debug which audio files are loaded
+			#print("Loading Audio File: " + file)
 			var voice: AudioStream = load(file)
 			streams.append(voice)
-	
+
 	return streams
-	
+
 func play_random_correct() -> void:
 	var index: int = randi_range(0, voices_correct.size() - 1)
 	var chosen_stream: AudioStream = voices_correct.pop_at(index)
@@ -127,8 +128,8 @@ func play_random_placement() -> void:
 
 func on_timeout() -> void:
 	voice_ready = true
-	
-	
+
+
 func voice_cooldown() -> void:
 	timer.wait_time = stream.get_length() + VOICE_BUFFER
 	timer.start()
@@ -139,7 +140,7 @@ func on_pan_entered() -> void:
 		play_random_placement()
 		voice_cooldown()
 
-	
+
 func on_pan_exited() -> void:
 	if voice_ready:
 		voice_ready = false
