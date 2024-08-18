@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://b0hy2wtgmkv75"]
+[gd_scene load_steps=3 format=3 uid="uid://b0hy2wtgmkv75"]
 
 [ext_resource type="Script" path="res://scene/autoload/music_manager/music_manager.gd" id="1_ril5v"]
+[ext_resource type="AudioStream" uid="uid://dhna7jh225yn0" path="res://audio/music/PuzzlingOut.mp3" id="1_rngjw"]
 
 [node name="music_manager" type="AudioStreamPlayer"]
+stream = ExtResource("1_rngjw")
+autoplay = true
+parameters/looping = false
 script = ExtResource("1_ril5v")
