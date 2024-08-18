@@ -42,8 +42,6 @@ func _on_play_button_pressed() -> void:
 	quit_button.disabled = true
 	animation_player.play("remove_main_menu")
 	GameEvents.emit_play_pressed()
-	
-	
 
 
 func _on_settings_button_pressed() -> void:

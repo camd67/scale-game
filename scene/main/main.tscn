@@ -21,45 +21,6 @@ fog_enabled = true
 fog_light_color = Color(0.249493, 0.0969925, 0.016814, 1)
 fog_light_energy = 0.72
 
-[sub_resource type="Curve" id="Curve_3qocl"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.0219779), -2.4938, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="CurveTexture" id="CurveTexture_53nc3"]
-curve = SubResource("Curve_3qocl")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ggek0"]
-emission_shape = 1
-emission_sphere_radius = 0.3
-angle_min = 1.07288e-05
-angle_max = 360.0
-direction = Vector3(0, 1, 0)
-initial_velocity_min = 0.3
-initial_velocity_max = 0.6
-gravity = Vector3(0, 0, 0)
-scale_curve = SubResource("CurveTexture_53nc3")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pnou2"]
-transparency = 1
-albedo_texture = ExtResource("6_xc4fm")
-emission_enabled = true
-emission = Color(0.871746, 0.504091, 0.188262, 1)
-emission_energy_multiplier = 1.28
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_h7ukf"]
-material = SubResource("StandardMaterial3D_pnou2")
-size = Vector2(0.2, 0.2)
-orientation = 2
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_1p1xp"]
-size = Vector3(0.134766, 1.3634, 1.36621)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_nxspy"]
-size = Vector3(2.73218, 0.10376, 1.36621)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_n4e3c"]
-size = Vector3(0.134766, 1.36902, 1.36621)
-
 [sub_resource type="Animation" id="Animation_66mho"]
 length = 0.001
 tracks/0/type = "value"
@@ -122,6 +83,45 @@ _data = {
 "intro": SubResource("Animation_qcr40")
 }
 
+[sub_resource type="Curve" id="Curve_3qocl"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.0219779), -2.4938, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_53nc3"]
+curve = SubResource("Curve_3qocl")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ggek0"]
+emission_shape = 1
+emission_sphere_radius = 0.3
+angle_min = 1.07288e-05
+angle_max = 360.0
+direction = Vector3(0, 1, 0)
+initial_velocity_min = 0.3
+initial_velocity_max = 0.6
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_53nc3")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pnou2"]
+transparency = 1
+albedo_texture = ExtResource("6_xc4fm")
+emission_enabled = true
+emission = Color(0.871746, 0.504091, 0.188262, 1)
+emission_energy_multiplier = 1.28
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_h7ukf"]
+material = SubResource("StandardMaterial3D_pnou2")
+size = Vector2(0.2, 0.2)
+orientation = 2
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1p1xp"]
+size = Vector3(0.134766, 1.3634, 1.36621)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nxspy"]
+size = Vector3(2.73218, 0.10376, 1.36621)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_n4e3c"]
+size = Vector3(0.134766, 1.36902, 1.36621)
+
 [node name="Main" type="Node3D"]
 script = ExtResource("1_er31i")
 
@@ -142,9 +142,19 @@ environment = SubResource("Environment_mpf7k")
 
 [node name="ScaledDungeonLiving" parent="." instance=ExtResource("4_6qt3t")]
 
+[node name="CameraAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_4tgbm")
+}
+
 [node name="MainCamera" type="Camera3D" parent="."]
 transform = Transform3D(0.834009, -0.231879, 0.50066, 0.000227156, 0.907547, 0.419949, -0.55175, -0.350127, 0.756956, 1.1782, 1.88322, 2.35099)
 current = true
+fov = 40.6
+
+[node name="EDITOR_ONLY Camera destination" type="Camera3D" parent="."]
+process_mode = 4
+transform = Transform3D(1, 0, 0, 0, 0.973562, 0.228419, 0, -0.228418, 0.973563, 0, 1.40286, 2.91137)
 fov = 40.6
 
 [node name="InstantDebugCameraMarker" type="Marker3D" parent="."]
@@ -244,8 +254,3 @@ max_contacts_reported = 0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.278791, 0.322483, 0)
 can_sleep = false
 max_contacts_reported = 0
-
-[node name="CameraAnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_4tgbm")
-}
