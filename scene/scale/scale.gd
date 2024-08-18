@@ -1,4 +1,5 @@
 extends Node3D
+class_name Scale
 
 @onready var left_pan: Area3D = $LeftPan
 var left_pan_weight: float = 0
@@ -11,8 +12,9 @@ var starting_pan_height: float = 0
 
 
 func _ready() -> void:
-	starting_pan_height = left_pan.global_position.y
-
+	#starting_pan_height = left_pan.global_position.y
+	starting_pan_height = ($Visuals/PanR as Node3D).global_position.y
+	GameEvents.weight_submitted.connect(on_level_submitted)
 
 func on_level_submitted() -> void:
 	var pan_difference := right_pan_weight - left_pan_weight
@@ -20,14 +22,17 @@ func on_level_submitted() -> void:
 	var pan_difference_percent := pan_difference / right_pan_weight
 	var pan_height_change := pan_height_range * pan_difference_percent
 
-	var left_pan_mesh := $Visuals/LeftPanMesh as Node3D
-	var right_pan_mesh := $Visuals/RightPanMesh as Node3D
+	var left_pan_mesh := $Visuals/PanR as Node3D
+	var right_pan_mesh := $Visuals/PanL as Node3D
 
 	var left_end_pos := Vector3(left_pan_mesh.global_position.x, starting_pan_height + pan_height_change, left_pan_mesh.global_position.z)
 	var right_end_pos := Vector3(right_pan_mesh.global_position.x, starting_pan_height - pan_height_change, right_pan_mesh.global_position.z)
 
-	create_tween().bind_node(left_pan_mesh).tween_property(left_pan_mesh, "global_position", left_end_pos, 3).set_ease(Tween.EASE_OUT)
+	var left_tween := create_tween()
+	left_tween.bind_node(left_pan_mesh).tween_property(left_pan_mesh, "global_position", left_end_pos, 3).set_ease(Tween.EASE_OUT)
 	create_tween().bind_node(right_pan_mesh).tween_property(right_pan_mesh, "global_position", right_end_pos, 3).set_ease(Tween.EASE_OUT)
+	left_tween.tween_callback(func() -> void: GameEvents.emit_weighing_finished())
+
 
 
 func update_labels() -> void:

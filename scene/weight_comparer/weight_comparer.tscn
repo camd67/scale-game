@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://djctni0afpu2n"]
+
+[ext_resource type="Script" path="res://scene/weight_comparer/weight_comparer.gd" id="1_digon"]
+
+[node name="WeightComparer" type="Node"]
+script = ExtResource("1_digon")

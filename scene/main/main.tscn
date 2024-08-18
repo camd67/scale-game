@@ -1,9 +1,11 @@
-[gd_scene load_steps=23 format=3 uid="uid://co4jso8vr8d1u"]
+[gd_scene load_steps=25 format=3 uid="uid://co4jso8vr8d1u"]
 
 [ext_resource type="PackedScene" uid="uid://ce6b0dfduypqr" path="res://scene/scale/scale.tscn" id="1_ceiqc"]
 [ext_resource type="Script" path="res://scene/main/main.gd" id="1_er31i"]
 [ext_resource type="PackedScene" uid="uid://dhgqdwpcy37iw" path="res://scene/ui/main_menu/main_menu.tscn" id="1_x18xv"]
+[ext_resource type="PackedScene" uid="uid://dvfs56lpfukm4" path="res://scene/level_manager/level_manager.tscn" id="2_f8vwc"]
 [ext_resource type="PackedScene" uid="uid://dbr2vgtnsucf0" path="res://scene/grabber/grabber.tscn" id="2_ygo0o"]
+[ext_resource type="PackedScene" uid="uid://djctni0afpu2n" path="res://scene/weight_comparer/weight_comparer.tscn" id="3_fkc30"]
 [ext_resource type="PackedScene" uid="uid://4ej2b1sscx27" path="res://scene/draggable_entities/debug_box/debug_box.tscn" id="3_ohibm"]
 [ext_resource type="PackedScene" uid="uid://foljia802g4d" path="res://scene/dungeon/scaled_dungeon_living.tscn" id="4_6qt3t"]
 [ext_resource type="PackedScene" uid="uid://d3pwgvo15efba" path="res://scene/draggable_entities/debug_sphere/debug_sphere.tscn" id="4_oldih"]
@@ -127,6 +129,11 @@ size = Vector3(1.50623, 1.62433, 1)
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_er31i")
+
+[node name="LevelManager" parent="." instance=ExtResource("2_f8vwc")]
+
+[node name="WeightComparer" parent="." node_paths=PackedStringArray("scale") instance=ExtResource("3_fkc30")]
+scale = NodePath("../Scale")
 
 [node name="MainMenu" parent="." instance=ExtResource("1_x18xv")]
 
