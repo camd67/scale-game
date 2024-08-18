@@ -35,21 +35,22 @@ func update_labels() -> void:
 
 
 func _on_left_pan_body_entered(body: Node3D) -> void:
-	if body is Grabbable and body.weighable != null:
+	if body is Grabbable and body.weighable != null and body.is_player_grabbable:
 		left_pan_weight += body.weighable.weight
 		update_labels()
 		GameEvents.emit_pan_entered()
 
 
 func _on_left_pan_body_exited(body: Node3D) -> void:
-	if body is Grabbable and body.weighable != null:
+	if body is Grabbable and body.weighable != null and body.is_player_grabbable:
 		left_pan_weight -= body.weighable.weight
 		update_labels()
 		GameEvents.emit_pan_exited()
 
 
 func _on_right_pan_body_entered(body: Node3D) -> void:
-	if body is Grabbable and body.weighable != null:
+	if body is Grabbable and body.weighable != null and not body.is_player_grabbable:
+		print(body.name)
 		right_pan_weight += body.weighable.weight
 		update_labels()
 
@@ -57,7 +58,7 @@ func _on_right_pan_body_entered(body: Node3D) -> void:
 func _on_right_pan_body_exited(body: Node3D) -> void:
 	# Bodies exit when they are frozen, so this is triggering after we freeze all the right pan bodies
 	# Skip for now unless we need it later
-	if body is Grabbable and body.weighable != null:
+	if body is Grabbable and body.weighable != null and not body.is_player_grabbable:
 		pass
 		#right_pan_weight -= body.weighable.weight
 		#update_labels()

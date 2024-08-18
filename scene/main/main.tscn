@@ -242,6 +242,7 @@ max_contacts_reported = 0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.418563, 0.261865, 1.19209e-07)
 can_sleep = false
 max_contacts_reported = 0
+is_player_grabbable = false
 
 [node name="Grabbable2" parent="DEBUG Test Objects" instance=ExtResource("3_ohibm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.549095, 0.226536, 1.19209e-07)
@@ -267,6 +268,7 @@ max_contacts_reported = 0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.278791, 0.322483, 0)
 can_sleep = false
 max_contacts_reported = 0
+is_player_grabbable = false
 
 [node name="TableLeftSpawnPoint" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.597074, 1.93556, 1.8189)

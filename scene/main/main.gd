@@ -19,6 +19,9 @@ func _ready() -> void:
 
 
 func on_oob_checker_exited(body: Node3D) -> void:
+	if body is Grabbable and not body.is_player_grabbable:
+		return
+
 	if body is RigidBody3D:
 		# Play some audio here?
 		# "How'd you do that?"

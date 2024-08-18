@@ -3,6 +3,7 @@ class_name Grabbable
 
 @export var weighable: Weighable
 @export var is_static := false
+@export var is_player_grabbable := true
 
 func _ready() -> void:
 	if is_static:

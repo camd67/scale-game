@@ -61,7 +61,9 @@ func _input(event: InputEvent) -> void:
 func _physics_process(delta: float) -> void:
 	if is_grabbing and grab_item == null and grab_ray.is_colliding():
 		var maybe_grab_item := grab_ray.get_collider() as RigidBody3D
-		if maybe_grab_item is Grabbable and not maybe_grab_item.is_static:
+		if maybe_grab_item is Grabbable and\
+		 not maybe_grab_item.is_static and\
+		 maybe_grab_item.is_player_grabbable:
 			# Grab the item and apply "first time grab" properties
 			grab_item = maybe_grab_item
 			grab_ray.add_exception(grab_item)
