@@ -21,4 +21,5 @@ func on_play_pressed() -> void:
 	
 func on_play_open_timeout() -> void:
 	VoiceManager.play_random_start()
+	VoiceManager.start_random_timer()
 	

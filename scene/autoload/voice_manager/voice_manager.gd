@@ -18,9 +18,11 @@ extends AudioStreamPlayer
 @onready var voices_placement_trash: Array[AudioStream]
 
 @onready var timer: Timer = $Timer
+@onready var randomVoiceTimer: Timer = $RandomVoiceTimer
 
 var voice_ready: bool = true
 const VOICE_BUFFER: int = 2
+const RANDOM_BUFFER: int = 20
 
 
 func _ready() -> void:
@@ -37,7 +39,9 @@ func _ready() -> void:
 
 	GameEvents.pan_entered.connect(on_pan_entered)
 	GameEvents.pan_exited.connect(on_pan_exited)
+	randomVoiceTimer.wait_time = RANDOM_BUFFER
 	timer.timeout.connect(on_timeout)
+	randomVoiceTimer.timeout.connect(on_random_voice_timer_timeout)
 
 
 func load_streams_at_path(path: String) -> Array[AudioStream]:
@@ -156,3 +160,15 @@ func on_pan_exited() -> void:
 		voice_ready = false
 		play_random_fall()
 		voice_cooldown()
+
+
+func start_random_timer() -> void:
+	randomVoiceTimer.start()
+
+
+func on_random_voice_timer_timeout() -> void:
+	if voice_ready:
+		play_random_random()
+		randomVoiceTimer.start()
+		voice_cooldown()
+	
