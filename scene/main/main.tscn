@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dhgqdwpcy37iw" path="res://scene/ui/main_menu/main_menu.tscn" id="1_x18xv"]
 [ext_resource type="PackedScene" uid="uid://dbr2vgtnsucf0" path="res://scene/grabber/grabber.tscn" id="2_ygo0o"]
 [ext_resource type="PackedScene" uid="uid://4ej2b1sscx27" path="res://scene/draggable_entities/debug_box/debug_box.tscn" id="3_ohibm"]
-[ext_resource type="PackedScene" uid="uid://bt8bif40er8kr" path="res://scene/dungeon/scaledungeon.glb" id="4_1enp0"]
+[ext_resource type="PackedScene" uid="uid://foljia802g4d" path="res://scene/dungeon/scaled_dungeon_living.tscn" id="4_6qt3t"]
 [ext_resource type="PackedScene" uid="uid://d3pwgvo15efba" path="res://scene/draggable_entities/debug_sphere/debug_sphere.tscn" id="4_oldih"]
 [ext_resource type="PackedScene" uid="uid://bhlp8xn50igxa" path="res://scene/flickering_light/flickering_light.tscn" id="5_r3mqi"]
 [ext_resource type="Texture2D" uid="uid://blesrlm3igbkx" path="res://scene/dungeon/fireparticle.png" id="6_xc4fm"]
@@ -73,7 +73,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00339153, 0.76768, 1.82433)
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_mpf7k")
 
-[node name="scaledungeon" parent="." instance=ExtResource("4_1enp0")]
+[node name="ScaledDungeonLiving" parent="." instance=ExtResource("4_6qt3t")]
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.973563, 0.228419, 0, -0.228419, 0.973563, 0, 1.40286, 2.91137)
