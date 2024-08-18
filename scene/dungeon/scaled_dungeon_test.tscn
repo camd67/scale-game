@@ -1,8 +1,8 @@
 [gd_scene load_steps=11 format=3 uid="uid://ceuhtmfflih7c"]
 
-[ext_resource type="PackedScene" uid="uid://bt8bif40er8kr" path="res://scene/dungeon/scaledungeon.glb" id="1_5sgjf"]
 [ext_resource type="Texture2D" uid="uid://blesrlm3igbkx" path="res://scene/dungeon/fireparticle.png" id="2_llif3"]
 [ext_resource type="PackedScene" uid="uid://bhlp8xn50igxa" path="res://scene/flickering_light/flickering_light.tscn" id="2_vpo5c"]
+[ext_resource type="PackedScene" uid="uid://foljia802g4d" path="res://scene/dungeon/scaled_dungeon_living.tscn" id="4_ic0uo"]
 [ext_resource type="PackedScene" uid="uid://b3vuxgu7hgrmg" path="res://scene/scale/scales.tscn" id="4_r77vi"]
 
 [sub_resource type="Environment" id="Environment_dcab7"]
@@ -51,8 +51,6 @@ orientation = 2
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_dcab7")
 
-[node name="scaledungeon" parent="." instance=ExtResource("1_5sgjf")]
-
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.973563, 0.228419, 0, -0.228419, 0.973563, 0, 1.40286, 2.91137)
 fov = 40.6
@@ -84,3 +82,5 @@ draw_pass_1 = SubResource("PlaneMesh_cqo0s")
 
 [node name="scales" parent="." instance=ExtResource("4_r77vi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.761386, 1.80966)
+
+[node name="ScaledDungeonLiving" parent="." instance=ExtResource("4_ic0uo")]

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://foljia802g4d"]
+
+[ext_resource type="Script" path="res://scene/dungeon/scaled_dungeon_living.gd" id="1_4cc20"]
+[ext_resource type="PackedScene" uid="uid://bt8bif40er8kr" path="res://scene/dungeon/scaledungeon.glb" id="2_m7b3w"]
+
+[node name="ScaledDungeonLiving" type="Node3D"]
+script = ExtResource("1_4cc20")
+
+[node name="scaledungeon" parent="." instance=ExtResource("2_m7b3w")]
+
+[editable path="scaledungeon"]
