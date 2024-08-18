@@ -1,5 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://ci3fiencoal5c"]
-
-[ext_resource type="PackedScene" uid="uid://bt8bif40er8kr" path="res://scene/dungeon/scaledungeon.glb" id="1_8odt2"]
-
-[node name="scaledungeon" instance=ExtResource("1_8odt2")]
