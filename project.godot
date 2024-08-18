@@ -15,7 +15,7 @@ warnings/check_invalid_track_paths=false
 [application]
 
 config/name="scale-game"
-run/main_scene="res://scene/dungeon/scaled_dungeon_test.tscn"
+run/main_scene="res://scene/main/main.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -54,6 +54,12 @@ weighable="Something that can report its weight back to the caller"
 
 3d_physics/layer_1="WorldDefault"
 3d_physics/layer_2="PanCountable"
+
+[physics]
+
+3d/default_gravity=2.0
+3d/default_linear_damp=2.0
+3d/default_angular_damp=2.0
 
 [rendering]
 

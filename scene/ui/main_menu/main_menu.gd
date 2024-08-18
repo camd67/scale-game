@@ -9,6 +9,15 @@ extends Control
 
 
 func _ready() -> void:
+	if OS.has_feature("editor"):
+		var quick_button := Button.new()
+		quick_button.text = "Press this or click anywhere to play NOW (editor build only)"
+		quick_button.add_theme_font_size_override("font_size", 32)
+		quick_button.position = Vector2.ZERO
+		quick_button.pressed.connect(func() -> void: queue_free())
+		$ColorRect.gui_input.connect(func(e: InputEvent) -> void: if e is InputEventMouseButton: queue_free())
+		add_child(quick_button)
+
 	if OS.has_feature("web"):
 		quit_button.visible = false
 

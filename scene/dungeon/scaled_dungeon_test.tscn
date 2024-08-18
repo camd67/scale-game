@@ -20,7 +20,7 @@ fog_light_energy = 0.72
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.0219779), -2.4938, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_53nc3"]
+[sub_resource type="CurveTexture" id="CurveTexture_pmbq0"]
 curve = SubResource("Curve_dl1u7")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gsuma"]
@@ -32,9 +32,9 @@ direction = Vector3(0, 1, 0)
 initial_velocity_min = 0.3
 initial_velocity_max = 0.6
 gravity = Vector3(0, 0, 0)
-scale_curve = SubResource("CurveTexture_53nc3")
+scale_curve = SubResource("CurveTexture_pmbq0")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pnou2"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t3rak"]
 transparency = 1
 albedo_texture = ExtResource("2_llif3")
 emission_enabled = true
@@ -42,11 +42,13 @@ emission = Color(0.871746, 0.504091, 0.188262, 1)
 emission_energy_multiplier = 1.28
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_cqo0s"]
-material = SubResource("StandardMaterial3D_pnou2")
+material = SubResource("StandardMaterial3D_t3rak")
 size = Vector2(0.2, 0.2)
 orientation = 2
 
 [node name="ScaledDungeonTest" type="Node"]
+
+[node name="WARN Changes have been copied to main scene" type="Node" parent="."]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_dcab7")

@@ -4,8 +4,13 @@
 [ext_resource type="PackedScene" uid="uid://baaafw334tec2" path="res://scene/weighable/weighable.tscn" id="2_o02y6"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_44x55"]
+radius = 0.025
 
 [sub_resource type="SphereMesh" id="SphereMesh_n6mcp"]
+radius = 0.025
+height = 0.05
+radial_segments = 8
+rings = 4
 
 [node name="Grabbable" node_paths=PackedStringArray("weighable") instance=ExtResource("1_6s8wt")]
 weighable = NodePath("Weighable")

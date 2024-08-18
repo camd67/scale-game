@@ -1,11 +1,9 @@
 extends Node3D
 
 @onready var left_pan: Area3D = $LeftPan
-@onready var left_pan_label: Label3D = $LeftPanLabel
 var left_pan_weight: float = 0
 
 @onready var right_pan: Area3D = $RightPan
-@onready var right_pan_label: Label3D = $RightPanLabel
 var right_pan_weight: float = 0
 
 @export var pan_height_range: float
@@ -16,7 +14,7 @@ func _ready() -> void:
 	starting_pan_height = left_pan.global_position.y
 
 
-func _on_button_pressed() -> void:
+func on_level_submitted() -> void:
 	var pan_difference := right_pan_weight - left_pan_weight
 	# Use the right pan as our "baseline" for doing difference computations
 	var pan_difference_percent := pan_difference / right_pan_weight
@@ -33,8 +31,7 @@ func _on_button_pressed() -> void:
 
 
 func update_labels() -> void:
-	left_pan_label.text = "Left pan weights %.1f" % left_pan_weight
-	right_pan_label.text = "Right pan weights %.1f" % right_pan_weight
+	pass
 
 
 func _on_left_pan_body_entered(body: Node3D) -> void:

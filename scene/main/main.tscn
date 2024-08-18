@@ -1,10 +1,63 @@
-[gd_scene load_steps=6 format=3 uid="uid://co1nhvml5ve6y"]
+[gd_scene load_steps=18 format=3 uid="uid://co1nhvml5ve6y"]
 
 [ext_resource type="PackedScene" uid="uid://ce6b0dfduypqr" path="res://scene/scale/scale.tscn" id="1_ceiqc"]
 [ext_resource type="PackedScene" uid="uid://dhgqdwpcy37iw" path="res://scene/ui/main_menu/main_menu.tscn" id="1_x18xv"]
 [ext_resource type="PackedScene" uid="uid://dbr2vgtnsucf0" path="res://scene/grabber/grabber.tscn" id="2_ygo0o"]
 [ext_resource type="PackedScene" uid="uid://4ej2b1sscx27" path="res://scene/draggable_entities/debug_box/debug_box.tscn" id="3_ohibm"]
+[ext_resource type="PackedScene" uid="uid://bt8bif40er8kr" path="res://scene/dungeon/scaledungeon.glb" id="4_1enp0"]
 [ext_resource type="PackedScene" uid="uid://d3pwgvo15efba" path="res://scene/draggable_entities/debug_sphere/debug_sphere.tscn" id="4_oldih"]
+[ext_resource type="PackedScene" uid="uid://bhlp8xn50igxa" path="res://scene/flickering_light/flickering_light.tscn" id="5_r3mqi"]
+[ext_resource type="Texture2D" uid="uid://blesrlm3igbkx" path="res://scene/dungeon/fireparticle.png" id="6_xc4fm"]
+
+[sub_resource type="Environment" id="Environment_mpf7k"]
+ambient_light_source = 3
+ambient_light_color = Color(0.229787, 0.0708131, 0.0605233, 1)
+ambient_light_energy = 1.01
+glow_enabled = true
+glow_intensity = 0.29
+glow_bloom = 0.34
+fog_enabled = true
+fog_light_color = Color(0.249493, 0.0969925, 0.016814, 1)
+fog_light_energy = 0.72
+
+[sub_resource type="Curve" id="Curve_3qocl"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.0219779), -2.4938, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_53nc3"]
+curve = SubResource("Curve_3qocl")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ggek0"]
+emission_shape = 1
+emission_sphere_radius = 0.3
+angle_min = 1.07288e-05
+angle_max = 360.0
+direction = Vector3(0, 1, 0)
+initial_velocity_min = 0.3
+initial_velocity_max = 0.6
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_53nc3")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pnou2"]
+transparency = 1
+albedo_texture = ExtResource("6_xc4fm")
+emission_enabled = true
+emission = Color(0.871746, 0.504091, 0.188262, 1)
+emission_energy_multiplier = 1.28
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_h7ukf"]
+material = SubResource("StandardMaterial3D_pnou2")
+size = Vector2(0.2, 0.2)
+orientation = 2
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1p1xp"]
+size = Vector3(0.134766, 1, 1.36621)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nxspy"]
+size = Vector3(2.73218, 0.10376, 1.36621)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_n4e3c"]
+size = Vector3(0.134766, 1, 1.36621)
 
 [node name="Main" type="Node3D"]
 
@@ -14,42 +67,87 @@
 camera = NodePath("../Camera3D")
 max_grab_distance = 15.0
 
-[node name="Camera3D" type="Camera3D" parent="." groups=["camera"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.49245, 7.5065)
-fov = 90.0
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.600783, -0.648815, 0.467011, 0, 0.584193, 0.811615, -0.799412, -0.487604, 0.350973, 0, 3.29801, 4.01714)
-
 [node name="Scale" parent="." instance=ExtResource("1_ceiqc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0283279)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00339153, 0.76768, 1.82433)
 
-[node name="TestDebugGrabbables" type="Node3D" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_mpf7k")
 
-[node name="LeftPanDebug" type="Node3D" parent="TestDebugGrabbables"]
+[node name="scaledungeon" parent="." instance=ExtResource("4_1enp0")]
 
-[node name="DebugBox" parent="TestDebugGrabbables/LeftPanDebug" instance=ExtResource("3_ohibm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.41768, 10.9339, 0)
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.973563, 0.228419, 0, -0.228419, 0.973563, 0, 1.40286, 2.91137)
+fov = 40.6
 
-[node name="DebugBox2" parent="TestDebugGrabbables/LeftPanDebug" instance=ExtResource("3_ohibm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.85556, 10.967, 0)
+[node name="Lights" type="Node" parent="."]
 
-[node name="Grabbable" parent="TestDebugGrabbables/LeftPanDebug" instance=ExtResource("4_oldih")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.29961, 15.3813, 0)
+[node name="FlickeringLight" parent="Lights" instance=ExtResource("5_r3mqi")]
 
-[node name="Grabbable2" parent="TestDebugGrabbables/LeftPanDebug" instance=ExtResource("4_oldih")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.32707, 13.1547, 0)
+[node name="FlickeringLight4" parent="Lights" instance=ExtResource("5_r3mqi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.57792, 1.06509, 2.03192)
+light_energy = 0.262
 
-[node name="Grabbable3" parent="TestDebugGrabbables/LeftPanDebug" instance=ExtResource("4_oldih")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.58113, 12.8732, 0)
+[node name="FlickeringLight2" parent="Lights" instance=ExtResource("5_r3mqi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.66972, 2.43806, -0.765376)
+light_energy = 1.369
+omni_range = 5.0
 
-[node name="RightPanDebug" type="Node3D" parent="TestDebugGrabbables"]
+[node name="FlickeringLight3" parent="Lights" instance=ExtResource("5_r3mqi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5355, 2.43806, -0.765376)
+light_energy = 1.369
+omni_range = 5.0
 
-[node name="DebugBox" parent="TestDebugGrabbables/RightPanDebug" instance=ExtResource("3_ohibm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.07171, 2.66716, 0)
+[node name="TorchParticles" type="Node" parent="."]
 
-[node name="DebugBox2" parent="TestDebugGrabbables/RightPanDebug" instance=ExtResource("3_ohibm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.68892, 2.70028, 0)
+[node name="GPUParticles3D" type="GPUParticles3D" parent="TorchParticles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.36303, 2.43806, -2.67922)
+process_material = SubResource("ParticleProcessMaterial_ggek0")
+draw_pass_1 = SubResource("PlaneMesh_h7ukf")
 
-[node name="Grabbable4" parent="TestDebugGrabbables/RightPanDebug" instance=ExtResource("4_oldih")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.82387, 3.64057, 0)
+[node name="TableBoundaries" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.789482, 1.9673)
+
+[node name="TableRight" type="StaticBody3D" parent="TableBoundaries"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.900853, 0.450389, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TableBoundaries/TableRight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.104957)
+shape = SubResource("BoxShape3D_1p1xp")
+
+[node name="TableBottm" type="StaticBody3D" parent="TableBoundaries"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0398992, -0.0662105, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TableBoundaries/TableBottm"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.000343204, -0.104957)
+shape = SubResource("BoxShape3D_nxspy")
+
+[node name="TableLeft" type="StaticBody3D" parent="TableBoundaries"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.937472, 0.450389, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TableBoundaries/TableLeft"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.104957)
+shape = SubResource("BoxShape3D_n4e3c")
+
+[node name="DEBUG Test Objects" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.856, 1.82476)
+
+[node name="Grabbable" parent="DEBUG Test Objects" instance=ExtResource("3_ohibm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.626641, 0.101365, 1.19209e-07)
+
+[node name="Grabbable7" parent="DEBUG Test Objects" instance=ExtResource("3_ohibm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.418563, 0.261865, 1.19209e-07)
+
+[node name="Grabbable2" parent="DEBUG Test Objects" instance=ExtResource("3_ohibm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.549095, 0.226536, 1.19209e-07)
+
+[node name="Grabbable3" parent="DEBUG Test Objects" instance=ExtResource("3_ohibm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.500438, 0.0873112, 1.19209e-07)
+
+[node name="Grabbable4" parent="DEBUG Test Objects" instance=ExtResource("3_ohibm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.562388, 0.365977, 1.19209e-07)
+
+[node name="Grabbable5" parent="DEBUG Test Objects" instance=ExtResource("4_oldih")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.557539, 0.500166, 0)
+
+[node name="Grabbable6" parent="DEBUG Test Objects" instance=ExtResource("4_oldih")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.278791, 0.322483, 0)

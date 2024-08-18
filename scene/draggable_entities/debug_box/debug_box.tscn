@@ -4,8 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://baaafw334tec2" path="res://scene/weighable/weighable.tscn" id="2_pnmfv"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wvnij"]
+size = Vector3(0.05, 0.05, 0.05)
 
 [sub_resource type="BoxMesh" id="BoxMesh_4c4e8"]
+size = Vector3(0.05, 0.05, 0.05)
 
 [node name="Grabbable" node_paths=PackedStringArray("weighable") instance=ExtResource("1_jfjo5")]
 weighable = NodePath("Weighable")
