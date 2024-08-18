@@ -6,7 +6,10 @@ enum SFX {
 	LOCK_UNLOCK = 2,
 	LOCK_FALL = 3,
 	DISTANT_BOOMS = 4,
-	LOW_GROWL = 5
+	LOW_GROWL = 5,
+	TEDDY = 6,
+	EERIE_GHOST = 7,
+	RATTLE = 8
 }
 
 const MIN_NOISE_BUFFER = 15
@@ -38,7 +41,7 @@ func on_play_open_timeout() -> void:
 	
 
 func on_random_noise_timeout() -> void:
-	var sfx_choice: int = randi_range(4,5)
+	var sfx_choice: int = randi_range(4,SFX.keys().size())
 	var timer_wait: int = MIN_NOISE_BUFFER
 	random_noise_player.stream = sfx_list[sfx_choice]
 	random_noise_player.play()
