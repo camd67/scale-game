@@ -33,6 +33,11 @@ func _input(event: InputEvent) -> void:
 			is_grabbing = false
 			if grab_item != null:
 				grab_item.freeze = false
+				grab_item.can_sleep = false
+				grab_item.sleeping = false
+				var grab_item_closure := grab_item
+				get_tree().create_timer(1).timeout.connect(func() -> void: grab_item_closure.can_sleep = true)
+				print("unfreezing " + grab_item.name)
 				grab_ray.clear_exceptions()
 				grab_item = null
 
@@ -45,6 +50,7 @@ func _physics_process(delta: float) -> void:
 			grab_ray.add_exception(grab_item)
 			grabbed_item_plane = Plane(Vector3.FORWARD, grab_item.global_position)
 			grab_item.freeze = true
+			print("freezing " + grab_item.name)
 
 	if grab_item == null:
 		# We couldn't find anything to grab this frame, stop trying to grab

@@ -133,21 +133,28 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.856, 1.82476)
 
 [node name="Grabbable" parent="DEBUG Test Objects" instance=ExtResource("3_ohibm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.626641, 0.101365, 1.19209e-07)
+can_sleep = false
 
 [node name="Grabbable7" parent="DEBUG Test Objects" instance=ExtResource("3_ohibm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.418563, 0.261865, 1.19209e-07)
+can_sleep = false
 
 [node name="Grabbable2" parent="DEBUG Test Objects" instance=ExtResource("3_ohibm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.549095, 0.226536, 1.19209e-07)
+can_sleep = false
 
 [node name="Grabbable3" parent="DEBUG Test Objects" instance=ExtResource("3_ohibm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.500438, 0.0873112, 1.19209e-07)
+can_sleep = false
 
 [node name="Grabbable4" parent="DEBUG Test Objects" instance=ExtResource("3_ohibm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.562388, 0.365977, 1.19209e-07)
+can_sleep = false
 
 [node name="Grabbable5" parent="DEBUG Test Objects" instance=ExtResource("4_oldih")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.557539, 0.500166, 0)
+can_sleep = false
 
 [node name="Grabbable6" parent="DEBUG Test Objects" instance=ExtResource("4_oldih")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.278791, 0.322483, 0)
+can_sleep = false
