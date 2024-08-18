@@ -20,7 +20,7 @@ extends AudioStreamPlayer
 @onready var timer: Timer = $Timer
 
 var voice_ready: bool = true
-const VOICE_BUFFER: int = 5
+const VOICE_BUFFER: int = 2
 
 
 func _ready() -> void:
