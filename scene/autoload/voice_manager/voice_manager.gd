@@ -123,7 +123,9 @@ func play_random_fall() -> void:
 
 func play_random_placement() -> void:
 	if voices_placement.size() > 0:
+		print_debug("placement size = " + str(voices_placement.size()))
 		var index: int = randi_range(0, voices_placement.size() - 1)
+		print_debug("index = " + str(index))
 		var chosen_stream: AudioStream = voices_placement.pop_at(index)
 		voices_placement_trash.append(chosen_stream)
 		stream = chosen_stream
