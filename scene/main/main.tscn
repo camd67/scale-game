@@ -1,10 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://co4jso8vr8d1u"]
+[gd_scene load_steps=22 format=3 uid="uid://co1nhvml5ve6y"]
 
 [ext_resource type="PackedScene" uid="uid://ce6b0dfduypqr" path="res://scene/scale/scale.tscn" id="1_ceiqc"]
+[ext_resource type="Script" path="res://scene/main/main.gd" id="1_er31i"]
 [ext_resource type="PackedScene" uid="uid://dhgqdwpcy37iw" path="res://scene/ui/main_menu/main_menu.tscn" id="1_x18xv"]
 [ext_resource type="PackedScene" uid="uid://dbr2vgtnsucf0" path="res://scene/grabber/grabber.tscn" id="2_ygo0o"]
 [ext_resource type="PackedScene" uid="uid://4ej2b1sscx27" path="res://scene/draggable_entities/debug_box/debug_box.tscn" id="3_ohibm"]
-[ext_resource type="PackedScene" path="res://scene/dungeon/scaled_dungeon_living.tscn" id="4_6qt3t"]
+[ext_resource type="PackedScene" uid="uid://foljia802g4d" path="res://scene/dungeon/scaled_dungeon_living.tscn" id="4_6qt3t"]
 [ext_resource type="PackedScene" uid="uid://d3pwgvo15efba" path="res://scene/draggable_entities/debug_sphere/debug_sphere.tscn" id="4_oldih"]
 [ext_resource type="PackedScene" uid="uid://bhlp8xn50igxa" path="res://scene/flickering_light/flickering_light.tscn" id="5_r3mqi"]
 [ext_resource type="Texture2D" uid="uid://blesrlm3igbkx" path="res://scene/dungeon/fireparticle.png" id="6_xc4fm"]
@@ -59,12 +60,75 @@ size = Vector3(2.73218, 0.10376, 1.36621)
 [sub_resource type="BoxShape3D" id="BoxShape3D_n4e3c"]
 size = Vector3(0.134766, 1, 1.36621)
 
+[sub_resource type="Animation" id="Animation_66mho"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MainCamera:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.1782, 1.88322, 2.35099)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MainCamera:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.433389, 0.584356, 0.000250297)]
+}
+
+[sub_resource type="Animation" id="Animation_qcr40"]
+resource_name = "intro"
+length = 10.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MainCamera:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, -2),
+"update": 0,
+"values": [Vector3(1.1782, 1.88322, 2.35099), Vector3(0, 1.40286, 2.91137)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MainCamera:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, -2),
+"update": 0,
+"values": [Vector3(-0.433389, 0.584356, 0.000250297), Vector3(-0.230453, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4tgbm"]
+_data = {
+"RESET": SubResource("Animation_66mho"),
+"intro": SubResource("Animation_qcr40")
+}
+
 [node name="Main" type="Node3D"]
+script = ExtResource("1_er31i")
 
 [node name="MainMenu" parent="." instance=ExtResource("1_x18xv")]
 
 [node name="Grabber" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("2_ygo0o")]
-camera = NodePath("../Camera3D")
+camera = NodePath("../MainCamera")
 max_grab_distance = 15.0
 
 [node name="Scale" parent="." instance=ExtResource("1_ceiqc")]
@@ -75,9 +139,13 @@ environment = SubResource("Environment_mpf7k")
 
 [node name="ScaledDungeonLiving" parent="." instance=ExtResource("4_6qt3t")]
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.973563, 0.228419, 0, -0.228419, 0.973563, 0, 1.40286, 2.91137)
+[node name="MainCamera" type="Camera3D" parent="."]
+transform = Transform3D(0.834009, -0.231879, 0.50066, 0.000227156, 0.907547, 0.419949, -0.55175, -0.350127, 0.756956, 1.1782, 1.88322, 2.35099)
+current = true
 fov = 40.6
+
+[node name="InstantDebugCameraMarker" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.973563, 0.228419, 0, -0.228419, 0.973563, 0, 1.40286, 2.91137)
 
 [node name="Lights" type="Node" parent="."]
 
@@ -159,3 +227,8 @@ can_sleep = false
 [node name="Grabbable6" parent="DEBUG Test Objects" instance=ExtResource("4_oldih")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.278791, 0.322483, 0)
 can_sleep = false
+
+[node name="CameraAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_4tgbm")
+}

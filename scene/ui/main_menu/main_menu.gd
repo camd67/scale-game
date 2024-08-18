@@ -1,5 +1,8 @@
 extends Control
 
+signal play_pressed()
+signal debug_instant_play()
+
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 @onready var settings_back_button: Button = %SettingsBackButton
@@ -14,8 +17,8 @@ func _ready() -> void:
 		quick_button.text = "Press this or click anywhere to play NOW (editor build only)"
 		quick_button.add_theme_font_size_override("font_size", 32)
 		quick_button.position = Vector2.ZERO
-		quick_button.pressed.connect(func() -> void: queue_free())
-		$ColorRect.gui_input.connect(func(e: InputEvent) -> void: if e is InputEventMouseButton: queue_free())
+		quick_button.pressed.connect(func() -> void: instant_play())
+		$ColorRect.gui_input.connect(func(e: InputEvent) -> void: if e is InputEventMouseButton: instant_play())
 		add_child(quick_button)
 
 
@@ -30,8 +33,17 @@ func _ready() -> void:
 	play_button.grab_focus()
 
 
+func instant_play() -> void:
+	debug_instant_play.emit()
+	queue_free()
+
+
 func _on_play_button_pressed() -> void:
+	settings_button.disabled = true
+	play_button.disabled = true
+	quit_button.disabled = true
 	animation_player.play("remove_main_menu")
+	play_pressed.emit()
 
 
 func _on_settings_button_pressed() -> void:
