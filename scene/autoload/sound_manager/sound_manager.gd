@@ -22,6 +22,7 @@ func _ready() -> void:
 	GameEvents.play_pressed.connect(on_play_pressed)
 	timer.timeout.connect(on_play_open_timeout)
 	random_noise_timer.timeout.connect(on_random_noise_timeout)
+	random_noise_timer.start()
 	
 	
 func on_play_pressed() -> void:
