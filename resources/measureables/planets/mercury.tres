@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Measureable" load_steps=2 format=3 uid="uid://cf24gwy5cwkpn"]
+
+[ext_resource type="Script" path="res://resources/measureables/measureable.gd" id="1_kw4nx"]
+
+[resource]
+script = ExtResource("1_kw4nx")
+id = "mercury"
+weight = 1
