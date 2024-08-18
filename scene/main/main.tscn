@@ -84,8 +84,9 @@ fov = 40.6
 [node name="FlickeringLight" parent="Lights" instance=ExtResource("5_r3mqi")]
 
 [node name="FlickeringLight4" parent="Lights" instance=ExtResource("5_r3mqi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.57792, 1.06509, 2.03192)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0521996, 1.68438, 2.0921)
 light_energy = 0.262
+shadow_bias = 0.02
 
 [node name="FlickeringLight2" parent="Lights" instance=ExtResource("5_r3mqi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.66972, 2.43806, -0.765376)
@@ -148,7 +149,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.500438, 0.0873112, 1.19209
 can_sleep = false
 
 [node name="Grabbable4" parent="DEBUG Test Objects" instance=ExtResource("3_ohibm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.562388, 0.365977, 1.19209e-07)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.584516, 0.282969, -0.00727856)
 can_sleep = false
 
 [node name="Grabbable5" parent="DEBUG Test Objects" instance=ExtResource("4_oldih")]
