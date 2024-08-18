@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwbr1xaprxh4c"]
+
+[ext_resource type="Script" path="res://scene/autoload/sound_manager/sound_manager.gd" id="1_jtwni"]
+[ext_resource type="AudioStream" uid="uid://dmv5r6tflx0e6" path="res://audio/sfx/stone_door_open.mp3" id="2_a27bx"]
+
+[node name="SoundManager" type="AudioStreamPlayer"]
+script = ExtResource("1_jtwni")
+sfx_list = Array[AudioStream]([ExtResource("2_a27bx")])
+
+[node name="PlayOpenTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true

@@ -4,9 +4,9 @@ extends Node3D
 
 
 func _ready() -> void:
-	$MainMenu.play_pressed.connect(func() -> void:
+	GameEvents.play_pressed.connect(func() -> void:
 		camera_animation_player.play("intro")
 	)
-	$MainMenu.debug_instant_play.connect(func() -> void:
+	GameEvents.debug_instant_play.connect(func() -> void:
 		$MainCamera.global_transform = $InstantDebugCameraMarker.global_transform
 	)

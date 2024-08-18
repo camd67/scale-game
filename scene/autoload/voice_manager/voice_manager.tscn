@@ -81,3 +81,5 @@ voices_fall = Array[AudioStream]([ExtResource("61_mag8i"), ExtResource("62_yi30b
 voices_placement = Array[AudioStream]([ExtResource("64_6pjlv"), ExtResource("65_8ml4w"), ExtResource("66_bh1eu")])
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="RandomVoiceTimer" type="Timer" parent="."]

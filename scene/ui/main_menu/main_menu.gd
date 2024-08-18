@@ -1,7 +1,5 @@
 extends Control
-
-signal play_pressed()
-signal debug_instant_play()
+class_name MainMenu
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
@@ -34,7 +32,7 @@ func _ready() -> void:
 
 
 func instant_play() -> void:
-	debug_instant_play.emit()
+	GameEvents.emit_debug_instant_play()
 	queue_free()
 
 
@@ -43,7 +41,8 @@ func _on_play_button_pressed() -> void:
 	play_button.disabled = true
 	quit_button.disabled = true
 	animation_player.play("remove_main_menu")
-	play_pressed.emit()
+	GameEvents.emit_play_pressed()
+	
 
 
 func _on_settings_button_pressed() -> void:
