@@ -28,6 +28,6 @@ bus = &"sfx"
 
 [node name="FireCracklePlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_w4e7y")
-volume_db = 0.5
+volume_db = -7.0
 autoplay = true
 bus = &"sfx"
