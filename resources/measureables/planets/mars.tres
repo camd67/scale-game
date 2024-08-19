@@ -16,7 +16,7 @@ radius = 0.035
 [resource]
 script = ExtResource("1_3wci1")
 id = "mars"
-tooltip = ""
+tooltip = "The red planet, Mars"
 weight = 4
 mesh = SubResource("SphereMesh_co5x6")
 shape = SubResource("SphereShape3D_jxlrp")

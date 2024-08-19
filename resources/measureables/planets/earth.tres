@@ -16,7 +16,7 @@ radius = 0.045
 [resource]
 script = ExtResource("1_diibe")
 id = "earth"
-tooltip = ""
+tooltip = "Our planet Earth"
 weight = 3
 mesh = SubResource("SphereMesh_5u1en")
 shape = SubResource("SphereShape3D_70neq")

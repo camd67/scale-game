@@ -59,3 +59,14 @@ signal debug_instant_play()
 
 func emit_debug_instant_play() -> void:
 	debug_instant_play.emit()
+
+
+signal tooltip_requested(text: String)
+
+func emit_tooltip_requested(text: String) -> void:
+	tooltip_requested.emit(text)
+
+signal tooltip_done(text: String)
+
+func emit_tooltip_done(text: String) -> void:
+	tooltip_done.emit(text)

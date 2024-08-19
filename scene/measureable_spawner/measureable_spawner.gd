@@ -120,6 +120,7 @@ func spawn_grabbable_at_location(grabbable: Grabbable, location: Vector3) -> voi
 func create_grabbable_for_measureable(measureable: Measureable, player_grabbale: bool) -> Grabbable:
 	var grabbable : Grabbable = grabbable_scene.instantiate() as Grabbable
 	grabbable.is_player_grabbable = player_grabbale
+	grabbable.tooltip = measureable.tooltip
 	add_collision_shape_child(grabbable, measureable.shape)
 	add_mesh_child(grabbable, measureable.mesh)
 	add_weighable_child(grabbable, measureable.weight)

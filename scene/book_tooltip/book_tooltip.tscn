@@ -1,0 +1,87 @@
+[gd_scene load_steps=6 format=3 uid="uid://iqjc6mwiyy7w"]
+
+[ext_resource type="Script" path="res://scene/book_tooltip/book_tooltip.gd" id="1_h76ww"]
+[ext_resource type="PackedScene" uid="uid://dptdpb62ytn8e" path="res://scene/book_tooltip/book.glb" id="1_ov1ge"]
+
+[sub_resource type="Animation" id="Animation_duabv"]
+resource_name = "open"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("book/Book_002:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(2.92095, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TooltipLabel:scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.366667, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 1, 1), Vector3(1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_u7yfe"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("book/Book_002:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TooltipLabel:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vli0j"]
+_data = {
+"RESET": SubResource("Animation_u7yfe"),
+"open": SubResource("Animation_duabv")
+}
+
+[node name="BookTooltip" type="Node3D"]
+script = ExtResource("1_h76ww")
+
+[node name="book" parent="." instance=ExtResource("1_ov1ge")]
+
+[node name="OpenAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_vli0j")
+}
+
+[node name="TooltipLabel" type="Label3D" parent="."]
+transform = Transform3D(1.30877e-07, -1, 6.70699e-09, -0.076719, -3.35349e-09, 0.997053, -0.997053, -1.31005e-07, -0.076719, 0, 0.0792335, 0.249573)
+pixel_size = 0.001
+text = "DEBUG DEBUG DEBUG DEBUG DEBUG"
+font_size = 64
+outline_size = 18
+horizontal_alignment = 0
+autowrap_mode = 3
+width = 550.0
+
+[editable path="book"]

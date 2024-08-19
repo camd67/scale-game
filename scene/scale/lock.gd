@@ -4,6 +4,8 @@ extends Node3D
 
 var has_been_unlocked := false
 
+const tooltip_text := "Click the scale to unlock it, submitting your guess"
+
 func _ready() -> void:
 	$LockArea.input_event.connect(on_lock_input_event)
 	$LockArea.mouse_entered.connect(on_lock_mouse_enter)
@@ -21,13 +23,14 @@ func on_lock_input_event(camera: Node, event: InputEvent, event_position: Vector
 
 
 func on_lock_mouse_exit() -> void:
-	pass
+	GameEvents.emit_tooltip_done(tooltip_text)
 
 
 func on_lock_mouse_enter() -> void:
 	if has_been_unlocked:
 		return
 
+	GameEvents.emit_tooltip_requested(tooltip_text)
 	lock_animation_player.play("hover")
 
 
