@@ -137,18 +137,6 @@ shader_parameter/lod = 1.5
 
 [sub_resource type="Animation" id="Animation_ey60f"]
 length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Title:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
 
 [sub_resource type="Animation" id="Animation_cg0ts"]
 resource_name = "default"
@@ -329,11 +317,11 @@ theme_override_font_sizes/font_size = 20
 text = "Quit"
 
 [node name="Title" type="Label" parent="."]
-layout_mode = 0
-offset_left = 256.0
-offset_top = 262.0
-offset_right = 792.0
-offset_bottom = 394.0
+layout_mode = 2
+offset_left = 303.347
+offset_top = 281.1
+offset_right = 839.347
+offset_bottom = 413.1
 pivot_offset = Vector2(268, 66)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(1, 0.612122, 0.199219, 1)
