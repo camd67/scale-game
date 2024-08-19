@@ -6,10 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://dvfs56lpfukm4" path="res://scene/level_manager/level_manager.tscn" id="2_f8vwc"]
 [ext_resource type="PackedScene" uid="uid://dbr2vgtnsucf0" path="res://scene/grabber/grabber.tscn" id="2_ygo0o"]
 [ext_resource type="Script" path="res://resources/level_definitions/level_definition.gd" id="3_kqovf"]
-[ext_resource type="PackedScene" uid="uid://4ej2b1sscx27" path="res://scene/draggable_entities/debug_box/debug_box.tscn" id="3_ohibm"]
 [ext_resource type="PackedScene" uid="uid://foljia802g4d" path="res://scene/dungeon/scaled_dungeon_living.tscn" id="4_6qt3t"]
 [ext_resource type="Resource" uid="uid://c184kbs4suval" path="res://resources/level_definitions/planets/planets1.tres" id="4_i6wjg"]
-[ext_resource type="PackedScene" uid="uid://d3pwgvo15efba" path="res://scene/draggable_entities/debug_sphere/debug_sphere.tscn" id="4_oldih"]
 [ext_resource type="PackedScene" uid="uid://bhlp8xn50igxa" path="res://scene/flickering_light/flickering_light.tscn" id="5_r3mqi"]
 [ext_resource type="Texture2D" uid="uid://blesrlm3igbkx" path="res://scene/dungeon/fireparticle.png" id="6_xc4fm"]
 [ext_resource type="PackedScene" uid="uid://dt1b4n121yfn5" path="res://scene/measureable_spawner/measureable_spawner.tscn" id="12_ysa5h"]
@@ -242,46 +240,6 @@ monitorable = false
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TableBoundaries/OutOfBoundsChecker"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00201416, 0.0654683, 0)
 shape = SubResource("BoxShape3D_b3caf")
-
-[node name="DEBUG Test Objects" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.71858, 0.856, 1.82476)
-
-[node name="Grabbable" parent="DEBUG Test Objects" instance=ExtResource("3_ohibm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.626641, 0.101365, 1.19209e-07)
-can_sleep = false
-max_contacts_reported = 0
-
-[node name="Grabbable7" parent="DEBUG Test Objects" instance=ExtResource("3_ohibm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.418563, 0.261865, 1.19209e-07)
-can_sleep = false
-max_contacts_reported = 0
-is_player_grabbable = false
-
-[node name="Grabbable2" parent="DEBUG Test Objects" instance=ExtResource("3_ohibm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.549095, 0.226536, 1.19209e-07)
-can_sleep = false
-max_contacts_reported = 0
-
-[node name="Grabbable3" parent="DEBUG Test Objects" instance=ExtResource("3_ohibm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.500438, 0.0873112, 1.19209e-07)
-can_sleep = false
-max_contacts_reported = 0
-
-[node name="Grabbable4" parent="DEBUG Test Objects" instance=ExtResource("3_ohibm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.585, 0.283, 0)
-can_sleep = false
-max_contacts_reported = 0
-
-[node name="Grabbable5" parent="DEBUG Test Objects" instance=ExtResource("4_oldih")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.557539, 0.500166, 0)
-can_sleep = false
-max_contacts_reported = 0
-
-[node name="Grabbable6" parent="DEBUG Test Objects" instance=ExtResource("4_oldih")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.278791, 0.322483, 0)
-can_sleep = false
-max_contacts_reported = 0
-is_player_grabbable = false
 
 [node name="TableLeftRespawnPoint" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.597074, 1.93556, 1.8189)

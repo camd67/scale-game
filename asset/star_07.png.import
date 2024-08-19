@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dkjwc273ywh3l"
-path.s3tc="res://.godot/imported/star_07.png-9f1705c9972fd2007faa5ba26545ca13.s3tc.ctex"
+path.s3tc="res://.godot/imported/star_07.png-c58e94cd03b474471ecd09727a98b624.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://scene/scale/horn_vfx/star_07.png"
-dest_files=["res://.godot/imported/star_07.png-9f1705c9972fd2007faa5ba26545ca13.s3tc.ctex"]
+source_file="res://asset/star_07.png"
+dest_files=["res://.godot/imported/star_07.png-c58e94cd03b474471ecd09727a98b624.s3tc.ctex"]
 
 [params]
 

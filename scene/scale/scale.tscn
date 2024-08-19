@@ -6,7 +6,7 @@
 [ext_resource type="Material" uid="uid://jdipcr2dyu7u" path="res://scene/scale/Horns.tres" id="3_l060t"]
 [ext_resource type="Script" path="res://scene/scale/horn_vfx.gd" id="5_h4hqj"]
 [ext_resource type="Texture2D" uid="uid://chlnnu67sfp5j" path="res://scene/scale/horn_vfx/flame_03.png" id="6_8m1un"]
-[ext_resource type="Texture2D" uid="uid://dkjwc273ywh3l" path="res://scene/scale/horn_vfx/star_07.png" id="6_qhhns"]
+[ext_resource type="Texture2D" uid="uid://dkjwc273ywh3l" path="res://asset/star_07.png" id="6_qhhns"]
 [ext_resource type="Texture2D" uid="uid://cht5nrafkdxni" path="res://scene/scale/horn_vfx/flame_04.png" id="7_n2xyo"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vfmsu"]
@@ -559,6 +559,21 @@ size = Vector3(0.170654, 1.40332, 2.33691)
 [sub_resource type="SphereShape3D" id="SphereShape3D_hdq47"]
 radius = 0.172403
 
+[sub_resource type="Animation" id="Animation_rs2oc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/Stand:surface_material_override/1:emission_energy_multiplier")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
 [sub_resource type="Animation" id="Animation_cv4fq"]
 resource_name = "horn_glow"
 length = 2.0
@@ -574,21 +589,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, -2, 1),
 "update": 0,
 "values": [3.0, 8.0, 3.0]
-}
-
-[sub_resource type="Animation" id="Animation_rs2oc"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Visuals/Stand:surface_material_override/1:emission_energy_multiplier")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [1.0]
 }
 
 [sub_resource type="Animation" id="Animation_xnx4a"]

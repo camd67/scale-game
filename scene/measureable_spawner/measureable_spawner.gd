@@ -1,6 +1,9 @@
 extends Node3D
 class_name Spawner
 
+@onready var portal_spawn_animation_player: AnimationPlayer = $PortalSpawnAnimationPlayer
+@onready var portal_particles: GPUParticles3D = $PortalParticles
+
 @export var level_definition: LevelDefinition
 @export var left_spawn_location: Node3D
 @export var right_spawn_location: Node3D
@@ -11,6 +14,10 @@ const right_spawn_offset := 0.075
 
 static var grabbable_scene: PackedScene = preload("res://scene/grabbable/grabbable.tscn")
 static var weighable_scene: PackedScene = preload("res://scene/weighable/weighable.tscn")
+
+
+func _ready() -> void:
+	portal_particles.visible = false
 
 
 func _process(delta: float) -> void:
@@ -26,14 +33,17 @@ func begin_level() -> void:
 
 
 func spawn() -> void:
+	portal_particles.visible = true
 	var left_side_objects := level_definition.left_side
 	var right_side_objects := level_definition.right_side
 
 	var spawning_portal := $SummoningPortalLiving as Node3D
-
 	# Right side spawning
+	spawning_portal.scale = Vector3.ZERO
 	spawning_portal.global_position = right_spawn_location.global_position + (Vector3.UP * .1)
-	await get_tree().create_timer(.25).timeout
+	portal_particles.global_position = spawning_portal.global_position
+	portal_spawn_animation_player.play("spawn_in")
+	await portal_spawn_animation_player.animation_finished
 
 	var i := 1
 	for object in right_side_objects:
@@ -41,21 +51,28 @@ func spawn() -> void:
 		spawn_measurable_at_right_location(object, i)
 		i += 1
 
-	await get_tree().create_timer(.5).timeout
-	spawning_portal.visible = false
+	portal_particles.emitting = false
+	await get_tree().create_timer(.25).timeout
+	portal_spawn_animation_player.play_backwards("spawn_in")
+	await portal_spawn_animation_player.animation_finished
+	spawning_portal.scale = Vector3.ZERO
 	await get_tree().create_timer(.5).timeout
 
 	# Left side spawning
 	spawning_portal.global_position = left_spawn_location.global_position + (Vector3.UP * .1)
-	spawning_portal.visible = true
-	await get_tree().create_timer(.25).timeout
+	portal_particles.global_position = spawning_portal.global_position
+	portal_particles.emitting = true
+	portal_spawn_animation_player.play("spawn_in")
+	await portal_spawn_animation_player.animation_finished
 
 	for object in left_side_objects:
 		spawn_measurable_at_left_location(object)
 		await get_tree().create_timer(.25).timeout
 
-	await get_tree().create_timer(.5).timeout
-	spawning_portal.visible = false
+	portal_particles.emitting = false
+	portal_spawn_animation_player.play_backwards("spawn_in")
+	await portal_spawn_animation_player.animation_finished
+	portal_particles.visible = false
 
 
 func spawn_measurable_at_right_location(measureable: Measureable, order: int) -> void:

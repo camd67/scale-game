@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dt1b4n121yfn5"]
+[gd_scene load_steps=18 format=3 uid="uid://dt1b4n121yfn5"]
 
 [ext_resource type="Script" path="res://scene/measureable_spawner/measureable_spawner.gd" id="1_2gq2r"]
 [ext_resource type="Resource" uid="uid://c184kbs4suval" path="res://resources/level_definitions/planets/planets1.tres" id="2_ka5w3"]
 [ext_resource type="PackedScene" uid="uid://cdhb1lr6rcrxl" path="res://scene/measureable_spawner/summoning_portal_living.tscn" id="3_6je63"]
+[ext_resource type="Texture2D" uid="uid://dkjwc273ywh3l" path="res://asset/star_07.png" id="4_4nnkr"]
 
 [sub_resource type="Animation" id="Animation_mw4lc"]
 length = 0.001
@@ -42,6 +43,120 @@ _data = {
 "rotate_portal": SubResource("Animation_ht153")
 }
 
+[sub_resource type="Animation" id="Animation_k3tav"]
+resource_name = "spawn_in"
+length = 1.25
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SummoningPortalLiving:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2),
+"points": PackedFloat32Array(0, -0.25, 0, 0.6, 0.00587866, 1.37173, -0.333333, 0, 0.0555555, 0, 1, -0.0333333, 0.11157, 0, 0),
+"times": PackedFloat32Array(0, 1, 1.16667)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SummoningPortalLiving:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2),
+"points": PackedFloat32Array(0, -0.25, 0, 0.6, 0.000875533, 1.37173, -0.333333, 0, 0.0555555, 0, 1, -0.0333333, 0.114071, 0, 0),
+"times": PackedFloat32Array(0, 1, 1.16667)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SummoningPortalLiving:scale:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2),
+"points": PackedFloat32Array(0, -0.25, 0, 0.6, 0.0033771, 1.37173, -0.333333, 0, 0.0555555, 0, 1, -0.0333333, 0.123297, 0, 0),
+"times": PackedFloat32Array(0, 1, 1.16667)
+}
+
+[sub_resource type="Animation" id="Animation_ly286"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SummoningPortalLiving:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.0005, 0, 0.0005, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SummoningPortalLiving:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.0005, 0, 0.0005, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SummoningPortalLiving:scale:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.0005, 0, 0.0005, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tmo2m"]
+_data = {
+"RESET": SubResource("Animation_ly286"),
+"spawn_in": SubResource("Animation_k3tav")
+}
+
+[sub_resource type="Curve" id="Curve_ulft7"]
+_data = [Vector2(1e-05, 0), 0.0, 0.0, 0, 0, Vector2(0.265193, 0.665236), 0.0, 0.0, 0, 0, Vector2(0.756906, 0.693133), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_hfuu4"]
+curve = SubResource("Curve_ulft7")
+
+[sub_resource type="Gradient" id="Gradient_a5ag0"]
+colors = PackedColorArray(0.3916, 0.449747, 0.89, 1, 0.5762, 0.86, 0.69918, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_365q7"]
+gradient = SubResource("Gradient_a5ag0")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_oudhi"]
+emission_shape = 6
+emission_ring_axis = Vector3(0, 1, 0)
+emission_ring_height = 0.01
+emission_ring_radius = 0.2
+emission_ring_inner_radius = 0.0
+gravity = Vector3(0, -0.5, 0)
+scale_min = 0.1
+scale_max = 0.1
+color_initial_ramp = SubResource("GradientTexture1D_365q7")
+alpha_curve = SubResource("CurveTexture_hfuu4")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g8hne"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("4_4nnkr")
+billboard_mode = 1
+billboard_keep_scale = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_g2fwi"]
+material = SubResource("StandardMaterial3D_g8hne")
+
 [node name="MeasureableSpawner" type="Node3D"]
 script = ExtResource("1_2gq2r")
 level_definition = ExtResource("2_ka5w3")
@@ -52,5 +167,16 @@ libraries = {
 "": SubResource("AnimationLibrary_c17si")
 }
 autoplay = "rotate_portal"
+
+[node name="PortalSpawnAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_tmo2m")
+}
+
+[node name="PortalParticles" type="GPUParticles3D" parent="."]
+transform = Transform3D(0.999417, 0, -0.0341519, 0, 1, 0, 0.0341519, 0, 0.999417, 0, 0, 0)
+amount = 16
+process_material = SubResource("ParticleProcessMaterial_oudhi")
+draw_pass_1 = SubResource("QuadMesh_g2fwi")
 
 [node name="SummoningPortalLiving" parent="." instance=ExtResource("3_6je63")]
