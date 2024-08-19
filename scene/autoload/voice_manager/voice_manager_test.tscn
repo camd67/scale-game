@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://besw7djb3ni4a"]
 
-[ext_resource type="PackedScene" uid="uid://b3kp34rgt260n" path="res://scene/autoload/voice_manager/voice_manager.tscn" id="1_3qlnl"]
+[ext_resource type="PackedScene" uid="uid://dibiqyqs2mfvr" path="res://scene/autoload/voice_manager/voice_manager.tscn" id="1_3qlnl"]
 [ext_resource type="Script" path="res://scene/autoload/voice_manager/voice_manager_test.gd" id="1_8k6y6"]
 
 [node name="voice_manager_test" type="Node"]

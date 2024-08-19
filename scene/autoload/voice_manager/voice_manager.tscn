@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=3 uid="uid://b3kp34rgt260n"]
+[gd_scene load_steps=68 format=3 uid="uid://dibiqyqs2mfvr"]
 
 [ext_resource type="Script" path="res://scene/autoload/voice_manager/voice_manager.gd" id="1_x10ku"]
 [ext_resource type="AudioStream" uid="uid://bl6qxnsokxvcd" path="res://audio/voice/correct/amazing_work.mp3" id="2_1rbup"]
