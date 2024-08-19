@@ -15,9 +15,9 @@ func on_lock_input_event(camera: Node, event: InputEvent, event_position: Vector
 		return
 
 	if event is InputEventMouseButton and event.is_pressed():
-		lock_animation_player.play("unlock")
-		has_been_unlocked = true
-		GameEvents.emit_weight_submitted()
+		#lock_animation_player.play("unlock")
+		#has_been_unlocked = true
+		GameEvents.emit_weight_submitted(on_weight_calculated)
 
 
 func on_lock_mouse_exit() -> void:
@@ -29,6 +29,14 @@ func on_lock_mouse_enter() -> void:
 		return
 
 	lock_animation_player.play("hover")
+
+
+func on_weight_calculated(success: bool) -> void:
+	if success:
+		lock_animation_player.play("unlock")
+		has_been_unlocked = true
+	else:
+		lock_animation_player.play("hover")
 
 
 func play_lock_move() -> void:

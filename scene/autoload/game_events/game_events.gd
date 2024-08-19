@@ -20,10 +20,10 @@ func emit_pan_exited() -> void:
 	pan_exited.emit()
 
 # The player has "locked in" and submitted their solution
-signal weight_submitted()
+signal weight_submitted(callback: Callable)
 
-func emit_weight_submitted() -> void:
-	weight_submitted.emit()
+func emit_weight_submitted(callback: Callable) -> void:
+	weight_submitted.emit(callback)
 
 # The scale has finished it's weight animation
 signal weighing_finished()
