@@ -33,10 +33,11 @@ func _ready() -> void:
 func drop_item() -> void:
 	is_grabbing = false
 	if grab_item != null:
-		grab_item.can_sleep = false
-		grab_item.sleeping = false
 		var grab_item_closure := grab_item
-		get_tree().create_timer(1).timeout.connect(func() -> void: grab_item_closure.can_sleep = true)
+		get_tree().create_timer(.25).timeout.connect(func() -> void:
+			if grab_item_closure != null and not grab_item_closure.is_queued_for_deletion():
+				grab_item_closure.can_sleep = true
+		)
 		grab_ray.clear_exceptions()
 		grab_item = null
 		last_grab_item_pos = Vector3.ZERO
@@ -66,6 +67,7 @@ func _physics_process(delta: float) -> void:
 		 maybe_grab_item.is_player_grabbable:
 			# Grab the item and apply "first time grab" properties
 			grab_item = maybe_grab_item
+			grab_item.can_sleep = false
 			grab_ray.add_exception(grab_item)
 			grabbed_item_plane = Plane(Vector3.FORWARD, grab_item.global_position)
 
