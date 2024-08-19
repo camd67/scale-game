@@ -1,6 +1,6 @@
 extends OmniLight3D
 
-const MAX_ENERGY_DEVIATION : float = .05
+@export var max_energy_deviation : float = .05
 
 @onready var timer: Timer = %Timer
 
@@ -15,5 +15,5 @@ func _ready() -> void:
 
 func on_flicker_timer_timeout() -> void:
 	current_energy_deviation += randf_range(-.1, .1)
-	current_energy_deviation = clampf(current_energy_deviation, -MAX_ENERGY_DEVIATION, MAX_ENERGY_DEVIATION)
+	current_energy_deviation = clampf(current_energy_deviation, -max_energy_deviation, max_energy_deviation)
 	light_energy = base_energy + current_energy_deviation

@@ -5,7 +5,7 @@ extends Node3D
 @onready var out_of_bounds_checker: Area3D = $TableBoundaries/OutOfBoundsChecker
 @onready var grabber: Grabber = $Grabber
 
-@onready var table_left_spawn_point: Marker3D = $TableLeftSpawnPoint
+@onready var table_left_respawn_point: Marker3D = $TableLeftRespawnPoint
 
 
 func _ready() -> void:
@@ -28,9 +28,9 @@ func on_oob_checker_exited(body: Node3D) -> void:
 
 		# Freeze the body to stop all momentum
 		body.freeze = true
-		body.global_position = table_left_spawn_point.global_position
+		body.global_position = table_left_respawn_point.global_position
 		grabber.drop_item()
 		await get_tree().physics_frame
 		body.freeze = false
 	else:
-		body.global_position = table_left_spawn_point.global_position
+		body.global_position = table_left_respawn_point.global_position

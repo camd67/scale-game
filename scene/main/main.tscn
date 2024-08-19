@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://co4jso8vr8d1u"]
+[gd_scene load_steps=26 format=3 uid="uid://co4jso8vr8d1u"]
 
 [ext_resource type="PackedScene" uid="uid://ce6b0dfduypqr" path="res://scene/scale/scale.tscn" id="1_ceiqc"]
 [ext_resource type="Script" path="res://scene/main/main.gd" id="1_er31i"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://d3pwgvo15efba" path="res://scene/draggable_entities/debug_sphere/debug_sphere.tscn" id="4_oldih"]
 [ext_resource type="PackedScene" uid="uid://bhlp8xn50igxa" path="res://scene/flickering_light/flickering_light.tscn" id="5_r3mqi"]
 [ext_resource type="Texture2D" uid="uid://blesrlm3igbkx" path="res://scene/dungeon/fireparticle.png" id="6_xc4fm"]
+[ext_resource type="PackedScene" uid="uid://dt1b4n121yfn5" path="res://scene/measureable_spawner/measureable_spawner.tscn" id="12_ysa5h"]
 
 [sub_resource type="Environment" id="Environment_mpf7k"]
 ambient_light_source = 3
@@ -135,6 +136,10 @@ script = ExtResource("1_er31i")
 [node name="WeightComparer" parent="." node_paths=PackedStringArray("scale") instance=ExtResource("3_fkc30")]
 scale = NodePath("../Scale")
 
+[node name="MeasureableSpawner" parent="." node_paths=PackedStringArray("left_spawn_location", "right_spawn_location") instance=ExtResource("12_ysa5h")]
+left_spawn_location = NodePath("../TableLeftSpawnPoint")
+right_spawn_location = NodePath("../TableRightSpawnPoint")
+
 [node name="MainMenu" parent="." instance=ExtResource("1_x18xv")]
 
 [node name="Grabber" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("2_ygo0o")]
@@ -145,7 +150,7 @@ drop_distance = 0.1
 max_drag_distance = 0.3
 
 [node name="Scale" parent="." instance=ExtResource("1_ceiqc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00339153, 0.76768, 1.82433)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.107428, 0.76842, 1.82433)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_mpf7k")
@@ -158,7 +163,7 @@ libraries = {
 }
 
 [node name="MainCamera" type="Camera3D" parent="."]
-transform = Transform3D(0.834009, -0.231879, 0.50066, 0.000227156, 0.907547, 0.419949, -0.55175, -0.350127, 0.756956, 1.1782, 1.88322, 2.35099)
+transform = Transform3D(0.834008, -0.231879, 0.50066, 0.000227156, 0.907547, 0.419949, -0.551749, -0.350127, 0.756956, 1.1782, 1.88322, 2.35099)
 current = true
 fov = 40.6
 
@@ -178,6 +183,7 @@ transform = Transform3D(1, 0, 0, 0, 0.973563, 0.228419, 0, -0.228419, 0.973563, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0521996, 1.68438, 2.0921)
 light_energy = 0.262
 shadow_bias = 0.02
+max_energy_deviation = 0.02
 
 [node name="FlickeringLight2" parent="Lights" instance=ExtResource("5_r3mqi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.66972, 2.43806, -0.765376)
@@ -234,11 +240,11 @@ collision_mask = 2
 monitorable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TableBoundaries/OutOfBoundsChecker"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00201416, -0.116425, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00201416, 0.0654683, 0)
 shape = SubResource("BoxShape3D_b3caf")
 
 [node name="DEBUG Test Objects" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.856, 1.82476)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.71858, 0.856, 1.82476)
 
 [node name="Grabbable" parent="DEBUG Test Objects" instance=ExtResource("3_ohibm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.626641, 0.101365, 1.19209e-07)
@@ -262,7 +268,7 @@ can_sleep = false
 max_contacts_reported = 0
 
 [node name="Grabbable4" parent="DEBUG Test Objects" instance=ExtResource("3_ohibm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.584516, 0.282969, -0.00727856)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.585, 0.283, 0)
 can_sleep = false
 max_contacts_reported = 0
 
@@ -277,5 +283,11 @@ can_sleep = false
 max_contacts_reported = 0
 is_player_grabbable = false
 
-[node name="TableLeftSpawnPoint" type="Marker3D" parent="."]
+[node name="TableLeftRespawnPoint" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.597074, 1.93556, 1.8189)
+
+[node name="TableLeftSpawnPoint" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.570088, 1.07004, 1.82476)
+
+[node name="TableRightSpawnPoint" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.480778, 1.15936, 1.82476)

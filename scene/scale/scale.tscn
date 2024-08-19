@@ -641,6 +641,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.116349, 0)
 shape = SubResource("CylinderShape3D_wpsow")
 
 [node name="MiddleBlocker" type="StaticBody3D" parent="."]
+input_ray_pickable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MiddleBlocker"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0627649, 0.678275, 0)

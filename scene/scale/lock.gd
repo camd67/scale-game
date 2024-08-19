@@ -33,7 +33,7 @@ func on_lock_mouse_enter() -> void:
 
 func play_lock_move() -> void:
 	SoundManager.play_lock_move()
-	
-	
+
+
 func play_lock_unlock() -> void:
 	SoundManager.play_lock_unlock()

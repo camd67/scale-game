@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://chlx3ormi7sya"]
+
+[ext_resource type="Texture2D" uid="uid://do6s6jbdd6bje" path="res://scene/measureable_spawner/SummoningPortal_SummoningCosmos.png" id="1_p5agf"]
+
+[resource]
+resource_name = "cosmoscombined"
+transparency = 1
+cull_mode = 2
+albedo_texture = ExtResource("1_p5agf")
+roughness = 0.5
