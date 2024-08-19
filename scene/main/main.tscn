@@ -1,12 +1,14 @@
-[gd_scene load_steps=26 format=3 uid="uid://co4jso8vr8d1u"]
+[gd_scene load_steps=28 format=3 uid="uid://co4jso8vr8d1u"]
 
 [ext_resource type="PackedScene" uid="uid://ce6b0dfduypqr" path="res://scene/scale/scale.tscn" id="1_ceiqc"]
 [ext_resource type="Script" path="res://scene/main/main.gd" id="1_er31i"]
 [ext_resource type="PackedScene" uid="uid://dhgqdwpcy37iw" path="res://scene/ui/main_menu/main_menu.tscn" id="1_x18xv"]
 [ext_resource type="PackedScene" uid="uid://dvfs56lpfukm4" path="res://scene/level_manager/level_manager.tscn" id="2_f8vwc"]
 [ext_resource type="PackedScene" uid="uid://dbr2vgtnsucf0" path="res://scene/grabber/grabber.tscn" id="2_ygo0o"]
+[ext_resource type="Script" path="res://resources/level_definitions/level_definition.gd" id="3_dbj6n"]
 [ext_resource type="PackedScene" uid="uid://djctni0afpu2n" path="res://scene/weight_comparer/weight_comparer.tscn" id="3_fkc30"]
 [ext_resource type="PackedScene" uid="uid://4ej2b1sscx27" path="res://scene/draggable_entities/debug_box/debug_box.tscn" id="3_ohibm"]
+[ext_resource type="Resource" uid="uid://c184kbs4suval" path="res://resources/level_definitions/planets/planets1.tres" id="4_4qcts"]
 [ext_resource type="PackedScene" uid="uid://foljia802g4d" path="res://scene/dungeon/scaled_dungeon_living.tscn" id="4_6qt3t"]
 [ext_resource type="PackedScene" uid="uid://d3pwgvo15efba" path="res://scene/draggable_entities/debug_sphere/debug_sphere.tscn" id="4_oldih"]
 [ext_resource type="PackedScene" uid="uid://bhlp8xn50igxa" path="res://scene/flickering_light/flickering_light.tscn" id="5_r3mqi"]
@@ -79,6 +81,20 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector3(-0.433389, 0.584356, 0.000250297), Vector3(-0.230453, 0, 0)]
 }
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(10),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"camera_intro_finished"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4tgbm"]
 _data = {
@@ -131,7 +147,9 @@ size = Vector3(1.50623, 1.62433, 1)
 [node name="Main" type="Node3D"]
 script = ExtResource("1_er31i")
 
-[node name="LevelManager" parent="." instance=ExtResource("2_f8vwc")]
+[node name="LevelManager" parent="." node_paths=PackedStringArray("spawner") instance=ExtResource("2_f8vwc")]
+level_definitions = Array[ExtResource("3_dbj6n")]([ExtResource("4_4qcts"), ExtResource("4_4qcts")])
+spawner = NodePath("../MeasureableSpawner")
 
 [node name="WeightComparer" parent="." node_paths=PackedStringArray("scale") instance=ExtResource("3_fkc30")]
 scale = NodePath("../Scale")
