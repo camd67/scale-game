@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cwbr1xaprxh4c"]
+[gd_scene load_steps=17 format=3 uid="uid://cwbr1xaprxh4c"]
 
 [ext_resource type="Script" path="res://scene/autoload/sound_manager/sound_manager.gd" id="1_jtwni"]
 [ext_resource type="AudioStream" uid="uid://dmv5r6tflx0e6" path="res://audio/sfx/stone_door_open.mp3" id="2_a27bx"]
@@ -15,11 +15,12 @@
 [ext_resource type="AudioStream" uid="uid://cg13m8pk1hb6n" path="res://audio/sfx/fire_crackle.wav" id="11_w4e7y"]
 [ext_resource type="AudioStream" uid="uid://cpeg111kyrkp7" path="res://audio/sfx/steps.mp3" id="13_giirv"]
 [ext_resource type="AudioStream" uid="uid://dkxhkuxrtgj68" path="res://audio/sfx/chair_squeak.mp3" id="14_d4onr"]
+[ext_resource type="AudioStream" uid="uid://b0ruvhp46pjru" path="res://audio/sfx/helpme.mp3" id="15_g52jj"]
 
 [node name="SoundManager" type="AudioStreamPlayer"]
 bus = &"sfx"
 script = ExtResource("1_jtwni")
-sfx_list = Array[AudioStream]([ExtResource("2_a27bx"), ExtResource("3_xv1n2"), ExtResource("4_qa3sk"), ExtResource("5_drqjc"), ExtResource("6_g4unb"), ExtResource("7_2wmgm"), ExtResource("6_nmp43"), ExtResource("7_dunte"), ExtResource("8_q1sr6"), ExtResource("9_rwymp"), ExtResource("10_nr482"), ExtResource("13_giirv"), ExtResource("14_d4onr")])
+sfx_list = Array[AudioStream]([ExtResource("2_a27bx"), ExtResource("3_xv1n2"), ExtResource("4_qa3sk"), ExtResource("5_drqjc"), ExtResource("6_g4unb"), ExtResource("7_2wmgm"), ExtResource("6_nmp43"), ExtResource("7_dunte"), ExtResource("8_q1sr6"), ExtResource("9_rwymp"), ExtResource("10_nr482"), ExtResource("13_giirv"), ExtResource("14_d4onr"), ExtResource("15_g52jj")])
 
 [node name="PlayOpenTimer" type="Timer" parent="."]
 wait_time = 3.0

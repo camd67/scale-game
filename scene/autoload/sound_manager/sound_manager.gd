@@ -11,7 +11,8 @@ enum SFX {
 	LOW_GROWL = 7,
 	TEDDY = 8,
 	EERIE_GHOST = 9,
-	RATTLE = 10
+	RATTLE = 10,
+	HELP_ME = 11
 }
 
 const MIN_NOISE_BUFFER = 15
