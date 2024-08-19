@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="LevelDefinition" load_steps=9 format=3 uid="uid://bqxo1x473ergt"]
+
+[ext_resource type="Script" path="res://resources/measureables/measureable.gd" id="1_yk3np"]
+[ext_resource type="Resource" uid="uid://cf24gwy5cwkpn" path="res://resources/measureables/planets/mercury.tres" id="2_3gkud"]
+[ext_resource type="Resource" uid="uid://d2fox4l1he745" path="res://resources/measureables/planets/venus.tres" id="3_0c3ub"]
+[ext_resource type="Resource" uid="uid://dxrsv3hauso6u" path="res://resources/measureables/planets/earth.tres" id="4_gqgqm"]
+[ext_resource type="Resource" uid="uid://dai5dupjgs7hh" path="res://resources/measureables/planets/jupiter.tres" id="6_xn63x"]
+[ext_resource type="Resource" uid="uid://qffr2rdlbluu" path="res://resources/measureables/planets/neptune.tres" id="7_6quss"]
+[ext_resource type="Resource" uid="uid://dj6of0tjosd2w" path="res://resources/measureables/planets/uranus.tres" id="7_wcvhv"]
+[ext_resource type="Script" path="res://resources/level_definitions/level_definition.gd" id="8_ukmlf"]
+
+[resource]
+script = ExtResource("8_ukmlf")
+id = "planets1"
+left_side = Array[ExtResource("1_yk3np")]([ExtResource("2_3gkud"), ExtResource("3_0c3ub"), ExtResource("4_gqgqm"), ExtResource("4_gqgqm"), ExtResource("6_xn63x"), ExtResource("6_xn63x"), ExtResource("7_6quss")])
+right_side = Array[ExtResource("1_yk3np")]([ExtResource("7_wcvhv"), ExtResource("7_wcvhv")])

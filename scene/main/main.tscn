@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://co4jso8vr8d1u"]
+[gd_scene load_steps=29 format=3 uid="uid://co4jso8vr8d1u"]
 
 [ext_resource type="PackedScene" uid="uid://ce6b0dfduypqr" path="res://scene/scale/scale.tscn" id="1_ceiqc"]
 [ext_resource type="Script" path="res://scene/main/main.gd" id="1_er31i"]
@@ -10,7 +10,10 @@
 [ext_resource type="Resource" uid="uid://c184kbs4suval" path="res://resources/level_definitions/planets/planets1.tres" id="4_i6wjg"]
 [ext_resource type="Resource" uid="uid://crkwcikpi3uon" path="res://resources/level_definitions/planets/planets2.tres" id="5_nmpru"]
 [ext_resource type="PackedScene" uid="uid://bhlp8xn50igxa" path="res://scene/flickering_light/flickering_light.tscn" id="5_r3mqi"]
+[ext_resource type="Resource" uid="uid://cb1srulcqgl03" path="res://resources/level_definitions/planets/planets3.tres" id="6_aghko"]
 [ext_resource type="Texture2D" uid="uid://blesrlm3igbkx" path="res://scene/dungeon/fireparticle.png" id="6_xc4fm"]
+[ext_resource type="Resource" uid="uid://c8s8nubp4i8rv" path="res://resources/level_definitions/planets/planets4.tres" id="7_4gqfo"]
+[ext_resource type="Resource" uid="uid://bqxo1x473ergt" path="res://resources/level_definitions/planets/planets5.tres" id="8_tc7aj"]
 [ext_resource type="PackedScene" uid="uid://dt1b4n121yfn5" path="res://scene/measureable_spawner/measureable_spawner.tscn" id="12_ysa5h"]
 
 [sub_resource type="Environment" id="Environment_mpf7k"]
@@ -146,7 +149,7 @@ size = Vector3(1.50623, 1.62433, 1)
 script = ExtResource("1_er31i")
 
 [node name="LevelManager" parent="." node_paths=PackedStringArray("spawner") instance=ExtResource("2_f8vwc")]
-level_definitions = Array[ExtResource("3_kqovf")]([ExtResource("4_i6wjg"), ExtResource("5_nmpru"), ExtResource("4_i6wjg"), ExtResource("5_nmpru")])
+level_definitions = Array[ExtResource("3_kqovf")]([ExtResource("4_i6wjg"), ExtResource("5_nmpru"), ExtResource("6_aghko"), ExtResource("7_4gqfo"), ExtResource("8_tc7aj")])
 spawner = NodePath("../MeasureableSpawner")
 
 [node name="MeasureableSpawner" parent="." node_paths=PackedStringArray("left_spawn_location", "right_spawn_location") instance=ExtResource("12_ysa5h")]

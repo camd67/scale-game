@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="LevelDefinition" load_steps=6 format=3 uid="uid://cb1srulcqgl03"]
+
+[ext_resource type="Script" path="res://resources/measureables/measureable.gd" id="1_yr7o6"]
+[ext_resource type="Resource" uid="uid://cf24gwy5cwkpn" path="res://resources/measureables/planets/mercury.tres" id="2_ysfvd"]
+[ext_resource type="Resource" uid="uid://dxrsv3hauso6u" path="res://resources/measureables/planets/earth.tres" id="3_rfv02"]
+[ext_resource type="Resource" uid="uid://dwd3f6lcx78l4" path="res://resources/measureables/planets/mars.tres" id="4_f55ak"]
+[ext_resource type="Script" path="res://resources/level_definitions/level_definition.gd" id="5_yo0w5"]
+
+[resource]
+script = ExtResource("5_yo0w5")
+id = "planets1"
+left_side = Array[ExtResource("1_yr7o6")]([ExtResource("2_ysfvd"), ExtResource("3_rfv02"), ExtResource("4_f55ak"), ExtResource("2_ysfvd")])
+right_side = Array[ExtResource("1_yr7o6")]([ExtResource("4_f55ak"), ExtResource("4_f55ak")])
