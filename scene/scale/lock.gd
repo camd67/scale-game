@@ -45,7 +45,7 @@ func play_lock_move() -> void:
 
 func play_lock_unlock() -> void:
 	SoundManager.play_lock_unlock()
-	
-	
+
+
 func play_lock_unlock_reverse() -> void:
 	SoundManager.play_lock_unlock_reverse()

@@ -43,3 +43,13 @@ func on_oob_checker_exited(body: Node3D) -> void:
 		body.freeze = false
 	else:
 		body.global_position = table_left_respawn_point.global_position
+
+
+func enable_mouse_blocker() -> void:
+	$MouseBlocker.mouse_filter = Control.MOUSE_FILTER_STOP
+	$MouseBlocker/MouseBlocker3D/CollisionShape3D.disabled = false
+
+
+func disable_mouse_blocker() -> void:
+	$MouseBlocker.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	$MouseBlocker/MouseBlocker3D/CollisionShape3D.disabled = true
