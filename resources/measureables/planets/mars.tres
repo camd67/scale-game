@@ -1,8 +1,21 @@
-[gd_resource type="Resource" script_class="Measureable" load_steps=2 format=3 uid="uid://dwd3f6lcx78l4"]
+[gd_resource type="Resource" script_class="Measureable" load_steps=5 format=3 uid="uid://dwd3f6lcx78l4"]
 
 [ext_resource type="Script" path="res://resources/measureables/measureable.gd" id="1_3wci1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5flmj"]
+albedo_color = Color(0.705021, 0.177395, 0.185611, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_co5x6"]
+material = SubResource("StandardMaterial3D_5flmj")
+radius = 0.035
+height = 0.07
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_jxlrp"]
+radius = 0.035
 
 [resource]
 script = ExtResource("1_3wci1")
 id = "mars"
 weight = 4
+mesh = SubResource("SphereMesh_co5x6")
+shape = SubResource("SphereShape3D_jxlrp")

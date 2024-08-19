@@ -34,7 +34,6 @@ func on_play_pressed() -> void:
 	timer.wait_time = stream.get_length() + 1
 	timer.start()
 
-
 func on_play_open_timeout() -> void:
 	VoiceManager.play_random_start()
 	VoiceManager.start_random_timer()
