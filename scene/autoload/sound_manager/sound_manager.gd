@@ -4,7 +4,7 @@ enum SFX {
 	DOOR_OPEN = 0,
 	LOCK_MOVE = 1,
 	LOCK_UNLOCK = 2,
-	LOCK_FALL = 3,
+	LOCK_UNLOCK_REVERSE = 3,
 	PORTAL_NOISE = 4,
 	PORTAL_BLOOP = 5,
 	DISTANT_BOOMS = 6,
@@ -65,8 +65,8 @@ func play_lock_unlock() -> void:
 	play()
 
 
-func play_lock_fall() -> void:
-	stream = sfx_list[SFX.LOCK_FALL]
+func play_lock_unlock_reverse() -> void:
+	stream = sfx_list[SFX.LOCK_UNLOCK_REVERSE]
 	play()
 
 

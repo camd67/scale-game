@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=3 uid="uid://dibiqyqs2mfvr"]
+[gd_scene load_steps=72 format=3 uid="uid://dibiqyqs2mfvr"]
 
 [ext_resource type="Script" path="res://scene/autoload/voice_manager/voice_manager.gd" id="1_x10ku"]
 [ext_resource type="AudioStream" uid="uid://bl6qxnsokxvcd" path="res://audio/voice/correct/amazing_work.mp3" id="2_1rbup"]
@@ -66,7 +66,6 @@
 [ext_resource type="AudioStream" uid="uid://dh4pu8xuuprvy" path="res://audio/voice/triggered/placement/curious.mp3" id="64_6pjlv"]
 [ext_resource type="AudioStream" uid="uid://c4ygsvp4k48y7" path="res://audio/voice/triggered/fall/mmm_annoyed.mp3" id="64_khwtk"]
 [ext_resource type="AudioStream" uid="uid://dwrftrjtjocxs" path="res://audio/voice/triggered/placement/huh.mp3" id="65_8ml4w"]
-[ext_resource type="AudioStream" uid="uid://cg78h41oe3jyb" path="res://audio/voice/triggered/fall/those_arent_cheap.mp3" id="65_jfmet"]
 [ext_resource type="AudioStream" uid="uid://c4jg5u6e7mlwy" path="res://audio/voice/triggered/placement/interesting.mp3" id="66_bh1eu"]
 [ext_resource type="AudioStream" uid="uid://brmldhfijhjnr" path="res://audio/voice/triggered/placement/hmm.mp3" id="69_5qmbv"]
 [ext_resource type="AudioStream" uid="uid://vk7dbu08qq07" path="res://audio/voice/triggered/placement/hrm.mp3" id="70_rn13d"]
@@ -83,7 +82,7 @@ voices_wrong = Array[AudioStream]([ExtResource("27_xcejs"), ExtResource("28_l2dy
 voices_random = Array[AudioStream]([ExtResource("43_u28p4"), ExtResource("44_r475p"), ExtResource("45_al2fb"), ExtResource("46_wg8v2"), ExtResource("47_qyn00"), ExtResource("48_ot66p"), ExtResource("49_sgdkb"), ExtResource("50_dbim4"), ExtResource("51_rfw7e"), ExtResource("52_dma77"), ExtResource("53_1pop7")])
 voices_time = Array[AudioStream]([ExtResource("54_bri4i"), ExtResource("55_dojk6")])
 voices_start = Array[AudioStream]([ExtResource("56_tn0fm"), ExtResource("57_0tyip"), ExtResource("58_7mnjg"), ExtResource("59_vevqp"), ExtResource("60_ao2rv")])
-voices_fall = Array[AudioStream]([ExtResource("61_mag8i"), ExtResource("62_yi30b"), ExtResource("63_cuucf"), ExtResource("64_khwtk"), ExtResource("65_jfmet")])
+voices_fall = Array[AudioStream]([ExtResource("61_mag8i"), ExtResource("62_yi30b"), ExtResource("63_cuucf"), ExtResource("64_khwtk")])
 voices_placement = Array[AudioStream]([ExtResource("64_6pjlv"), ExtResource("65_8ml4w"), ExtResource("66_bh1eu"), ExtResource("69_5qmbv"), ExtResource("70_rn13d"), ExtResource("71_f8d2e")])
 
 [node name="Timer" type="Timer" parent="."]

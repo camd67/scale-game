@@ -47,6 +47,8 @@ func _ready() -> void:
 	randomVoiceTimer.timeout.connect(on_random_voice_timer_timeout)
 	finished.connect(on_audio_playback_finished)
 	voice_playback_start.connect(on_voice_activity)
+	GameEvents.correct_weight_submitted.connect(on_correct_weight_submitted)
+	GameEvents.incorrect_weight_submitted.connect(on_incorrect_weight_submitted)
 
 
 func on_audio_playback_finished() -> void:
@@ -193,3 +195,17 @@ func on_random_voice_timer_timeout() -> void:
 func on_voice_activity() -> void:
 		randomVoiceTimer.stop()
 		randomVoiceTimer.start()
+		
+
+func on_correct_weight_submitted() -> void:
+	voice_ready = false
+	play_random_correct()
+	voice_cooldown()
+	
+
+
+func on_incorrect_weight_submitted() -> void:
+	voice_ready = false
+	play_random_wrong()
+	voice_cooldown()
+	
