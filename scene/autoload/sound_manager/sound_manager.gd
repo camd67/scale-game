@@ -77,7 +77,7 @@ func on_fire_crackle_finished() -> void:
 
 func play_portal_noise() -> void:
 	portal_player.play()
-	
+
 
 func stop_portal_noise() -> void:
 	portal_player.stop()

@@ -1,22 +1,15 @@
-[gd_resource type="Resource" script_class="Measureable" load_steps=5 format=3 uid="uid://dxrsv3hauso6u"]
+[gd_resource type="Resource" script_class="Measureable" load_steps=4 format=3 uid="uid://dxrsv3hauso6u"]
 
+[ext_resource type="ArrayMesh" uid="uid://drks2c0f1njrs" path="res://asset/planet_meshes/earth/earth.res" id="1_4ecab"]
 [ext_resource type="Script" path="res://resources/measureables/measureable.gd" id="1_diibe"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mehoe"]
-albedo_color = Color(0.239175, 0.424186, 0.869613, 1)
-
-[sub_resource type="SphereMesh" id="SphereMesh_5u1en"]
-material = SubResource("StandardMaterial3D_mehoe")
-radius = 0.045
-height = 0.09
-
 [sub_resource type="SphereShape3D" id="SphereShape3D_70neq"]
-radius = 0.045
+radius = 0.033
 
 [resource]
 script = ExtResource("1_diibe")
 id = "earth"
 tooltip = "Our planet Earth"
 weight = 3
-mesh = SubResource("SphereMesh_5u1en")
+mesh = ExtResource("1_4ecab")
 shape = SubResource("SphereShape3D_70neq")

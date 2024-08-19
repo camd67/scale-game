@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Measureable" load_steps=4 format=3 uid="uid://dai5dupjgs7hh"]
+
+[ext_resource type="ArrayMesh" uid="uid://b78ouerkn38dh" path="res://asset/planet_meshes/jupiter/jupiter.res" id="1_6mdbf"]
+[ext_resource type="Script" path="res://resources/measureables/measureable.gd" id="1_ol3ou"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_co223"]
+radius = 0.06
+
+[resource]
+script = ExtResource("1_ol3ou")
+id = "jupiter"
+tooltip = ""
+weight = 5
+mesh = ExtResource("1_6mdbf")
+shape = SubResource("SphereShape3D_co223")
