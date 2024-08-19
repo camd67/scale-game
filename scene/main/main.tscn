@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dbr2vgtnsucf0" path="res://scene/grabber/grabber.tscn" id="2_ygo0o"]
 [ext_resource type="PackedScene" uid="uid://djctni0afpu2n" path="res://scene/weight_comparer/weight_comparer.tscn" id="3_fkc30"]
 [ext_resource type="PackedScene" uid="uid://4ej2b1sscx27" path="res://scene/draggable_entities/debug_box/debug_box.tscn" id="3_ohibm"]
-[ext_resource type="PackedScene" uid="uid://foljia802g4d" path="res://scene/dungeon/scaled_dungeon_living.tscn" id="4_6qt3t"]
+[ext_resource type="PackedScene" path="res://scene/dungeon/scaled_dungeon_living.tscn" id="4_6qt3t"]
 [ext_resource type="PackedScene" uid="uid://d3pwgvo15efba" path="res://scene/draggable_entities/debug_sphere/debug_sphere.tscn" id="4_oldih"]
 [ext_resource type="PackedScene" uid="uid://bhlp8xn50igxa" path="res://scene/flickering_light/flickering_light.tscn" id="5_r3mqi"]
 [ext_resource type="Texture2D" uid="uid://blesrlm3igbkx" path="res://scene/dungeon/fireparticle.png" id="6_xc4fm"]

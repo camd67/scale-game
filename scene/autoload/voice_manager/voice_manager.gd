@@ -1,5 +1,7 @@
 extends AudioStreamPlayer
 
+signal voice_activity()
+
 
 @export var voices_correct: Array[AudioStream]
 @export var voices_wrong: Array[AudioStream]
@@ -42,6 +44,7 @@ func _ready() -> void:
 	randomVoiceTimer.wait_time = RANDOM_BUFFER
 	timer.timeout.connect(on_timeout)
 	randomVoiceTimer.timeout.connect(on_random_voice_timer_timeout)
+	voice_activity.connect(on_random_voice_timer_timeout)
 
 
 func load_streams_at_path(path: String) -> Array[AudioStream]:
@@ -63,6 +66,7 @@ func play_random_correct() -> void:
 		voices_correct_trash.append(chosen_stream)
 		stream = chosen_stream
 		play()
+		voice_activity.emit()
 		if voices_correct.size() == 0:
 			voices_correct.append_array(voices_correct_trash)
 			voices_correct_trash.clear()
@@ -75,6 +79,7 @@ func play_random_wrong() -> void:
 		voices_wrong_trash.append(chosen_stream)
 		stream = chosen_stream
 		play()
+		voice_activity.emit()
 		if voices_wrong.size() == 0:
 			voices_wrong.append_array(voices_wrong_trash)
 			voices_wrong_trash.clear()
@@ -99,6 +104,7 @@ func play_random_time() -> void:
 		voices_time_trash.append(chosen_stream)
 		stream = chosen_stream
 		play()
+		voice_activity.emit()
 		if voices_time.size() == 0:
 			voices_time.append_array(voices_time_trash)
 			voices_time_trash.clear()
@@ -111,6 +117,7 @@ func play_random_start() -> void:
 		voices_start_trash.append(chosen_stream)
 		stream = chosen_stream
 		play()
+		voice_activity.emit()
 		if voices_start.size() == 0:
 			voices_start.append_array(voices_start_trash)
 			voices_start_trash.clear()
@@ -123,6 +130,7 @@ func play_random_fall() -> void:
 		voices_fall_trash.append(chosen_stream)
 		stream = chosen_stream
 		play()
+		voice_activity.emit()
 		if voices_fall.size() == 0:
 			voices_fall.append_array(voices_fall_trash)
 			voices_fall_trash.clear()
@@ -135,6 +143,7 @@ func play_random_placement() -> void:
 		voices_placement_trash.append(chosen_stream)
 		stream = chosen_stream
 		play()
+		voice_activity.emit()
 		if voices_placement.size() == 0:
 			voices_placement.append_array(voices_placement_trash)
 			voices_placement_trash.clear()
@@ -172,3 +181,8 @@ func on_random_voice_timer_timeout() -> void:
 		play_random_random()
 		randomVoiceTimer.start()
 		voice_cooldown()
+
+
+func on_voice_activity() -> void:
+		randomVoiceTimer.stop()
+		randomVoiceTimer.start()
