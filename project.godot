@@ -52,7 +52,7 @@ folder_colors={
 [global_group]
 
 weighable="Something that can report its weight back to the caller"
-grabbable=""
+grabbables=""
 
 [input]
 

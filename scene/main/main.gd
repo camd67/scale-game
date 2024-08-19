@@ -25,6 +25,9 @@ func camera_intro_finished() -> void:
 
 
 func on_oob_checker_exited(body: Node3D) -> void:
+	if body.is_queued_for_deletion():
+		return
+
 	if body is Grabbable and not body.is_player_grabbable:
 		return
 

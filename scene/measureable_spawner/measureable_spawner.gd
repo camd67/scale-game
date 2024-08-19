@@ -34,12 +34,22 @@ func begin_level() -> void:
 
 func spawn() -> void:
 	portal_particles.visible = true
+
+	var grabbables := get_tree().get_nodes_in_group("grabbables")
+	if grabbables.size() > 0:
+		# Todo: add an animation for removing old objects
+		for grabbable in grabbables:
+			print("queuing for deletion")
+			grabbable.queue_free()
+		await get_tree().create_timer(1).timeout
+
 	var left_side_objects := level_definition.left_side
 	var right_side_objects := level_definition.right_side
 
 	var spawning_portal := $SummoningPortalLiving as Node3D
 	# Right side spawning
 	spawning_portal.scale = Vector3.ZERO
+
 	spawning_portal.global_position = right_spawn_location.global_position + (Vector3.UP * .1)
 	portal_particles.global_position = spawning_portal.global_position
 	portal_spawn_animation_player.play("spawn_in")
