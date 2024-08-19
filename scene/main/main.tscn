@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dvfs56lpfukm4" path="res://scene/level_manager/level_manager.tscn" id="2_f8vwc"]
 [ext_resource type="PackedScene" uid="uid://dbr2vgtnsucf0" path="res://scene/grabber/grabber.tscn" id="2_ygo0o"]
 [ext_resource type="Script" path="res://resources/level_definitions/level_definition.gd" id="3_kqovf"]
-[ext_resource type="PackedScene" path="res://scene/dungeon/scaled_dungeon_living.tscn" id="4_6qt3t"]
+[ext_resource type="PackedScene" uid="uid://foljia802g4d" path="res://scene/dungeon/scaled_dungeon_living.tscn" id="4_6qt3t"]
 [ext_resource type="Resource" uid="uid://c184kbs4suval" path="res://resources/level_definitions/planets/planets1.tres" id="4_i6wjg"]
 [ext_resource type="Resource" uid="uid://crkwcikpi3uon" path="res://resources/level_definitions/planets/planets2.tres" id="5_nmpru"]
 [ext_resource type="PackedScene" uid="uid://bhlp8xn50igxa" path="res://scene/flickering_light/flickering_light.tscn" id="5_r3mqi"]
