@@ -7,6 +7,8 @@ class_name MainMenu
 @onready var play_button: Button = %PlayButton
 @onready var settings_button: Button = %SettingsButton
 @onready var quit_button: Button = %QuitButton
+@onready var credits_button: Button = %CreditsButton
+@onready var credits_back_button: Button = %CreditsBackButton
 
 
 func _ready() -> void:
@@ -27,6 +29,8 @@ func _ready() -> void:
 	settings_button.pressed.connect(_on_settings_button_pressed)
 	quit_button.pressed.connect(_on_quit_button_pressed)
 	settings_back_button.pressed.connect(on_settings_back_button_pressed)
+	credits_back_button.pressed.connect(on_credits_back_pressed)
+	credits_button.pressed.connect(on_credits_pressed)
 
 	get_tree().root.get_viewport().size_changed.connect(on_viewport_size_changed)
 
@@ -42,6 +46,9 @@ func _on_play_button_pressed() -> void:
 	settings_button.disabled = true
 	play_button.disabled = true
 	quit_button.disabled = true
+	credits_button.disabled = true
+	credits_back_button.disabled = true
+	settings_back_button.disabled = true
 	animation_player.play("remove_main_menu")
 	GameEvents.emit_play_pressed()
 
@@ -54,6 +61,16 @@ func _on_settings_button_pressed() -> void:
 func on_settings_back_button_pressed() -> void:
 	animation_player.play_backwards("settings_in")
 	play_button.grab_focus()
+
+
+func on_credits_back_pressed() -> void:
+	animation_player.play_backwards("credits_in")
+	play_button.grab_focus()
+
+
+func on_credits_pressed() -> void:
+	animation_player.play("credits_in")
+	credits_back_button.grab_focus()
 
 
 func _on_quit_button_pressed() -> void:
