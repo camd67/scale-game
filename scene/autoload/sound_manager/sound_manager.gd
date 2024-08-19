@@ -19,6 +19,7 @@ const NOISE_RANGE = 15
 @onready var timer: Timer = $PlayOpenTimer
 @onready var random_noise_player: AudioStreamPlayer = $RandomNoisePlayer
 @onready var random_noise_timer: Timer = $RandomNoisePlayer/RandomNoiseTimer
+@onready var fire_crackle_player: AudioStreamPlayer = $FireCracklePlayer
 
 
 func _ready() -> void:
@@ -27,6 +28,7 @@ func _ready() -> void:
 	random_noise_timer.timeout.connect(on_random_noise_timeout)
 	random_noise_timer.wait_time = MIN_NOISE_BUFFER + randi_range(0,NOISE_RANGE)
 	random_noise_timer.start()
+	fire_crackle_player.finished.connect(on_fire_crackle_finished)
 
 func on_play_pressed() -> void:
 	stream = sfx_list[SFX.DOOR_OPEN]
@@ -41,7 +43,7 @@ func on_play_open_timeout() -> void:
 
 
 func on_random_noise_timeout() -> void:
-	var sfx_choice: int = randi_range(4,SFX.keys().size())
+	var sfx_choice: int = randi_range(4,SFX.keys().size() - 1)
 	var timer_wait: int = MIN_NOISE_BUFFER
 	random_noise_player.stream = sfx_list[sfx_choice]
 	random_noise_player.play()
@@ -61,3 +63,6 @@ func play_lock_unlock() -> void:
 func play_lock_fall() -> void:
 	stream = sfx_list[SFX.LOCK_FALL]
 	play()
+
+func on_fire_crackle_finished() -> void:
+	fire_crackle_player.play()
