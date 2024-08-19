@@ -14,9 +14,9 @@ var starting_pan_height: float = 0
 func _ready() -> void:
 	#starting_pan_height = left_pan.global_position.y
 	starting_pan_height = ($Visuals/PanR as Node3D).global_position.y
-	GameEvents.weight_submitted.connect(on_level_submitted)
+	GameEvents.weight_submitted.connect(on_weight_submitted)
 
-func on_level_submitted() -> void:
+func on_weight_submitted(result_callback: Callable) -> void:
 	var pan_difference := right_pan_weight - left_pan_weight
 	# Use the right pan as our "baseline" for doing difference computations
 	var pan_difference_percent := pan_difference / right_pan_weight
@@ -31,8 +31,11 @@ func on_level_submitted() -> void:
 	var left_tween := create_tween()
 	left_tween.bind_node(left_pan_mesh).tween_property(left_pan_mesh, "global_position", left_end_pos, 3).set_ease(Tween.EASE_OUT)
 	create_tween().bind_node(right_pan_mesh).tween_property(right_pan_mesh, "global_position", right_end_pos, 3).set_ease(Tween.EASE_OUT)
-	left_tween.tween_callback(func() -> void: GameEvents.emit_weighing_finished())
-
+	left_tween.tween_callback(func() -> void: result_callback.call(pan_difference == 0))
+	#if (pan_difference == 0):
+		#GameEvents.emit_correct_weight_submitted()
+	#else:
+		#GameEvents.emit_incorrect_weight_submitted()
 
 
 func update_labels() -> void:

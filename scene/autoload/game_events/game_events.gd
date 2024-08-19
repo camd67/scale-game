@@ -1,6 +1,12 @@
 extends Node
 
 
+# A level has started
+signal level_started()
+
+func emit_level_started() -> void:
+	level_started.emit()
+
 # An object has entered the pan
 signal pan_entered()
 
@@ -14,10 +20,10 @@ func emit_pan_exited() -> void:
 	pan_exited.emit()
 
 # The player has "locked in" and submitted their solution
-signal weight_submitted()
+signal weight_submitted(callback: Callable)
 
-func emit_weight_submitted() -> void:
-	weight_submitted.emit()
+func emit_weight_submitted(callback: Callable) -> void:
+	weight_submitted.emit(callback)
 
 # The scale has finished it's weight animation
 signal weighing_finished()
@@ -37,10 +43,17 @@ signal incorrect_weight_submitted()
 func emit_incorrect_weight_submitted() -> void:
 	incorrect_weight_submitted.emit()
 
+# The play main menu button is pressed
 signal play_pressed()
 
 func emit_play_pressed() -> void:
 	play_pressed.emit()
+
+# The paning at the start of the game is finished
+signal camera_intro_finished
+
+func emit_camera_intro_finished() -> void:
+	camera_intro_finished.emit()
 
 signal debug_instant_play()
 

@@ -1,8 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://dvfs56lpfukm4"]
+[gd_scene load_steps=2 format=3 uid="uid://dvfs56lpfukm4"]
 
 [ext_resource type="Script" path="res://scene/level_manager/level_manager.gd" id="1_pwpk7"]
-[ext_resource type="Resource" uid="uid://c184kbs4suval" path="res://resources/level_definitions/planets/planets1.tres" id="2_rilyx"]
 
 [node name="LevelManager" type="Node"]
 script = ExtResource("1_pwpk7")
-level_definition = ExtResource("2_rilyx")

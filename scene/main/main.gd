@@ -14,8 +14,14 @@ func _ready() -> void:
 	)
 	GameEvents.debug_instant_play.connect(func() -> void:
 		$MainCamera.global_transform = $InstantDebugCameraMarker.global_transform
+		camera_intro_finished()
 	)
 	out_of_bounds_checker.body_exited.connect(on_oob_checker_exited)
+
+
+func camera_intro_finished() -> void:
+	await get_tree().create_timer(.7).timeout
+	GameEvents.emit_camera_intro_finished()
 
 
 func on_oob_checker_exited(body: Node3D) -> void:

@@ -1,4 +1,5 @@
 extends Node3D
+class_name Spawner
 
 @export var level_definition: LevelDefinition
 @export var left_spawn_location: Node3D
@@ -16,6 +17,12 @@ func _process(delta: float) -> void:
 	if OS.has_feature("editor"):
 		if Input.is_action_just_pressed("spawn(debug)"):
 			spawn()
+
+
+func begin_level() -> void:
+	GameEvents.emit_level_started()
+	await get_tree().create_timer(1).timeout
+	spawn()
 
 
 func spawn() -> void:
