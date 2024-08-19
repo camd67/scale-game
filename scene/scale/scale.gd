@@ -37,10 +37,13 @@ func on_weight_submitted(result_callback: Callable) -> void:
 	create_tween().bind_node(right_pan_mesh).tween_property(right_pan_mesh, "global_position", right_end_pos, 3).set_ease(Tween.EASE_OUT)
 	left_tween.tween_callback(func() -> void: result_callback.call())
 	last_pan_difference = pan_difference
+	#left_pan_weight = 0
+	#right_pan_weight = 0
 	if (pan_difference == 0):
-		GameEvents.emit_correct_weight_submitted()
+		left_tween.tween_callback(func() -> void: GameEvents.emit_correct_weight_submitted())
 	else:
-		GameEvents.emit_incorrect_weight_submitted()
+		left_tween.tween_callback(func() -> void: GameEvents.emit_incorrect_weight_submitted())
+
 
 
 func update_labels() -> void:
@@ -50,6 +53,7 @@ func update_labels() -> void:
 func _on_left_pan_body_entered(body: Node3D) -> void:
 	if body is Grabbable and body.weighable != null and body.is_player_grabbable:
 		left_pan_weight += body.weighable.weight
+		print("left weight: " + str(left_pan_weight))
 		update_labels()
 		GameEvents.emit_pan_entered()
 
@@ -64,6 +68,7 @@ func _on_left_pan_body_exited(body: Node3D) -> void:
 func _on_right_pan_body_entered(body: Node3D) -> void:
 	if body is Grabbable and body.weighable != null and not body.is_player_grabbable:
 		right_pan_weight += body.weighable.weight
+		print("left weight: " + str(right_pan_weight))
 		update_labels()
 
 

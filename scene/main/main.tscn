@@ -145,7 +145,7 @@ size = Vector3(1.50623, 1.62433, 1)
 script = ExtResource("1_er31i")
 
 [node name="LevelManager" parent="." node_paths=PackedStringArray("spawner") instance=ExtResource("2_f8vwc")]
-level_definitions = Array[ExtResource("3_kqovf")]([ExtResource("4_i6wjg"), ExtResource("4_i6wjg")])
+level_definitions = Array[ExtResource("3_kqovf")]([ExtResource("4_i6wjg"), ExtResource("4_i6wjg"), ExtResource("4_i6wjg"), ExtResource("4_i6wjg")])
 spawner = NodePath("../MeasureableSpawner")
 
 [node name="MeasureableSpawner" parent="." node_paths=PackedStringArray("left_spawn_location", "right_spawn_location") instance=ExtResource("12_ysa5h")]
