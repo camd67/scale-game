@@ -1,11 +1,13 @@
-[gd_scene load_steps=12 format=3 uid="uid://cwbr1xaprxh4c"]
+[gd_scene load_steps=14 format=3 uid="uid://cwbr1xaprxh4c"]
 
 [ext_resource type="Script" path="res://scene/autoload/sound_manager/sound_manager.gd" id="1_jtwni"]
 [ext_resource type="AudioStream" uid="uid://dmv5r6tflx0e6" path="res://audio/sfx/stone_door_open.mp3" id="2_a27bx"]
 [ext_resource type="AudioStream" uid="uid://codobm26vsj0f" path="res://audio/sfx/lock_move.mp3" id="3_xv1n2"]
 [ext_resource type="AudioStream" uid="uid://bwvshk4ya2ufj" path="res://audio/sfx/lock_unlock.mp3" id="4_qa3sk"]
 [ext_resource type="AudioStream" uid="uid://dfb132gvndth4" path="res://audio/sfx/lock_fall.mp3" id="5_m0hfg"]
+[ext_resource type="AudioStream" uid="uid://7c1ujygk2y7s" path="res://audio/sfx/portal_noise.mp3" id="6_g4unb"]
 [ext_resource type="AudioStream" uid="uid://6i48hyyiu0v2" path="res://audio/sfx/distant_booms.mp3" id="6_nmp43"]
+[ext_resource type="AudioStream" uid="uid://bd68yqrud7lcd" path="res://audio/sfx/portal_bloop.mp3" id="7_2wmgm"]
 [ext_resource type="AudioStream" uid="uid://c7ug1yihwgub5" path="res://audio/sfx/low_growl.mp3" id="7_dunte"]
 [ext_resource type="AudioStream" uid="uid://bb07lihpwapw2" path="res://audio/sfx/teddy.mp3" id="8_q1sr6"]
 [ext_resource type="AudioStream" uid="uid://qic6080334cd" path="res://audio/sfx/eerie_ghost.mp3" id="9_rwymp"]
@@ -15,7 +17,7 @@
 [node name="SoundManager" type="AudioStreamPlayer"]
 bus = &"sfx"
 script = ExtResource("1_jtwni")
-sfx_list = Array[AudioStream]([ExtResource("2_a27bx"), ExtResource("3_xv1n2"), ExtResource("4_qa3sk"), ExtResource("5_m0hfg"), ExtResource("6_nmp43"), ExtResource("7_dunte"), ExtResource("8_q1sr6"), ExtResource("9_rwymp"), ExtResource("10_nr482")])
+sfx_list = Array[AudioStream]([ExtResource("2_a27bx"), ExtResource("3_xv1n2"), ExtResource("4_qa3sk"), ExtResource("5_m0hfg"), ExtResource("6_g4unb"), ExtResource("7_2wmgm"), ExtResource("6_nmp43"), ExtResource("7_dunte"), ExtResource("8_q1sr6"), ExtResource("9_rwymp"), ExtResource("10_nr482")])
 
 [node name="PlayOpenTimer" type="Timer" parent="."]
 wait_time = 3.0
@@ -31,3 +33,5 @@ stream = ExtResource("11_w4e7y")
 volume_db = -7.0
 autoplay = true
 bus = &"sfx"
+
+[node name="PortalPlayer" type="AudioStreamPlayer" parent="."]

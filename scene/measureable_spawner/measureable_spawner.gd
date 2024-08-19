@@ -52,6 +52,7 @@ func spawn() -> void:
 
 	spawning_portal.global_position = right_spawn_location.global_position + (Vector3.UP * .1)
 	portal_particles.global_position = spawning_portal.global_position
+	SoundManager.play_portal_noise()
 	portal_spawn_animation_player.play("spawn_in")
 	await portal_spawn_animation_player.animation_finished
 
@@ -65,6 +66,7 @@ func spawn() -> void:
 	await get_tree().create_timer(.25).timeout
 	portal_spawn_animation_player.play_backwards("spawn_in")
 	await portal_spawn_animation_player.animation_finished
+	SoundManager.stop_portal_noise()
 	spawning_portal.scale = Vector3.ZERO
 	await get_tree().create_timer(.5).timeout
 
@@ -72,6 +74,7 @@ func spawn() -> void:
 	spawning_portal.global_position = left_spawn_location.global_position + (Vector3.UP * .1)
 	portal_particles.global_position = spawning_portal.global_position
 	portal_particles.emitting = true
+	SoundManager.play_portal_noise()
 	portal_spawn_animation_player.play("spawn_in")
 	await portal_spawn_animation_player.animation_finished
 
@@ -82,6 +85,7 @@ func spawn() -> void:
 	portal_particles.emitting = false
 	portal_spawn_animation_player.play_backwards("spawn_in")
 	await portal_spawn_animation_player.animation_finished
+	SoundManager.stop_portal_noise()
 	portal_particles.visible = false
 
 
@@ -110,6 +114,7 @@ func spawn_measurable_at_left_location(measureable: Measureable) -> void:
 func spawn_grabbable_at_location(grabbable: Grabbable, location: Vector3) -> void:
 	get_tree().root.add_child(grabbable)
 	grabbable.global_position = location
+	SoundManager.play_portal_bloop()
 
 
 func create_grabbable_for_measureable(measureable: Measureable, player_grabbale: bool) -> Grabbable:

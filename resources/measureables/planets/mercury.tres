@@ -16,6 +16,7 @@ radius = 0.065
 [resource]
 script = ExtResource("1_kw4nx")
 id = "mercury"
+tooltip = ""
 weight = 1
 mesh = SubResource("SphereMesh_qionq")
 shape = SubResource("SphereShape3D_d4no2")

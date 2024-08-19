@@ -5,11 +5,13 @@ enum SFX {
 	LOCK_MOVE = 1,
 	LOCK_UNLOCK = 2,
 	LOCK_FALL = 3,
-	DISTANT_BOOMS = 4,
-	LOW_GROWL = 5,
-	TEDDY = 6,
-	EERIE_GHOST = 7,
-	RATTLE = 8
+	PORTAL_NOISE = 4,
+	PORTAL_BLOOP = 5,
+	DISTANT_BOOMS = 6,
+	LOW_GROWL = 7,
+	TEDDY = 8,
+	EERIE_GHOST = 9,
+	RATTLE = 10
 }
 
 const MIN_NOISE_BUFFER = 15
@@ -20,6 +22,7 @@ const NOISE_RANGE = 15
 @onready var random_noise_player: AudioStreamPlayer = $RandomNoisePlayer
 @onready var random_noise_timer: Timer = $RandomNoisePlayer/RandomNoiseTimer
 @onready var fire_crackle_player: AudioStreamPlayer = $FireCracklePlayer
+@onready var portal_player: AudioStreamPlayer = $PortalPlayer
 
 
 func _ready() -> void:
@@ -29,6 +32,7 @@ func _ready() -> void:
 	random_noise_timer.wait_time = MIN_NOISE_BUFFER + randi_range(0,NOISE_RANGE)
 	random_noise_timer.start()
 	fire_crackle_player.finished.connect(on_fire_crackle_finished)
+	portal_player.stream = sfx_list[SFX.PORTAL_NOISE]
 
 func on_play_pressed() -> void:
 	stream = sfx_list[SFX.DOOR_OPEN]
@@ -42,7 +46,7 @@ func on_play_open_timeout() -> void:
 
 
 func on_random_noise_timeout() -> void:
-	var sfx_choice: int = randi_range(4,SFX.keys().size() - 1)
+	var sfx_choice: int = randi_range(SFX.DISTANT_BOOMS,SFX.keys().size() - 1)
 	var timer_wait: float = MIN_NOISE_BUFFER
 	random_noise_player.stream = sfx_list[sfx_choice]
 	random_noise_player.play()
@@ -55,13 +59,29 @@ func play_lock_move() -> void:
 	stream = sfx_list[SFX.LOCK_MOVE]
 	play()
 
+
 func play_lock_unlock() -> void:
 	stream = sfx_list[SFX.LOCK_UNLOCK]
 	play()
+
 
 func play_lock_fall() -> void:
 	stream = sfx_list[SFX.LOCK_FALL]
 	play()
 
+
 func on_fire_crackle_finished() -> void:
 	fire_crackle_player.play()
+
+
+func play_portal_noise() -> void:
+	portal_player.play()
+	
+
+func stop_portal_noise() -> void:
+	portal_player.stop()
+
+
+func play_portal_bloop() -> void:
+	stream = sfx_list[SFX.PORTAL_BLOOP]
+	play()
