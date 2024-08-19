@@ -18,6 +18,7 @@ func _ready() -> void:
 	starting_pan_height = ($Visuals/PanR as Node3D).global_position.y
 	GameEvents.weight_submitted.connect(on_weight_submitted)
 
+
 func on_weight_submitted(result_callback: Callable) -> void:
 	var pan_difference := right_pan_weight - left_pan_weight
 	# Use the right pan as our "baseline" for doing difference computations

@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://jdipcr2dyu7u"]
+
+[ext_resource type="Texture2D" uid="uid://mx47sqssla41" path="res://scene/scale/scales_scale-diffuse.png" id="1_5ijal"]
+
+[resource]
+resource_name = "Horns"
+cull_mode = 2
+albedo_texture = ExtResource("1_5ijal")
+roughness = 0.823636
+emission_enabled = true
+emission_texture = ExtResource("1_5ijal")

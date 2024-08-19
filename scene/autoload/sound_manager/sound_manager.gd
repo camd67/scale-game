@@ -43,7 +43,7 @@ func on_play_open_timeout() -> void:
 
 func on_random_noise_timeout() -> void:
 	var sfx_choice: int = randi_range(4,SFX.keys().size() - 1)
-	var timer_wait: int = MIN_NOISE_BUFFER
+	var timer_wait: float = MIN_NOISE_BUFFER
 	random_noise_player.stream = sfx_list[sfx_choice]
 	random_noise_player.play()
 	timer_wait += random_noise_player.stream.get_length() + randi_range(0,NOISE_RANGE)
