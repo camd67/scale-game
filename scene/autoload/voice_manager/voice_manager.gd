@@ -1,8 +1,5 @@
 extends AudioStreamPlayer
 
-signal voice_activity()
-
-
 signal voice_playback_start()
 signal voice_playback_end()
 
@@ -49,7 +46,7 @@ func _ready() -> void:
 	timer.timeout.connect(on_timeout)
 	randomVoiceTimer.timeout.connect(on_random_voice_timer_timeout)
 	finished.connect(on_audio_playback_finished)
-	voice_activity.connect(on_random_voice_timer_timeout)
+	voice_playback_start.connect(on_voice_activity)
 
 
 func on_audio_playback_finished() -> void:
