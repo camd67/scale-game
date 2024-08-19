@@ -28,6 +28,8 @@ func _ready() -> void:
 	quit_button.pressed.connect(_on_quit_button_pressed)
 	settings_back_button.pressed.connect(on_settings_back_button_pressed)
 
+	get_tree().root.get_viewport().size_changed.connect(on_viewport_size_changed)
+
 	play_button.grab_focus()
 
 
@@ -56,3 +58,8 @@ func on_settings_back_button_pressed() -> void:
 
 func _on_quit_button_pressed() -> void:
 	get_tree().quit()
+
+
+func on_viewport_size_changed() -> void:
+	var viewport_size := get_tree().root.get_viewport().get_visible_rect().size
+	$Title.position = (viewport_size / 2) - ($Title.size / 2)
