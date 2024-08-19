@@ -4,6 +4,21 @@
 [ext_resource type="Resource" uid="uid://c184kbs4suval" path="res://resources/level_definitions/planets/planets1.tres" id="2_ka5w3"]
 [ext_resource type="PackedScene" uid="uid://cdhb1lr6rcrxl" path="res://scene/measureable_spawner/summoning_portal_living.tscn" id="3_6je63"]
 
+[sub_resource type="Animation" id="Animation_mw4lc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SummoningPortalLiving:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_ht153"]
 resource_name = "rotate_portal"
 length = 5.0
@@ -19,21 +34,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(0, 6.28319, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_mw4lc"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("SummoningPortalLiving:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_c17si"]

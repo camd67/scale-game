@@ -34,9 +34,9 @@ func spawn() -> void:
 		spawn_measurable_at_right_location(object, i)
 		i += 1
 
-	await get_tree().create_timer(1).timeout
+	await get_tree().create_timer(.5).timeout
 	spawning_portal.visible = false
-	await get_tree().create_timer(1).timeout
+	await get_tree().create_timer(.5).timeout
 
 	# Left side spawning
 	spawning_portal.global_position = left_spawn_location.global_position + (Vector3.UP * .1)
@@ -47,9 +47,12 @@ func spawn() -> void:
 		spawn_measurable_at_left_location(object)
 		await get_tree().create_timer(.25).timeout
 
+	await get_tree().create_timer(.5).timeout
+	spawning_portal.visible = false
+
 
 func spawn_measurable_at_right_location(measureable: Measureable, order: int) -> void:
-	var grabbable := create_grabbable_for_measureable(measureable)
+	var grabbable := create_grabbable_for_measureable(measureable, false)
 	var spawn_deviation := get_right_side_spawn_deviation(order)
 	var spawn_location := right_spawn_location.global_position + Vector3.RIGHT * spawn_deviation
 	spawn_grabbable_at_location(grabbable, spawn_location)
@@ -65,7 +68,7 @@ func get_right_side_spawn_deviation(order: int) -> float:
 
 
 func spawn_measurable_at_left_location(measureable: Measureable) -> void:
-	var grabbable := create_grabbable_for_measureable(measureable)
+	var grabbable := create_grabbable_for_measureable(measureable, true)
 	var spawn_location := left_spawn_location.global_position + (Vector3.RIGHT * randf_range(-left_spawn_spread, left_spawn_spread))
 	spawn_grabbable_at_location(grabbable, spawn_location)
 
@@ -75,8 +78,9 @@ func spawn_grabbable_at_location(grabbable: Grabbable, location: Vector3) -> voi
 	grabbable.global_position = location
 
 
-func create_grabbable_for_measureable(measureable: Measureable) -> Grabbable:
+func create_grabbable_for_measureable(measureable: Measureable, player_grabbale: bool) -> Grabbable:
 	var grabbable : Grabbable = grabbable_scene.instantiate() as Grabbable
+	grabbable.is_player_grabbable = player_grabbale
 	add_collision_shape_child(grabbable, measureable.shape)
 	add_mesh_child(grabbable, measureable.mesh)
 	add_weighable_child(grabbable, measureable.weight)
@@ -95,7 +99,8 @@ func add_mesh_child(parent: Node, mesh: Mesh) -> void:
 	parent.add_child(mesh_instance_3d)
 
 
-func add_weighable_child(parent: Node, weight: int) -> void:
+func add_weighable_child(parent: Grabbable, weight: int) -> void:
 	var weighable_instance := weighable_scene.instantiate() as Weighable
 	weighable_instance.weight = weight
+	parent.weighable = weighable_instance
 	parent.add_child(weighable_instance)
