@@ -61,6 +61,7 @@ func _on_left_pan_body_entered(body: Node3D) -> void:
 func _on_left_pan_body_exited(body: Node3D) -> void:
 	if body is Grabbable and body.weighable != null and body.is_player_grabbable:
 		left_pan_weight -= body.weighable.weight
+		print("left weight: " + str(left_pan_weight))
 		update_labels()
 		GameEvents.emit_pan_exited()
 
@@ -68,7 +69,7 @@ func _on_left_pan_body_exited(body: Node3D) -> void:
 func _on_right_pan_body_entered(body: Node3D) -> void:
 	if body is Grabbable and body.weighable != null and not body.is_player_grabbable:
 		right_pan_weight += body.weighable.weight
-		print("left weight: " + str(right_pan_weight))
+		print("right weight: " + str(right_pan_weight))
 		update_labels()
 
 
@@ -77,5 +78,5 @@ func _on_right_pan_body_exited(body: Node3D) -> void:
 	# Skip for now unless we need it later
 	if body is Grabbable and body.weighable != null and not body.is_player_grabbable:
 		pass
-		#right_pan_weight -= body.weighable.weight
-		#update_labels()
+		right_pan_weight -= body.weighable.weight
+		update_labels()
