@@ -35,7 +35,8 @@ func on_lock_mouse_enter() -> void:
 
 
 func on_weight_calculated() -> void:
-	lock_animation_player.play("RESET")
+	# play backwards at 2x speed
+	lock_animation_player.play("unlock", -1, -2.0, true)
 	has_been_unlocked = false
 
 
