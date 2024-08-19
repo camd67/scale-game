@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scene/scale/scale.gd" id="1_x2ftb"]
 [ext_resource type="Texture2D" uid="uid://mx47sqssla41" path="res://scene/scale/scales_scale-diffuse.png" id="2_ycwki"]
 [ext_resource type="Script" path="res://scene/scale/lock.gd" id="3_2jepa"]
-[ext_resource type="Material" uid="uid://jdipcr2dyu7u" path="res://scene/scale/Horns.tres" id="3_l060t"]
+[ext_resource type="Material" uid="uid://cjpx2o165j67m" path="res://scene/scale/Horns.tres" id="3_l060t"]
 [ext_resource type="Script" path="res://scene/scale/horn_vfx.gd" id="5_h4hqj"]
 [ext_resource type="Texture2D" uid="uid://chlnnu67sfp5j" path="res://scene/scale/horn_vfx/flame_03.png" id="6_8m1un"]
 [ext_resource type="Texture2D" uid="uid://dkjwc273ywh3l" path="res://asset/star_07.png" id="6_qhhns"]
