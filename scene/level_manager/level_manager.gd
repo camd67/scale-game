@@ -16,6 +16,7 @@ func on_correct_weight_submitted() -> void:
 	current_level_number += 1
 	current_level = level_definitions[current_level_number]
 	spawner.level_definition = current_level
+	spawner.begin_level()
 
 
 func on_camera_intro_finished() -> void:

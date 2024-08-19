@@ -1,13 +1,14 @@
-[gd_scene load_steps=26 format=3 uid="uid://co4jso8vr8d1u"]
+[gd_scene load_steps=27 format=3 uid="uid://co4jso8vr8d1u"]
 
 [ext_resource type="PackedScene" uid="uid://ce6b0dfduypqr" path="res://scene/scale/scale.tscn" id="1_ceiqc"]
 [ext_resource type="Script" path="res://scene/main/main.gd" id="1_er31i"]
 [ext_resource type="PackedScene" uid="uid://dhgqdwpcy37iw" path="res://scene/ui/main_menu/main_menu.tscn" id="1_x18xv"]
 [ext_resource type="PackedScene" uid="uid://dvfs56lpfukm4" path="res://scene/level_manager/level_manager.tscn" id="2_f8vwc"]
 [ext_resource type="PackedScene" uid="uid://dbr2vgtnsucf0" path="res://scene/grabber/grabber.tscn" id="2_ygo0o"]
-[ext_resource type="PackedScene" uid="uid://djctni0afpu2n" path="res://scene/weight_comparer/weight_comparer.tscn" id="3_fkc30"]
+[ext_resource type="Script" path="res://resources/level_definitions/level_definition.gd" id="3_kqovf"]
 [ext_resource type="PackedScene" uid="uid://4ej2b1sscx27" path="res://scene/draggable_entities/debug_box/debug_box.tscn" id="3_ohibm"]
-[ext_resource type="PackedScene" path="res://scene/dungeon/scaled_dungeon_living.tscn" id="4_6qt3t"]
+[ext_resource type="PackedScene" uid="uid://foljia802g4d" path="res://scene/dungeon/scaled_dungeon_living.tscn" id="4_6qt3t"]
+[ext_resource type="Resource" uid="uid://c184kbs4suval" path="res://resources/level_definitions/planets/planets1.tres" id="4_i6wjg"]
 [ext_resource type="PackedScene" uid="uid://d3pwgvo15efba" path="res://scene/draggable_entities/debug_sphere/debug_sphere.tscn" id="4_oldih"]
 [ext_resource type="PackedScene" uid="uid://bhlp8xn50igxa" path="res://scene/flickering_light/flickering_light.tscn" id="5_r3mqi"]
 [ext_resource type="Texture2D" uid="uid://blesrlm3igbkx" path="res://scene/dungeon/fireparticle.png" id="6_xc4fm"]
@@ -131,10 +132,9 @@ size = Vector3(1.50623, 1.62433, 1)
 [node name="Main" type="Node3D"]
 script = ExtResource("1_er31i")
 
-[node name="LevelManager" parent="." instance=ExtResource("2_f8vwc")]
-
-[node name="WeightComparer" parent="." node_paths=PackedStringArray("scale") instance=ExtResource("3_fkc30")]
-scale = NodePath("../Scale")
+[node name="LevelManager" parent="." node_paths=PackedStringArray("spawner") instance=ExtResource("2_f8vwc")]
+level_definitions = Array[ExtResource("3_kqovf")]([ExtResource("4_i6wjg"), ExtResource("4_i6wjg")])
+spawner = NodePath("../MeasureableSpawner")
 
 [node name="MeasureableSpawner" parent="." node_paths=PackedStringArray("left_spawn_location", "right_spawn_location") instance=ExtResource("12_ysa5h")]
 left_spawn_location = NodePath("../TableLeftSpawnPoint")

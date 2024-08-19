@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scene/grabbable/grabbable.gd" id="1_k4w43"]
 
-[node name="Grabbable" type="RigidBody3D"]
+[node name="Grabbable" type="RigidBody3D" groups=["grabbable"]]
 collision_layer = 3
 input_ray_pickable = false
 axis_lock_linear_z = true
