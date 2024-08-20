@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Measureable" load_steps=4 format=3 uid="uid://dj6of0tjosd2w"]
+[gd_resource type="Resource" script_class="Measureable" load_steps=4 format=3 uid="uid://dim6odg2aw0d"]
 
 [ext_resource type="Script" path="res://resources/measureables/measureable.gd" id="1_rai14"]
 [ext_resource type="ArrayMesh" uid="uid://b3b5fe0sdiclv" path="res://asset/planet_meshes/uranus/uranus.res" id="1_rv0vk"]

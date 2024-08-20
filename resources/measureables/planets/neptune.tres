@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Measureable" load_steps=4 format=3 uid="uid://qffr2rdlbluu"]
+[gd_resource type="Resource" script_class="Measureable" load_steps=4 format=3 uid="uid://07y3huubcfd"]
 
 [ext_resource type="Script" path="res://resources/measureables/measureable.gd" id="1_51qkg"]
 [ext_resource type="ArrayMesh" uid="uid://d7bjuh0gg1lj" path="res://asset/planet_meshes/neptune/neptune.res" id="1_85wrx"]

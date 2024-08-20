@@ -187,6 +187,7 @@ func start_random_timer() -> void:
 
 func on_random_voice_timer_timeout() -> void:
 	if voice_ready:
+		voice_ready = false
 		play_random_random()
 		randomVoiceTimer.start()
 		voice_cooldown()
