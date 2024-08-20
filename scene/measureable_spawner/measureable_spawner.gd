@@ -27,6 +27,9 @@ func _process(delta: float) -> void:
 
 
 func begin_level() -> void:
+	# Sorry for owner stuff again
+	owner.enable_mouse_blocker()
+
 	GameEvents.emit_level_started()
 	await get_tree().create_timer(1).timeout
 	spawn()
@@ -87,6 +90,8 @@ func spawn() -> void:
 	await portal_spawn_animation_player.animation_finished
 	SoundManager.stop_portal_noise()
 	portal_particles.visible = false
+	# Another gross owner call... sorry
+	owner.disable_mouse_blocker()
 
 
 func spawn_measurable_at_right_location(measureable: Measureable, order: int) -> void:
