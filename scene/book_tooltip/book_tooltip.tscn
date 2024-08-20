@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://iqjc6mwiyy7w"]
+[gd_scene load_steps=7 format=3 uid="uid://iqjc6mwiyy7w"]
 
 [ext_resource type="Script" path="res://scene/book_tooltip/book_tooltip.gd" id="1_h76ww"]
 [ext_resource type="PackedScene" uid="uid://dptdpb62ytn8e" path="res://scene/book_tooltip/book.glb" id="1_ov1ge"]
@@ -64,6 +64,10 @@ _data = {
 "open": SubResource("Animation_duabv")
 }
 
+[sub_resource type="SystemFont" id="SystemFont_1w3w1"]
+font_names = PackedStringArray("Sans-Serif")
+font_italic = true
+
 [node name="BookTooltip" type="Node3D"]
 script = ExtResource("1_h76ww")
 
@@ -78,6 +82,7 @@ libraries = {
 transform = Transform3D(1.94262e-07, -1, 1.15842e-08, -0.0767185, -3.35347e-09, 0.997053, -0.997053, -1.94578e-07, -0.0767185, 0, 0.0792335, 0.249573)
 pixel_size = 0.001
 text = "DEBUG DEBUG DEBUG DEBUG DEBUG"
+font = SubResource("SystemFont_1w3w1")
 font_size = 64
 outline_size = 18
 horizontal_alignment = 0
