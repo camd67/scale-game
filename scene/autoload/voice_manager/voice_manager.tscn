@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=3 uid="uid://dibiqyqs2mfvr"]
+[gd_scene load_steps=76 format=3 uid="uid://dibiqyqs2mfvr"]
 
 [ext_resource type="Script" path="res://scene/autoload/voice_manager/voice_manager.gd" id="1_x10ku"]
 [ext_resource type="AudioStream" uid="uid://bl6qxnsokxvcd" path="res://audio/voice/correct/amazing_work.mp3" id="2_1rbup"]
@@ -69,7 +69,11 @@
 [ext_resource type="AudioStream" uid="uid://c4jg5u6e7mlwy" path="res://audio/voice/triggered/placement/interesting.mp3" id="66_bh1eu"]
 [ext_resource type="AudioStream" uid="uid://brmldhfijhjnr" path="res://audio/voice/triggered/placement/hmm.mp3" id="69_5qmbv"]
 [ext_resource type="AudioStream" uid="uid://vk7dbu08qq07" path="res://audio/voice/triggered/placement/hrm.mp3" id="70_rn13d"]
+[ext_resource type="AudioStream" uid="uid://d3n6rryg4680s" path="res://audio/voice/planets/planets1.mp3" id="71_53lo8"]
 [ext_resource type="AudioStream" uid="uid://bvmh0do30j6i3" path="res://audio/voice/triggered/placement/ok.mp3" id="71_f8d2e"]
+[ext_resource type="AudioStream" uid="uid://cs8vjfqs0t607" path="res://audio/voice/planets/planets2.mp3" id="72_23hsa"]
+[ext_resource type="AudioStream" uid="uid://vme67kqxkoce" path="res://audio/voice/planets/planets3.mp3" id="73_wgxw3"]
+[ext_resource type="AudioStream" uid="uid://dgiyemsdt75c3" path="res://audio/voice/planets/planets4.mp3" id="74_b0d5c"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_2ptl8"]
 
@@ -84,7 +88,11 @@ voices_time = Array[AudioStream]([ExtResource("54_bri4i"), ExtResource("55_dojk6
 voices_start = Array[AudioStream]([ExtResource("56_tn0fm"), ExtResource("57_0tyip"), ExtResource("58_7mnjg"), ExtResource("59_vevqp"), ExtResource("60_ao2rv")])
 voices_fall = Array[AudioStream]([ExtResource("61_mag8i"), ExtResource("62_yi30b"), ExtResource("63_cuucf"), ExtResource("64_khwtk")])
 voices_placement = Array[AudioStream]([ExtResource("64_6pjlv"), ExtResource("65_8ml4w"), ExtResource("66_bh1eu"), ExtResource("69_5qmbv"), ExtResource("70_rn13d"), ExtResource("71_f8d2e")])
+voices_planets = Array[AudioStream]([ExtResource("71_53lo8"), ExtResource("72_23hsa"), ExtResource("73_wgxw3"), ExtResource("74_b0d5c")])
 
 [node name="Timer" type="Timer" parent="."]
 
 [node name="RandomVoiceTimer" type="Timer" parent="."]
+
+[node name="PlanetsVoiceTimer" type="Timer" parent="."]
+one_shot = true

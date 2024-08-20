@@ -11,6 +11,7 @@ signal voice_playback_end()
 @export var voices_start: Array[AudioStream]
 @export var voices_fall: Array[AudioStream]
 @export var voices_placement: Array[AudioStream]
+@export var voices_planets: Array[AudioStream]
 
 @onready var voices_correct_trash: Array[AudioStream]
 @onready var voices_wrong_trash: Array[AudioStream]
@@ -19,13 +20,17 @@ signal voice_playback_end()
 @onready var voices_start_trash: Array[AudioStream]
 @onready var voices_fall_trash: Array[AudioStream]
 @onready var voices_placement_trash: Array[AudioStream]
+@onready var voices_planets_trash: Array[AudioStream]
 
 @onready var timer: Timer = $Timer
 @onready var randomVoiceTimer: Timer = $RandomVoiceTimer
+@onready var planetsVoiceTimer: Timer = $PlanetsVoiceTimer
 
 var voice_ready: bool = true
 const VOICE_BUFFER: int = 2
 const RANDOM_BUFFER: int = 20
+const INITIAL_HELP_BUFFER: int = 30
+const INCREMENTAL_HELP_BUFFER: int = 20
 
 
 func _ready() -> void:
@@ -49,6 +54,9 @@ func _ready() -> void:
 	voice_playback_start.connect(on_voice_activity)
 	GameEvents.correct_weight_submitted.connect(on_correct_weight_submitted)
 	GameEvents.incorrect_weight_submitted.connect(on_incorrect_weight_submitted)
+	planetsVoiceTimer.wait_time = INITIAL_HELP_BUFFER
+	planetsVoiceTimer.timeout.connect(on_planets_voice_timer_timeout)
+	planetsVoiceTimer.start()
 
 
 func on_audio_playback_finished() -> void:
@@ -209,3 +217,34 @@ func on_incorrect_weight_submitted() -> void:
 	voice_ready = false
 	play_random_wrong()
 	voice_cooldown()
+	
+	
+func play_next_planet() -> void:
+	if voices_planets.size():
+		var chosen_stream: AudioStream = voices_planets.pop_at(0) 
+		voices_planets_trash.append(chosen_stream)
+		stream = chosen_stream
+		play()
+		voice_playback_start.emit()
+
+
+func on_planets_voice_timer_timeout() -> void:
+	if voice_ready:
+		voice_ready = false
+		play_next_planet()
+		planetsVoiceTimer.wait_time = INCREMENTAL_HELP_BUFFER
+		planetsVoiceTimer.start()
+		voice_cooldown()
+	else:
+		planetsVoiceTimer.wait_time = VOICE_BUFFER
+		planetsVoiceTimer.start()
+
+
+func reset_planets_timer() -> void:
+	if planetsVoiceTimer.is_stopped() == false:
+		planetsVoiceTimer.stop()
+		planetsVoiceTimer.wait_time = INITIAL_HELP_BUFFER
+		planetsVoiceTimer.start()
+
+func stop_planets_timer() -> void:
+	planetsVoiceTimer.stop()

@@ -17,9 +17,11 @@ func on_correct_weight_submitted() -> void:
 	if current_level_number < level_definitions.size():
 		current_level = level_definitions[current_level_number]
 		spawner.level_definition = current_level
-
+		
+		VoiceManager.reset_planets_timer()
 		# level array is 0-based
 		if current_level_number == 5:
+			VoiceManager.stop_planets_timer()
 			GameEvents.emit_planet_levels_finished()
 		elif current_level_number == 8:
 			GameEvents.emit_planet_levels_started()

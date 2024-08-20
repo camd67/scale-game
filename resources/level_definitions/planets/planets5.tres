@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://resources/measureables/measureable.gd" id="1_yk3np"]
 [ext_resource type="Resource" uid="uid://cf24gwy5cwkpn" path="res://resources/measureables/planets/mercury.tres" id="2_3gkud"]
-[ext_resource type="Resource" uid="uid://d2fox4l1he745" path="res://resources/measureables/planets/venus.tres" id="3_0c3ub"]
+[ext_resource type="Resource" path="res://resources/measureables/planets/venus.tres" id="3_0c3ub"]
 [ext_resource type="Resource" uid="uid://dxrsv3hauso6u" path="res://resources/measureables/planets/earth.tres" id="4_gqgqm"]
 [ext_resource type="Resource" uid="uid://cq377uve53qcq" path="res://resources/measureables/planets/jupiter.tres" id="6_xn63x"]
 [ext_resource type="Resource" uid="uid://07y3huubcfd" path="res://resources/measureables/planets/neptune.tres" id="7_6quss"]
