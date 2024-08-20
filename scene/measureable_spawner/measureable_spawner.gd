@@ -129,6 +129,10 @@ func create_grabbable_for_measureable(measureable: Measureable, player_grabbale:
 	add_collision_shape_child(grabbable, measureable.shape)
 	add_mesh_child(grabbable, measureable.mesh)
 	add_weighable_child(grabbable, measureable.weight)
+
+	if measureable.id == 'z':
+		grabbable.axis_lock_angular_z = true
+
 	return grabbable
 
 

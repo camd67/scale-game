@@ -17,6 +17,13 @@ func on_correct_weight_submitted() -> void:
 	if current_level_number < level_definitions.size():
 		current_level = level_definitions[current_level_number]
 		spawner.level_definition = current_level
+
+		# level array is 0-based
+		if current_level_number == 5:
+			GameEvents.emit_planet_levels_finished()
+		elif current_level_number == 8:
+			GameEvents.emit_planet_levels_started()
+
 		spawner.begin_level()
 	else:
 		GameEvents.emit_game_won()
@@ -25,4 +32,5 @@ func on_correct_weight_submitted() -> void:
 func on_camera_intro_finished() -> void:
 	current_level = level_definitions[0]
 	spawner.level_definition = current_level
+	GameEvents.emit_planet_levels_started()
 	spawner.begin_level()

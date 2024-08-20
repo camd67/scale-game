@@ -9,7 +9,7 @@ radius = 0.05
 [resource]
 script = ExtResource("1_md0f5")
 id = "b"
-tooltip = ""
+tooltip = "B, the second letter"
 weight = 2
 mesh = ExtResource("1_7rjlx")
 shape = SubResource("SphereShape3D_1sffh")

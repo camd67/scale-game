@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://dbr2vgtnsucf0" path="res://scene/grabber/grabber.tscn" id="2_ygo0o"]
 [ext_resource type="Script" path="res://resources/level_definitions/level_definition.gd" id="3_kqovf"]
 [ext_resource type="PackedScene" uid="uid://foljia802g4d" path="res://scene/dungeon/scaled_dungeon_living.tscn" id="4_6qt3t"]
-[ext_resource type="Resource" uid="uid://c184kbs4suval" path="res://resources/level_definitions/planets/planets1.tres" id="4_i6wjg"]
 [ext_resource type="Resource" uid="uid://crkwcikpi3uon" path="res://resources/level_definitions/planets/planets2.tres" id="5_nmpru"]
 [ext_resource type="PackedScene" uid="uid://bhlp8xn50igxa" path="res://scene/flickering_light/flickering_light.tscn" id="5_r3mqi"]
 [ext_resource type="Resource" uid="uid://cb1srulcqgl03" path="res://resources/level_definitions/planets/planets3.tres" id="6_w2tsb"]
@@ -23,6 +22,7 @@
 [ext_resource type="Resource" uid="uid://cul1dfgn1mw8c" path="res://resources/level_definitions/amalgamation/amalgamation2.tres" id="13_b4kb4"]
 [ext_resource type="PackedScene" uid="uid://iqjc6mwiyy7w" path="res://scene/book_tooltip/book_tooltip.tscn" id="13_iad3c"]
 [ext_resource type="PackedScene" uid="uid://bdp06amc2j474" path="res://scene/sun/sun_living.tscn" id="13_t1507"]
+[ext_resource type="PackedScene" uid="uid://p2haigktvpu8" path="res://scene/sun/ordered_planets.tscn" id="19_oc12o"]
 
 [sub_resource type="Environment" id="Environment_mpf7k"]
 ambient_light_source = 3
@@ -116,7 +116,7 @@ tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "handle_modes": PackedInt32Array(0, 2, 0),
-"points": PackedFloat32Array(1.04425, -0.25, 0, 0.25, 0, 1.049, -0.166667, -0.343337, 0.206838, 0.426091, 1.384, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(1.04425, -0.25, 0, 0.25, 0, 1.049, -0.166667, -0.343337, 0.206838, 0.426091, 1.242, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 0.533333, 1)
 }
 tracks/3/type = "bezier"
@@ -290,7 +290,7 @@ radius = 1.61289
 script = ExtResource("1_er31i")
 
 [node name="LevelManager" parent="." node_paths=PackedStringArray("spawner") instance=ExtResource("2_f8vwc")]
-level_definitions = Array[ExtResource("3_kqovf")]([ExtResource("4_i6wjg"), ExtResource("5_nmpru"), ExtResource("6_w2tsb"), ExtResource("7_4gqfo"), ExtResource("8_tc7aj"), ExtResource("9_t02d8"), ExtResource("10_rg2ns"), ExtResource("11_f5d1n"), ExtResource("12_ij13h"), ExtResource("13_b4kb4")])
+level_definitions = Array[ExtResource("3_kqovf")]([ExtResource("13_b4kb4"), ExtResource("5_nmpru"), ExtResource("6_w2tsb"), ExtResource("7_4gqfo"), ExtResource("8_tc7aj"), ExtResource("9_t02d8"), ExtResource("10_rg2ns"), ExtResource("11_f5d1n"), ExtResource("12_ij13h"), ExtResource("13_b4kb4")])
 spawner = NodePath("../MeasureableSpawner")
 
 [node name="MeasureableSpawner" parent="." node_paths=PackedStringArray("left_spawn_location", "right_spawn_location") instance=ExtResource("12_ysa5h")]
@@ -313,6 +313,9 @@ metadata/_edit_lock_ = true
 
 [node name="SunLiving" parent="." instance=ExtResource("13_t1507")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.891987, 1.57812, 1.78925)
+
+[node name="OrderedPlanets" parent="." instance=ExtResource("19_oc12o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.451, 1.613, 1.789)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_mpf7k")

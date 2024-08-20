@@ -7,7 +7,7 @@
 [resource]
 script = ExtResource("1_5jj30")
 id = "j"
-tooltip = ""
+tooltip = "J, the 10th level"
 weight = 10
 mesh = ExtResource("1_hos4a")
 shape = ExtResource("3_wok6e")

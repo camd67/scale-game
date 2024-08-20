@@ -1,0 +1,55 @@
+[gd_scene load_steps=10 format=3 uid="uid://p2haigktvpu8"]
+
+[ext_resource type="ArrayMesh" uid="uid://coyxodthtw84e" path="res://asset/planet_meshes/mercury/mercury.res" id="1_d2yl4"]
+[ext_resource type="Script" path="res://scene/sun/ordered_planets.gd" id="1_t5yhk"]
+[ext_resource type="ArrayMesh" uid="uid://c4odjrsm07har" path="res://asset/planet_meshes/venus/venus.res" id="2_xsk1c"]
+[ext_resource type="ArrayMesh" uid="uid://drks2c0f1njrs" path="res://asset/planet_meshes/earth/earth.res" id="3_od631"]
+[ext_resource type="ArrayMesh" uid="uid://c6xbb32ifgtb3" path="res://asset/planet_meshes/mars/mars.res" id="4_vaf2w"]
+[ext_resource type="ArrayMesh" uid="uid://b78ouerkn38dh" path="res://asset/planet_meshes/jupiter/jupiter.res" id="5_38cma"]
+[ext_resource type="ArrayMesh" uid="uid://pxluh0jogomw" path="res://asset/planet_meshes/saturn/saturn.res" id="6_8f16l"]
+[ext_resource type="ArrayMesh" uid="uid://b3b5fe0sdiclv" path="res://asset/planet_meshes/uranus/uranus.res" id="7_1lxe4"]
+[ext_resource type="ArrayMesh" uid="uid://d7bjuh0gg1lj" path="res://asset/planet_meshes/neptune/neptune.res" id="8_5j1po"]
+
+[node name="OrderedPlanets" type="Node3D"]
+script = ExtResource("1_t5yhk")
+
+[node name="Position" type="Node3D" parent="."]
+
+[node name="Mercury" type="MeshInstance3D" parent="Position"]
+mesh = ExtResource("1_d2yl4")
+skeleton = NodePath("../..")
+
+[node name="Venus" type="MeshInstance3D" parent="Position"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.133209, 0, 0)
+mesh = ExtResource("2_xsk1c")
+skeleton = NodePath("../..")
+
+[node name="Earth" type="MeshInstance3D" parent="Position"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.249829, 0, 0)
+mesh = ExtResource("3_od631")
+skeleton = NodePath("../..")
+
+[node name="Mars" type="MeshInstance3D" parent="Position"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.358626, 0, 0)
+mesh = ExtResource("4_vaf2w")
+skeleton = NodePath("../..")
+
+[node name="Jupiter" type="MeshInstance3D" parent="Position"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.490873, 0, 0)
+mesh = ExtResource("5_38cma")
+skeleton = NodePath("../..")
+
+[node name="Saturn" type="MeshInstance3D" parent="Position"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.659469, 0, 0)
+mesh = ExtResource("6_8f16l")
+skeleton = NodePath("../..")
+
+[node name="Uranus" type="MeshInstance3D" parent="Position"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.82005, 0, 0)
+mesh = ExtResource("7_1lxe4")
+skeleton = NodePath("../..")
+
+[node name="Neptune" type="MeshInstance3D" parent="Position"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.958692, 0, 0)
+mesh = ExtResource("8_5j1po")
+skeleton = NodePath("../..")

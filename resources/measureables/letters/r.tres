@@ -7,7 +7,7 @@
 [resource]
 script = ExtResource("1_ocetn")
 id = "r"
-tooltip = ""
+tooltip = "R, the 18th letter"
 weight = 18
 mesh = ExtResource("1_x2dpt")
 shape = ExtResource("3_ia5aa")

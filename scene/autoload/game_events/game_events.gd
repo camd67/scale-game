@@ -71,6 +71,16 @@ signal tooltip_done(text: String)
 func emit_tooltip_done(text: String) -> void:
 	tooltip_done.emit(text)
 
+signal planet_levels_started
+
+func emit_planet_levels_started() -> void:
+	planet_levels_started.emit()
+
+signal planet_levels_finished
+
+func emit_planet_levels_finished() -> void:
+	planet_levels_finished.emit()
+
 signal game_won
 
 func emit_game_won() -> void:
