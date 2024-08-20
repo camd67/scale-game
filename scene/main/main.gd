@@ -17,6 +17,15 @@ func _ready() -> void:
 		camera_intro_finished()
 	)
 	out_of_bounds_checker.body_exited.connect(on_oob_checker_exited)
+	GameEvents.game_won.connect(on_game_won)
+
+
+func on_game_won() -> void:
+	# TODO: Replace with victory voice
+	VoiceManager.play_random_correct()
+	$GameWinAnimationPlayer.play("win")
+	await $GameWinAnimationPlayer.animation_finished
+	get_tree().reload_current_scene()
 
 
 func camera_intro_finished() -> void:
@@ -25,7 +34,7 @@ func camera_intro_finished() -> void:
 
 
 func on_oob_checker_exited(body: Node3D) -> void:
-	if body.is_queued_for_deletion():
+	if body.is_queued_for_deletion() or not body.is_inside_tree() or not table_left_respawn_point.is_inside_tree():
 		return
 
 	if body is Grabbable and not body.is_player_grabbable:
