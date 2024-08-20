@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://co4jso8vr8d1u"]
+[gd_scene load_steps=35 format=3 uid="uid://co4jso8vr8d1u"]
 
 [ext_resource type="PackedScene" uid="uid://ce6b0dfduypqr" path="res://scene/scale/scale.tscn" id="1_ceiqc"]
 [ext_resource type="Script" path="res://scene/main/main.gd" id="1_er31i"]
@@ -14,7 +14,9 @@
 [ext_resource type="Texture2D" uid="uid://blesrlm3igbkx" path="res://scene/dungeon/fireparticle.png" id="6_xc4fm"]
 [ext_resource type="Resource" uid="uid://c8s8nubp4i8rv" path="res://resources/level_definitions/planets/planets4.tres" id="7_4gqfo"]
 [ext_resource type="Resource" uid="uid://bqxo1x473ergt" path="res://resources/level_definitions/planets/planets5.tres" id="8_tc7aj"]
+[ext_resource type="Script" path="res://scene/main/book_tooltip_system.gd" id="11_qln3q"]
 [ext_resource type="PackedScene" uid="uid://dt1b4n121yfn5" path="res://scene/measureable_spawner/measureable_spawner.tscn" id="12_ysa5h"]
+[ext_resource type="PackedScene" uid="uid://iqjc6mwiyy7w" path="res://scene/book_tooltip/book_tooltip.tscn" id="13_iad3c"]
 
 [sub_resource type="Environment" id="Environment_mpf7k"]
 ambient_light_source = 3
@@ -26,6 +28,122 @@ glow_bloom = 0.34
 fog_enabled = true
 fog_light_color = Color(0.249493, 0.0969925, 0.016814, 1)
 fog_light_energy = 0.72
+
+[sub_resource type="Animation" id="Animation_oonvl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BookTooltip:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -1.18208, -1.3761)]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BookTooltip:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-1.81731, -0.0005, 0, 0.0005, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BookTooltip:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1.04425, -0.0005, 0, 0.0005, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BookTooltip:position:z")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-2.58892, -0.0005, 0, 0.0005, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_jx7l5"]
+resource_name = "appear"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BookTooltip:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -1.18208, -1.3761)]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BookTooltip:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 2, 0),
+"points": PackedFloat32Array(-1.81731, -0.25, 0, 0.25, 0, -1.894, -0.204625, 0.046435, 0.166667, -0.0378213, -1.002, -0.233333, -0.653921, 0.25, 0),
+"times": PackedFloat32Array(0, 0.533333, 1)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BookTooltip:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 2, 0),
+"points": PackedFloat32Array(1.04425, -0.25, 0, 0.25, 0, 1.049, -0.166667, -0.343337, 0.206838, 0.426091, 1.384, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.533333, 1)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BookTooltip:position:z")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 2, 0),
+"points": PackedFloat32Array(-2.58892, -0.25, 0, 0.25, 0, -2.07242, -0.240757, 0.123296, 0.0666667, -0.0341411, 0.311, -0.266667, -1.38753, 0.25, 0),
+"times": PackedFloat32Array(0, 0.533333, 1)
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.833333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"toggle_book_open"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pvna6"]
+_data = {
+"RESET": SubResource("Animation_oonvl"),
+"appear": SubResource("Animation_jx7l5")
+}
 
 [sub_resource type="Animation" id="Animation_66mho"]
 length = 0.001
@@ -96,6 +214,23 @@ tracks/2/keys = {
 "method": &"camera_intro_finished"
 }]
 }
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"enable_mouse_blocker"
+}, {
+"args": [],
+"method": &"disable_mouse_blocker"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4tgbm"]
 _data = {
@@ -145,6 +280,9 @@ size = Vector3(0.134766, 1.36902, 1.36621)
 [sub_resource type="BoxShape3D" id="BoxShape3D_b3caf"]
 size = Vector3(1.50623, 1.62433, 1)
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_l1atl"]
+radius = 1.61289
+
 [node name="Main" type="Node3D"]
 script = ExtResource("1_er31i")
 
@@ -170,6 +308,24 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.107428, 0.76842, 1.82433)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_mpf7k")
+
+[node name="BookTooltipSystem" type="Node3D" parent="."]
+script = ExtResource("11_qln3q")
+
+[node name="BookTooltip" parent="BookTooltipSystem" instance=ExtResource("13_iad3c")]
+transform = Transform3D(0.0733247, 0.37184, -0.925396, -0.981106, 0.193469, 0, 0.179035, 0.907913, 0.379001, -1.81731, 1.04425, -2.58892)
+
+[node name="BookAnimationPlayer" type="AnimationPlayer" parent="BookTooltipSystem"]
+libraries = {
+"": SubResource("AnimationLibrary_pvna6")
+}
+
+[node name="OpenTimer" type="Timer" parent="BookTooltipSystem"]
+wait_time = 1.5
+one_shot = true
+
+[node name="CloseTimer" type="Timer" parent="BookTooltipSystem"]
+one_shot = true
 
 [node name="ScaledDungeonLiving" parent="." instance=ExtResource("4_6qt3t")]
 
@@ -267,3 +423,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.570088, 1.07004, 1.82476)
 
 [node name="TableRightSpawnPoint" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.434565, 1.15936, 1.82476)
+
+[node name="MouseBlocker" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+top_level = true
+z_index = 4096
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="MouseBlocker3D" type="Area3D" parent="MouseBlocker"]
+collision_layer = 3
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MouseBlocker/MouseBlocker3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.324606, 1.36971, 1.03537)
+shape = SubResource("SphereShape3D_l1atl")
+disabled = true

@@ -31,7 +31,7 @@ func is_grabbing_item() -> bool:
 
 
 func tooltip_requested(text: String) -> void:
-	if is_grabbing_item():
+	if is_grabbing_item() or text == "":
 		# If we're grabbing an item and request a tooltip, stop immediately
 		return
 
@@ -42,13 +42,16 @@ func tooltip_requested(text: String) -> void:
 	if not is_tooltip_active and open_timer.is_stopped():
 		is_tooltip_active = true
 		if has_seen_atleast_one_tooltip:
-			open_timer.start()
+			open_timer.start(1.5)
 		else:
 			# First tooltip is extra quick so they see it
 			open_timer.start(0.5)
 
 
 func tooltip_done(text: String) -> void:
+	if text == "":
+		return
+
 	if not open_timer.is_stopped():
 		# We haven't even opened up yet
 		open_timer.stop()
