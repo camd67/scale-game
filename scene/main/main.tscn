@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://ca5j8fw53lwly"]
+[gd_scene load_steps=53 format=3 uid="uid://ca5j8fw53lwly"]
 
 [ext_resource type="PackedScene" uid="uid://ce6b0dfduypqr" path="res://scene/scale/scale.tscn" id="1_ceiqc"]
 [ext_resource type="Script" path="res://scene/main/main.gd" id="1_er31i"]
@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://iqjc6mwiyy7w" path="res://scene/book_tooltip/book_tooltip.tscn" id="13_iad3c"]
 [ext_resource type="PackedScene" uid="uid://bdp06amc2j474" path="res://scene/sun/sun_living.tscn" id="13_t1507"]
 [ext_resource type="PackedScene" uid="uid://p2haigktvpu8" path="res://scene/sun/ordered_planets.tscn" id="19_oc12o"]
+[ext_resource type="Texture2D" uid="uid://dkjwc273ywh3l" path="res://asset/star_07.png" id="24_e7y5x"]
 
 [sub_resource type="Animation" id="Animation_n1tyw"]
 length = 0.001
@@ -279,6 +280,40 @@ _data = {
 "intro": SubResource("Animation_qcr40")
 }
 
+[sub_resource type="Curve" id="Curve_y6rhp"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.743094, 0.609442), -1.12208, -1.12208, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_nbxbw"]
+curve = SubResource("Curve_y6rhp")
+
+[sub_resource type="Gradient" id="Gradient_t8ajs"]
+interpolation_mode = 2
+colors = PackedColorArray(0.58548, 0.3936, 0.82, 1, 0.84, 0.3024, 0.616, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ist16"]
+gradient = SubResource("Gradient_t8ajs")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vlwbm"]
+emission_shape = 3
+emission_box_extents = Vector3(0.5, 0.01, 0.5)
+direction = Vector3(0, 1, 0)
+gravity = Vector3(0, 0.05, 0)
+scale_min = 0.3
+scale_max = 0.3
+color_initial_ramp = SubResource("GradientTexture1D_ist16")
+alpha_curve = SubResource("CurveTexture_nbxbw")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l6ae6"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("24_e7y5x")
+billboard_mode = 1
+billboard_keep_scale = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_036m7"]
+material = SubResource("StandardMaterial3D_l6ae6")
+
 [sub_resource type="Curve" id="Curve_3qocl"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.0219779), -2.4938, 0.0, 0, 0]
 point_count = 2
@@ -425,6 +460,20 @@ omni_range = 5.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5355, 2.43806, -0.765376)
 light_energy = 1.369
 omni_range = 5.0
+
+[node name="EnchantedTableLight" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.23318, 0.814163, -1.95374)
+light_color = Color(0.21306, 0.0424, 0.53, 1)
+light_energy = 5.0
+omni_range = 1.5
+
+[node name="EnchantedTableParticles" type="GPUParticles3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.24715, 0.685233, -2.01317)
+amount = 16
+lifetime = 10.0
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_vlwbm")
+draw_pass_1 = SubResource("QuadMesh_036m7")
 
 [node name="TorchParticles" type="Node" parent="."]
 
