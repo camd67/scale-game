@@ -24,7 +24,7 @@ func _ready() -> void:
 func on_weight_submitted(result_callback: Callable) -> void:
 	var pan_difference := right_pan_weight - left_pan_weight
 	# Use the right pan as our "baseline" for doing difference computations
-	var pan_difference_percent := pan_difference / right_pan_weight
+	var pan_difference_percent := pan_difference / (right_pan_weight + left_pan_weight)
 	var pan_height_change := pan_height_range * pan_difference_percent
 
 	var left_pan_mesh := $Visuals/PanR as Node3D
