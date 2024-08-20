@@ -17,4 +17,4 @@ godot --headless --export-release "web" export/web/index.html
 echo
 echo "---------- Push via butler to itch ---------"
 echo
-butler push export/web camd67/scale-game:html
+butler push export/web camd67/demons-scales:html
