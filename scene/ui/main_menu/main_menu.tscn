@@ -207,6 +207,7 @@ _data = {
 
 [sub_resource type="SystemFont" id="SystemFont_sye1d"]
 font_names = PackedStringArray("Sans-Serif")
+subpixel_positioning = 0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gpgfv"]
 bg_color = Color(0.26, 0.26, 0.26, 1)
