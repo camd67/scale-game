@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://c3f5tayo5lmty"]
+
+[ext_resource type="PackedScene" uid="uid://ccfvncoywtc70" path="res://scene/sun/sun.glb" id="1_htofk"]
+
+[node name="sun" instance=ExtResource("1_htofk")]
