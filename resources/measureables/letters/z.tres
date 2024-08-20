@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Measureable" load_steps=4 format=3 uid="uid://cfgrl7smnafmi"]
+
+[ext_resource type="ArrayMesh" uid="uid://njdweo3rhlbc" path="res://asset/letter_meshes/z.res" id="1_85mv2"]
+[ext_resource type="Script" path="res://resources/measureables/measureable.gd" id="1_i2ks8"]
+[ext_resource type="Shape3D" uid="uid://cspr1of6mn6db" path="res://resources/measureables/letters/letter_shape.tres" id="3_u0jgq"]
+
+[resource]
+script = ExtResource("1_i2ks8")
+id = "z"
+tooltip = ""
+weight = 26
+mesh = ExtResource("1_85mv2")
+shape = ExtResource("3_u0jgq")

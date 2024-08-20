@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="LevelDefinition" load_steps=11 format=3 uid="uid://cul1dfgn1mw8c"]
+
+[ext_resource type="Script" path="res://resources/measureables/measureable.gd" id="1_ysbtc"]
+[ext_resource type="Resource" uid="uid://cq377uve53qcq" path="res://resources/measureables/planets/jupiter.tres" id="2_cqg6s"]
+[ext_resource type="Resource" uid="uid://dwd3f6lcx78l4" path="res://resources/measureables/planets/mars.tres" id="2_jlaqq"]
+[ext_resource type="Resource" uid="uid://dj8owag1hhwai" path="res://resources/measureables/letters/d.tres" id="3_x5kvl"]
+[ext_resource type="Resource" uid="uid://dr7lmrqogwk4v" path="res://resources/measureables/letters/f.tres" id="5_ascvy"]
+[ext_resource type="Resource" uid="uid://pd65kvk0rejp" path="res://resources/measureables/letters/r.tres" id="6_s7bo6"]
+[ext_resource type="Resource" uid="uid://dxrsv3hauso6u" path="res://resources/measureables/planets/earth.tres" id="7_2jlys"]
+[ext_resource type="Resource" uid="uid://cfgrl7smnafmi" path="res://resources/measureables/letters/z.tres" id="7_dyr5q"]
+[ext_resource type="Resource" uid="uid://07y3huubcfd" path="res://resources/measureables/planets/neptune.tres" id="7_vommf"]
+[ext_resource type="Script" path="res://resources/level_definitions/level_definition.gd" id="8_ssnh5"]
+
+[resource]
+script = ExtResource("8_ssnh5")
+id = "amalgamation1"
+left_side = Array[ExtResource("1_ysbtc")]([ExtResource("2_cqg6s"), ExtResource("3_x5kvl"), ExtResource("7_2jlys"), ExtResource("7_2jlys"), ExtResource("5_ascvy"), ExtResource("2_jlaqq"), ExtResource("7_dyr5q")])
+right_side = Array[ExtResource("1_ysbtc")]([ExtResource("6_s7bo6"), ExtResource("7_vommf")])

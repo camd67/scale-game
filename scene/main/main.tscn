@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://ca5j8fw53lwly"]
+[gd_scene load_steps=41 format=3 uid="uid://ca5j8fw53lwly"]
 
 [ext_resource type="PackedScene" uid="uid://ce6b0dfduypqr" path="res://scene/scale/scale.tscn" id="1_ceiqc"]
 [ext_resource type="Script" path="res://scene/main/main.gd" id="1_er31i"]
@@ -14,8 +14,13 @@
 [ext_resource type="Texture2D" uid="uid://blesrlm3igbkx" path="res://scene/dungeon/fireparticle.png" id="6_xc4fm"]
 [ext_resource type="Resource" uid="uid://c8s8nubp4i8rv" path="res://resources/level_definitions/planets/planets4.tres" id="7_4gqfo"]
 [ext_resource type="Resource" uid="uid://bqxo1x473ergt" path="res://resources/level_definitions/planets/planets5.tres" id="8_tc7aj"]
+[ext_resource type="Resource" uid="uid://cfulq0jng74aj" path="res://resources/level_definitions/letters/letters1.tres" id="9_t02d8"]
+[ext_resource type="Resource" uid="uid://wfnofxcn8w8i" path="res://resources/level_definitions/letters/letters2.tres" id="10_rg2ns"]
+[ext_resource type="Resource" uid="uid://ctxg4freqajgn" path="res://resources/level_definitions/letters/letters3.tres" id="11_f5d1n"]
 [ext_resource type="Script" path="res://scene/main/book_tooltip_system.gd" id="11_qln3q"]
+[ext_resource type="Resource" uid="uid://deb6ufckna0su" path="res://resources/level_definitions/amalgamation/amalgamation1.tres" id="12_ij13h"]
 [ext_resource type="PackedScene" uid="uid://dt1b4n121yfn5" path="res://scene/measureable_spawner/measureable_spawner.tscn" id="12_ysa5h"]
+[ext_resource type="Resource" uid="uid://cul1dfgn1mw8c" path="res://resources/level_definitions/amalgamation/amalgamation2.tres" id="13_b4kb4"]
 [ext_resource type="PackedScene" uid="uid://iqjc6mwiyy7w" path="res://scene/book_tooltip/book_tooltip.tscn" id="13_iad3c"]
 [ext_resource type="PackedScene" uid="uid://bdp06amc2j474" path="res://scene/sun/sun_living.tscn" id="13_t1507"]
 
@@ -285,7 +290,7 @@ radius = 1.61289
 script = ExtResource("1_er31i")
 
 [node name="LevelManager" parent="." node_paths=PackedStringArray("spawner") instance=ExtResource("2_f8vwc")]
-level_definitions = Array[ExtResource("3_kqovf")]([ExtResource("4_i6wjg"), ExtResource("5_nmpru"), ExtResource("6_w2tsb"), ExtResource("7_4gqfo"), ExtResource("8_tc7aj")])
+level_definitions = Array[ExtResource("3_kqovf")]([ExtResource("4_i6wjg"), ExtResource("5_nmpru"), ExtResource("6_w2tsb"), ExtResource("7_4gqfo"), ExtResource("8_tc7aj"), ExtResource("9_t02d8"), ExtResource("10_rg2ns"), ExtResource("11_f5d1n"), ExtResource("12_ij13h"), ExtResource("13_b4kb4")])
 spawner = NodePath("../MeasureableSpawner")
 
 [node name="MeasureableSpawner" parent="." node_paths=PackedStringArray("left_spawn_location", "right_spawn_location") instance=ExtResource("12_ysa5h")]

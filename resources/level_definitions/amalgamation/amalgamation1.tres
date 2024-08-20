@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="LevelDefinition" load_steps=9 format=3 uid="uid://deb6ufckna0su"]
+
+[ext_resource type="Script" path="res://resources/measureables/measureable.gd" id="1_cr71m"]
+[ext_resource type="Resource" uid="uid://dwd3f6lcx78l4" path="res://resources/measureables/planets/mars.tres" id="2_rxjv3"]
+[ext_resource type="Resource" uid="uid://cs0nshyw6awlj" path="res://resources/measureables/letters/b.tres" id="3_nhbki"]
+[ext_resource type="Resource" uid="uid://cf24gwy5cwkpn" path="res://resources/measureables/planets/mercury.tres" id="4_nnp5a"]
+[ext_resource type="Resource" uid="uid://cmyip1w77nkog" path="res://resources/measureables/letters/l.tres" id="5_wmhs8"]
+[ext_resource type="Resource" uid="uid://bfhpbh7oimbd7" path="res://resources/measureables/letters/j.tres" id="6_q3qcq"]
+[ext_resource type="Resource" uid="uid://dxrsv3hauso6u" path="res://resources/measureables/planets/earth.tres" id="7_ogr0h"]
+[ext_resource type="Script" path="res://resources/level_definitions/level_definition.gd" id="7_ys028"]
+
+[resource]
+script = ExtResource("7_ys028")
+id = "amalgamation1"
+left_side = Array[ExtResource("1_cr71m")]([ExtResource("2_rxjv3"), ExtResource("2_rxjv3"), ExtResource("3_nhbki"), ExtResource("4_nnp5a"), ExtResource("5_wmhs8")])
+right_side = Array[ExtResource("1_cr71m")]([ExtResource("6_q3qcq"), ExtResource("7_ogr0h")])
