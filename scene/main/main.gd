@@ -22,7 +22,7 @@ func _ready() -> void:
 
 func on_game_won() -> void:
 	# TODO: Replace with victory voice
-	VoiceManager.play_random_correct()
+	VoiceManager.play_win_voice()
 	$GameWinAnimationPlayer.play("win")
 	await $GameWinAnimationPlayer.animation_finished
 	get_tree().reload_current_scene()

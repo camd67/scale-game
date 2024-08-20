@@ -12,6 +12,9 @@ signal voice_playback_end()
 @export var voices_fall: Array[AudioStream]
 @export var voices_placement: Array[AudioStream]
 @export var voices_planets: Array[AudioStream]
+@export var voices_letters: Array[AudioStream]
+@export var voices_final: Array[AudioStream]
+@export var voices_win: Array[AudioStream]
 
 @onready var voices_correct_trash: Array[AudioStream]
 @onready var voices_wrong_trash: Array[AudioStream]
@@ -21,10 +24,15 @@ signal voice_playback_end()
 @onready var voices_fall_trash: Array[AudioStream]
 @onready var voices_placement_trash: Array[AudioStream]
 @onready var voices_planets_trash: Array[AudioStream]
+@onready var voices_letters_trash: Array[AudioStream]
+@onready var voices_final_trash: Array[AudioStream]
+@onready var voices_win_trash: Array[AudioStream]
 
 @onready var timer: Timer = $Timer
 @onready var randomVoiceTimer: Timer = $RandomVoiceTimer
 @onready var planetsVoiceTimer: Timer = $PlanetsVoiceTimer
+@onready var lettersVoiceTimer: Timer = $LettersVoiceTimer
+@onready var finalVoiceTimer: Timer = $FinalVoiceTimer
 
 var voice_ready: bool = true
 const VOICE_BUFFER: int = 2
@@ -52,11 +60,12 @@ func _ready() -> void:
 	randomVoiceTimer.timeout.connect(on_random_voice_timer_timeout)
 	finished.connect(on_audio_playback_finished)
 	voice_playback_start.connect(on_voice_activity)
-	GameEvents.correct_weight_submitted.connect(on_correct_weight_submitted)
+	#GameEvents.correct_weight_submitted.connect(on_correct_weight_submitted)
 	GameEvents.incorrect_weight_submitted.connect(on_incorrect_weight_submitted)
 	planetsVoiceTimer.wait_time = INITIAL_HELP_BUFFER
-	planetsVoiceTimer.timeout.connect(on_planets_voice_timer_timeout)
-	planetsVoiceTimer.start()
+	planetsVoiceTimer.timeout.connect(on_planets_voice_timer_timeout) 
+	lettersVoiceTimer.timeout.connect(on_letters_voice_timer_timeout)
+	finalVoiceTimer.timeout.connect(on_final_voice_timer_timeout)
 
 
 func on_audio_playback_finished() -> void:
@@ -191,6 +200,10 @@ func on_pan_exited() -> void:
 
 func start_random_timer() -> void:
 	randomVoiceTimer.start()
+	
+
+func start_planets_timer() -> void:
+	planetsVoiceTimer.start()
 
 
 func on_random_voice_timer_timeout() -> void:
@@ -248,3 +261,75 @@ func reset_planets_timer() -> void:
 
 func stop_planets_timer() -> void:
 	planetsVoiceTimer.stop()
+	lettersVoiceTimer.wait_time = INITIAL_HELP_BUFFER
+	lettersVoiceTimer.start()
+
+func play_next_letter() -> void:
+	if voices_letters.size():
+		var chosen_stream: AudioStream = voices_letters.pop_at(0) 
+		voices_letters_trash.append(chosen_stream)
+		stream = chosen_stream
+		play()
+		voice_playback_start.emit()
+
+
+func on_letters_voice_timer_timeout() -> void:
+	if voice_ready:
+		voice_ready = false
+		play_next_letter()
+		lettersVoiceTimer.wait_time = INCREMENTAL_HELP_BUFFER
+		lettersVoiceTimer.start()
+		voice_cooldown()
+	else:
+		lettersVoiceTimer.wait_time = VOICE_BUFFER
+		lettersVoiceTimer.start()
+
+
+func reset_letters_timer() -> void:
+	if lettersVoiceTimer.is_stopped() == false:
+		lettersVoiceTimer.stop()
+		lettersVoiceTimer.wait_time = INITIAL_HELP_BUFFER
+		lettersVoiceTimer.start()
+
+func stop_letters_timer() -> void:
+	lettersVoiceTimer.stop()
+	finalVoiceTimer.wait_time = INITIAL_HELP_BUFFER
+	finalVoiceTimer.start()
+	
+	
+func play_next_final() -> void:
+	if voices_final.size():
+		var chosen_stream: AudioStream = voices_final.pop_at(0) 
+		voices_final_trash.append(chosen_stream)
+		stream = chosen_stream
+		play()
+		voice_playback_start.emit()
+
+
+func on_final_voice_timer_timeout() -> void:
+	if voice_ready:
+		voice_ready = false
+		play_next_final()
+		finalVoiceTimer.wait_time = INCREMENTAL_HELP_BUFFER
+		finalVoiceTimer.start()
+		voice_cooldown()
+	else:
+		finalVoiceTimer.wait_time = VOICE_BUFFER
+		finalVoiceTimer.start()
+
+
+func reset_final_timer() -> void:
+	if finalVoiceTimer.is_stopped() == false:
+		finalVoiceTimer.stop()
+		finalVoiceTimer.wait_time = INITIAL_HELP_BUFFER
+		finalVoiceTimer.start()
+
+func stop_final_timer() -> void:
+	finalVoiceTimer.stop()
+
+
+func play_win_voice() -> void:
+	timer.stop()
+	voice_ready = false
+	stream = voices_win[0]
+	play()

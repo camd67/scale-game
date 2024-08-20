@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=3 uid="uid://dibiqyqs2mfvr"]
+[gd_scene load_steps=85 format=3 uid="uid://dibiqyqs2mfvr"]
 
 [ext_resource type="Script" path="res://scene/autoload/voice_manager/voice_manager.gd" id="1_x10ku"]
 [ext_resource type="AudioStream" uid="uid://bl6qxnsokxvcd" path="res://audio/voice/correct/amazing_work.mp3" id="2_1rbup"]
@@ -74,6 +74,15 @@
 [ext_resource type="AudioStream" uid="uid://cs8vjfqs0t607" path="res://audio/voice/planets/planets2.mp3" id="72_23hsa"]
 [ext_resource type="AudioStream" uid="uid://vme67kqxkoce" path="res://audio/voice/planets/planets3.mp3" id="73_wgxw3"]
 [ext_resource type="AudioStream" uid="uid://dgiyemsdt75c3" path="res://audio/voice/planets/planets4.mp3" id="74_b0d5c"]
+[ext_resource type="AudioStream" uid="uid://bj71m35hf6huk" path="res://audio/voice/letters/letters1.mp3" id="75_ds74p"]
+[ext_resource type="AudioStream" uid="uid://djfm63vjidjhe" path="res://audio/voice/letters/letters2.mp3" id="76_pbbgd"]
+[ext_resource type="AudioStream" uid="uid://08mjn55d60ar" path="res://audio/voice/letters/letters3.mp3" id="77_5l81x"]
+[ext_resource type="AudioStream" uid="uid://d28afvegtme00" path="res://audio/voice/letters/letters4.mp3" id="78_t4n46"]
+[ext_resource type="AudioStream" uid="uid://ctklmdcx867b2" path="res://audio/voice/final/final1.mp3" id="79_wilni"]
+[ext_resource type="AudioStream" uid="uid://8phcyyr0fwnv" path="res://audio/voice/final/final2.mp3" id="80_n6oxl"]
+[ext_resource type="AudioStream" uid="uid://c4wbsur3bcfh5" path="res://audio/voice/final/final3.mp3" id="81_2s8i0"]
+[ext_resource type="AudioStream" uid="uid://bhuqrc4i0gx72" path="res://audio/voice/final/final4.mp3" id="82_lidn3"]
+[ext_resource type="AudioStream" uid="uid://ca3f84bys5j3w" path="res://audio/voice/win/win.mp3" id="83_ennp1"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_2ptl8"]
 
@@ -89,6 +98,9 @@ voices_start = Array[AudioStream]([ExtResource("56_tn0fm"), ExtResource("57_0tyi
 voices_fall = Array[AudioStream]([ExtResource("61_mag8i"), ExtResource("62_yi30b"), ExtResource("63_cuucf"), ExtResource("64_khwtk")])
 voices_placement = Array[AudioStream]([ExtResource("64_6pjlv"), ExtResource("65_8ml4w"), ExtResource("66_bh1eu"), ExtResource("69_5qmbv"), ExtResource("70_rn13d"), ExtResource("71_f8d2e")])
 voices_planets = Array[AudioStream]([ExtResource("71_53lo8"), ExtResource("72_23hsa"), ExtResource("73_wgxw3"), ExtResource("74_b0d5c")])
+voices_letters = Array[AudioStream]([ExtResource("75_ds74p"), ExtResource("76_pbbgd"), ExtResource("77_5l81x"), ExtResource("78_t4n46")])
+voices_final = Array[AudioStream]([ExtResource("79_wilni"), ExtResource("80_n6oxl"), ExtResource("81_2s8i0"), ExtResource("82_lidn3")])
+voices_win = Array[AudioStream]([ExtResource("83_ennp1")])
 
 [node name="Timer" type="Timer" parent="."]
 
@@ -96,3 +108,7 @@ voices_planets = Array[AudioStream]([ExtResource("71_53lo8"), ExtResource("72_23
 
 [node name="PlanetsVoiceTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="FinalVoiceTimer" type="Timer" parent="."]
+
+[node name="LettersVoiceTimer" type="Timer" parent="."]
