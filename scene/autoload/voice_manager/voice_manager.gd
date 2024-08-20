@@ -196,17 +196,16 @@ func on_random_voice_timer_timeout() -> void:
 func on_voice_activity() -> void:
 		randomVoiceTimer.stop()
 		randomVoiceTimer.start()
-		
+
 
 func on_correct_weight_submitted() -> void:
 	voice_ready = false
 	play_random_correct()
 	voice_cooldown()
-	
+
 
 
 func on_incorrect_weight_submitted() -> void:
 	voice_ready = false
 	play_random_wrong()
 	voice_cooldown()
-	

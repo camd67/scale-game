@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Measureable" load_steps=4 format=3 uid="uid://pd65kvk0rejp"]
+
+[ext_resource type="Script" path="res://resources/measureables/measureable.gd" id="1_ocetn"]
+[ext_resource type="ArrayMesh" uid="uid://gawjymbd8m71" path="res://asset/letter_meshes/r.res" id="1_x2dpt"]
+[ext_resource type="Shape3D" uid="uid://cspr1of6mn6db" path="res://resources/measureables/letters/letter_shape.tres" id="3_ia5aa"]
+
+[resource]
+script = ExtResource("1_ocetn")
+id = "r"
+tooltip = ""
+weight = 18
+mesh = ExtResource("1_x2dpt")
+shape = ExtResource("3_ia5aa")

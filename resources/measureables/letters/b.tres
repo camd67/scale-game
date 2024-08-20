@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Measureable" load_steps=4 format=3 uid="uid://cs0nshyw6awlj"]
+
+[ext_resource type="ArrayMesh" uid="uid://difcvm85ontxa" path="res://asset/letter_meshes/b.res" id="1_7rjlx"]
+[ext_resource type="Script" path="res://resources/measureables/measureable.gd" id="1_md0f5"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_1sffh"]
+radius = 0.05
+
+[resource]
+script = ExtResource("1_md0f5")
+id = "b"
+tooltip = ""
+weight = 2
+mesh = ExtResource("1_7rjlx")
+shape = SubResource("SphereShape3D_1sffh")

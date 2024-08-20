@@ -19,7 +19,7 @@ func on_lock_input_event(camera: Node, event: InputEvent, event_position: Vector
 	if event is InputEventMouseButton and event.is_pressed():
 		lock_animation_player.play("unlock")
 		has_been_unlocked = true
-		GameEvents.emit_weight_submitted(on_weight_calculated)
+		GameEvents.emit_weight_submitted(on_next_level_start)
 
 
 func on_lock_mouse_exit() -> void:
@@ -34,7 +34,7 @@ func on_lock_mouse_enter() -> void:
 	lock_animation_player.play("hover")
 
 
-func on_weight_calculated() -> void:
+func on_next_level_start() -> void:
 	# play backwards at 2x speed
 	lock_animation_player.play("unlock", -1, -2.0, true)
 	has_been_unlocked = false

@@ -3,6 +3,33 @@
 [ext_resource type="Script" path="res://scene/book_tooltip/book_tooltip.gd" id="1_h76ww"]
 [ext_resource type="PackedScene" uid="uid://dptdpb62ytn8e" path="res://scene/book_tooltip/book.glb" id="1_ov1ge"]
 
+[sub_resource type="Animation" id="Animation_u7yfe"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("book/Book_002:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TooltipLabel:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_duabv"]
 resource_name = "open"
 length = 0.7
@@ -31,33 +58,6 @@ tracks/1/keys = {
 "values": [Vector3(0, 1, 1), Vector3(1, 1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_u7yfe"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("book/Book_002:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("TooltipLabel:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(1, 1, 1)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vli0j"]
 _data = {
 "RESET": SubResource("Animation_u7yfe"),
@@ -75,7 +75,7 @@ libraries = {
 }
 
 [node name="TooltipLabel" type="Label3D" parent="."]
-transform = Transform3D(1.30877e-07, -1, 6.70699e-09, -0.076719, -3.35349e-09, 0.997053, -0.997053, -1.31005e-07, -0.076719, 0, 0.0792335, 0.249573)
+transform = Transform3D(1.94262e-07, -1, 1.15842e-08, -0.0767185, -3.35347e-09, 0.997053, -0.997053, -1.94578e-07, -0.0767185, 0, 0.0792335, 0.249573)
 pixel_size = 0.001
 text = "DEBUG DEBUG DEBUG DEBUG DEBUG"
 font_size = 64

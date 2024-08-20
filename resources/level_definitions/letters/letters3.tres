@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="LevelDefinition" load_steps=10 format=3 uid="uid://ctxg4freqajgn"]
+
+[ext_resource type="Script" path="res://resources/measureables/measureable.gd" id="1_8mb3j"]
+[ext_resource type="Resource" uid="uid://vhrn7cgfr5gw" path="res://resources/measureables/letters/a.tres" id="2_v82ll"]
+[ext_resource type="Resource" uid="uid://dj8owag1hhwai" path="res://resources/measureables/letters/d.tres" id="3_bwmkg"]
+[ext_resource type="Resource" uid="uid://cmyip1w77nkog" path="res://resources/measureables/letters/l.tres" id="3_p3o5n"]
+[ext_resource type="Resource" uid="uid://bll3gcygtn47f" path="res://resources/measureables/letters/g.tres" id="4_ow1rc"]
+[ext_resource type="Resource" uid="uid://bfhpbh7oimbd7" path="res://resources/measureables/letters/j.tres" id="5_nwojy"]
+[ext_resource type="Resource" uid="uid://c76rcmuurbakb" path="res://resources/measureables/letters/x.tres" id="6_rqcvb"]
+[ext_resource type="Script" path="res://resources/level_definitions/level_definition.gd" id="6_yygma"]
+[ext_resource type="Resource" uid="uid://bhvpeu5mc2lon" path="res://resources/measureables/letters/t.tres" id="7_vmgw8"]
+
+[resource]
+script = ExtResource("6_yygma")
+id = "letters1"
+left_side = Array[ExtResource("1_8mb3j")]([ExtResource("2_v82ll"), ExtResource("3_bwmkg"), ExtResource("4_ow1rc"), ExtResource("4_ow1rc"), ExtResource("5_nwojy"), ExtResource("5_nwojy"), ExtResource("6_rqcvb")])
+right_side = Array[ExtResource("1_8mb3j")]([ExtResource("7_vmgw8"), ExtResource("3_p3o5n")])

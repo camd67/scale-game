@@ -70,3 +70,8 @@ signal tooltip_done(text: String)
 
 func emit_tooltip_done(text: String) -> void:
 	tooltip_done.emit(text)
+
+signal game_won
+
+func emit_game_won() -> void:
+	game_won.emit()
