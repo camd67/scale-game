@@ -246,8 +246,12 @@ theme_override_colors/font_shadow_color = Color(1, 0.612122, 0.199219, 1)
 theme_override_colors/font_outline_color = Color(1, 0.612122, 0.199219, 1)
 theme_override_constants/outline_size = 5
 theme_override_constants/shadow_outline_size = 5
-theme_override_font_sizes/font_size = 96
-text = "Scale Game"
+theme_override_font_sizes/font_size = 42
+text = "Where am I?
+I wanted to become the strongest!
+Why am I balancing the
+Demon Lord's Scales?!?"
+horizontal_alignment = 1
 
 [node name="TitleAnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
