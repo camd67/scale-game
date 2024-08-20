@@ -42,7 +42,7 @@ func tooltip_requested(text: String) -> void:
 	if not is_tooltip_active and open_timer.is_stopped():
 		is_tooltip_active = true
 		if has_seen_atleast_one_tooltip:
-			open_timer.start(1.5)
+			open_timer.start(1.0)
 		else:
 			# First tooltip is extra quick so they see it
 			open_timer.start(0.5)

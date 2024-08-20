@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="LevelDefinition" load_steps=10 format=3 uid="uid://cb1srulcqgl03"]
 
 [ext_resource type="Script" path="res://resources/measureables/measureable.gd" id="1_6j4tt"]
-[ext_resource type="Resource" path="res://resources/measureables/planets/venus.tres" id="2_fghsv"]
+[ext_resource type="Resource" uid="uid://d2fox4l1he745" path="res://resources/measureables/planets/venus.tres" id="2_fghsv"]
 [ext_resource type="Resource" uid="uid://dxrsv3hauso6u" path="res://resources/measureables/planets/earth.tres" id="3_5ly26"]
 [ext_resource type="Resource" uid="uid://dwd3f6lcx78l4" path="res://resources/measureables/planets/mars.tres" id="4_1yt5r"]
 [ext_resource type="Resource" uid="uid://cq377uve53qcq" path="res://resources/measureables/planets/jupiter.tres" id="5_m03uw"]
