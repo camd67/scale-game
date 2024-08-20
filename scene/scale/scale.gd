@@ -3,16 +3,16 @@ class_name Scale
 
 const PAN_DROP_POINT := .33
 
-@onready var left_pan: Area3D = $LeftPan
+@onready var left_pan: Area3D = $Visuals/PanR/LeftPan
 var left_pan_weight: float = 0
 
-@onready var right_pan: Area3D = $RightPan
+@onready var right_pan: Area3D = $Visuals/PanL/RightPan
 var right_pan_weight: float = 0
 
 @export var pan_height_range: float
 var starting_pan_height: float = 0
 
-var last_pan_difference := 0
+var last_pan_difference := 0.0
 
 
 func _ready() -> void:

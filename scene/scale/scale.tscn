@@ -213,6 +213,10 @@ shadow_mesh = SubResource("ArrayMesh_h46b3")
 height = 0.0247096
 radius = 0.215156
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ovm1g"]
+height = 0.256644
+radius = 0.120499
+
 [sub_resource type="ArrayMesh" id="ArrayMesh_phih5"]
 _surfaces = [{
 "aabb": AABB(-0.755336, -0.408249, -1.15648, 0.414724, 0.0218041, 0.414724),
@@ -270,6 +274,10 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_phih5")
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_wpsow"]
+height = 0.248419
+radius = 0.129778
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3qa87"]
 resource_name = "LockBodyMat"
@@ -545,14 +553,6 @@ _data = {
 "unlock": SubResource("Animation_yu4jc")
 }
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_ovm1g"]
-height = 0.256644
-radius = 0.120499
-
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_wpsow"]
-height = 0.248419
-radius = 0.129778
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_br6ej"]
 size = Vector3(0.170654, 1.40332, 2.33691)
 
@@ -755,6 +755,16 @@ transform = Transform3D(1, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 1, 0, -0.39
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Visuals/PanR/StaticBody3D"]
 shape = SubResource("CylinderShape3D_suw24")
 
+[node name="LeftPan" type="Area3D" parent="Visuals/PanR"]
+transform = Transform3D(-0.833334, 0, 1.44338, 0, 1.66667, 0, -1.44338, 0, -0.833334, 0.000382513, -0.392658, 0.000662535)
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Visuals/PanR/LeftPan"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.131202, 0)
+shape = SubResource("CylinderShape3D_ovm1g")
+
 [node name="PanL" type="MeshInstance3D" parent="Visuals"]
 transform = Transform3D(-0.3, 0, -0.519615, 0, 0.6, 0, 0.519615, 0, -0.3, -0.328784, 0.510376, 0)
 mesh = SubResource("ArrayMesh_73wmh")
@@ -765,6 +775,16 @@ transform = Transform3D(1, 0, -1.19209e-07, 0, 1, 0, 1.19209e-07, 0, 1, -0.54672
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Visuals/PanL/StaticBody3D2"]
 shape = SubResource("CylinderShape3D_suw24")
+
+[node name="RightPan" type="Area3D" parent="Visuals/PanL"]
+transform = Transform3D(-0.833334, 0, 1.44338, 0, 1.66667, 0, -1.44338, 0, -0.833334, -0.546812, -0.389928, -0.947106)
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Visuals/PanL/RightPan"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.116349, 0)
+shape = SubResource("CylinderShape3D_wpsow")
 
 [node name="Lock" type="Node3D" parent="Visuals"]
 transform = Transform3D(1, 0, 0, 0, 0.687949, 0.725759, 0, -0.725759, 0.687949, 0, 0.486638, 0.0531457)
@@ -790,26 +810,6 @@ shape = SubResource("BoxShape3D_2by3x")
 libraries = {
 "": SubResource("AnimationLibrary_pvcpm")
 }
-
-[node name="LeftPan" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.329243, 0.274781, 0)
-collision_layer = 0
-collision_mask = 2
-monitorable = false
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="LeftPan"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.131202, 0)
-shape = SubResource("CylinderShape3D_ovm1g")
-
-[node name="RightPan" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.32739, 0.276419, 0)
-collision_layer = 0
-collision_mask = 2
-monitorable = false
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RightPan"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.116349, 0)
-shape = SubResource("CylinderShape3D_wpsow")
 
 [node name="MiddleBlocker" type="StaticBody3D" parent="."]
 input_ray_pickable = false
@@ -859,7 +859,7 @@ explosiveness = 0.6
 process_material = SubResource("ParticleProcessMaterial_du2k2")
 draw_pass_1 = SubResource("QuadMesh_6jq6h")
 
-[connection signal="body_entered" from="LeftPan" to="." method="_on_left_pan_body_entered"]
-[connection signal="body_exited" from="LeftPan" to="." method="_on_left_pan_body_exited"]
-[connection signal="body_entered" from="RightPan" to="." method="_on_right_pan_body_entered"]
-[connection signal="body_exited" from="RightPan" to="." method="_on_right_pan_body_exited"]
+[connection signal="body_entered" from="Visuals/PanR/LeftPan" to="." method="_on_left_pan_body_entered"]
+[connection signal="body_exited" from="Visuals/PanR/LeftPan" to="." method="_on_left_pan_body_exited"]
+[connection signal="body_entered" from="Visuals/PanL/RightPan" to="." method="_on_right_pan_body_entered"]
+[connection signal="body_exited" from="Visuals/PanL/RightPan" to="." method="_on_right_pan_body_exited"]
