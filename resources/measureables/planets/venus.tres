@@ -9,7 +9,7 @@ radius = 0.03
 [resource]
 script = ExtResource("1_qju8d")
 id = "venus"
-tooltip = "Venus, only rarely does this celestial body partially eclipse the Sun from Earth"
+tooltip = "Venus, rarely does this body partially eclipse the Sun from Earth"
 weight = 2
 mesh = ExtResource("1_wlv5u")
 shape = SubResource("SphereShape3D_rruyw")
