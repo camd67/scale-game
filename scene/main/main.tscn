@@ -303,9 +303,11 @@ max_grab_distance = 15.0
 snap_velocity = 10.0
 drop_distance = 0.1
 max_drag_distance = 0.3
+metadata/_edit_lock_ = true
 
 [node name="Scale" parent="." instance=ExtResource("1_ceiqc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.107428, 0.76842, 1.82433)
+metadata/_edit_lock_ = true
 
 [node name="SunLiving" parent="." instance=ExtResource("13_t1507")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.891987, 1.57812, 1.78925)
@@ -315,6 +317,7 @@ environment = SubResource("Environment_mpf7k")
 
 [node name="BookTooltipSystem" type="Node3D" parent="."]
 script = ExtResource("11_qln3q")
+metadata/_edit_lock_ = true
 
 [node name="BookTooltip" parent="BookTooltipSystem" instance=ExtResource("13_iad3c")]
 transform = Transform3D(0.0733247, 0.37184, -0.925396, -0.981106, 0.193469, 0, 0.179035, 0.907913, 0.379001, -1.81731, 1.04425, -2.58892)
@@ -332,6 +335,7 @@ one_shot = true
 one_shot = true
 
 [node name="ScaledDungeonLiving" parent="." instance=ExtResource("4_6qt3t")]
+metadata/_edit_lock_ = true
 
 [node name="CameraAnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -342,14 +346,17 @@ libraries = {
 transform = Transform3D(0.834008, -0.231879, 0.50066, 0.000227156, 0.907547, 0.419949, -0.551749, -0.350127, 0.756956, 1.1782, 1.88322, 2.35099)
 current = true
 fov = 40.6
+metadata/_edit_lock_ = true
 
 [node name="EDITOR_ONLY Camera destination" type="Camera3D" parent="."]
 process_mode = 4
 transform = Transform3D(1, 0, 0, 0, 0.973562, 0.228419, 0, -0.228418, 0.973563, 0, 1.40286, 2.91137)
 fov = 40.6
+metadata/_edit_lock_ = true
 
 [node name="InstantDebugCameraMarker" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.973563, 0.228419, 0, -0.228419, 0.973563, 0, 1.40286, 2.91137)
+metadata/_edit_lock_ = true
 
 [node name="Lights" type="Node" parent="."]
 
@@ -380,9 +387,11 @@ draw_pass_1 = SubResource("PlaneMesh_h7ukf")
 
 [node name="TableBoundaries" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.789482, 1.9673)
+metadata/_edit_lock_ = true
 
 [node name="TableRight" type="StaticBody3D" parent="TableBoundaries"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.900853, 0.450389, 0)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TableBoundaries/TableRight"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.181702, -0.104957)
@@ -390,13 +399,16 @@ shape = SubResource("BoxShape3D_1p1xp")
 
 [node name="TableBottm" type="StaticBody3D" parent="TableBoundaries"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0398992, -0.0662105, 0)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TableBoundaries/TableBottm"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.000343204, -0.104957)
 shape = SubResource("BoxShape3D_nxspy")
+metadata/_edit_lock_ = true
 
 [node name="TableTop" type="StaticBody3D" parent="TableBoundaries"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0398992, 1.30469, 0)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TableBoundaries/TableTop"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.000343204, -0.104957)
@@ -404,20 +416,24 @@ shape = SubResource("BoxShape3D_nxspy")
 
 [node name="TableLeft" type="StaticBody3D" parent="TableBoundaries"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.944649, 0.450389, 0)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TableBoundaries/TableLeft"]
 transform = Transform3D(0.982294, -0.187347, 0, 0.187347, 0.982294, 0, 0, 0, 1, 0, 0.184509, -0.104957)
 shape = SubResource("BoxShape3D_n4e3c")
+metadata/_edit_lock_ = true
 
 [node name="OutOfBoundsChecker" type="Area3D" parent="TableBoundaries"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.468991, 0.732023, 0)
 collision_layer = 0
 collision_mask = 2
 monitorable = false
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TableBoundaries/OutOfBoundsChecker"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00201416, 0.0654683, 0)
 shape = SubResource("BoxShape3D_b3caf")
+metadata/_edit_lock_ = true
 
 [node name="TableLeftRespawnPoint" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.597074, 1.93556, 1.8189)
@@ -438,6 +454,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+metadata/_edit_lock_ = true
 
 [node name="MouseBlocker3D" type="Area3D" parent="MouseBlocker"]
 collision_layer = 3
