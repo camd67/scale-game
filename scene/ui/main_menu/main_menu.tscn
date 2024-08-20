@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://dhgqdwpcy37iw"]
+[gd_scene load_steps=17 format=3 uid="uid://dhgqdwpcy37iw"]
 
 [ext_resource type="Script" path="res://scene/ui/main_menu/main_menu.gd" id="1_ay1vl"]
 [ext_resource type="Shader" path="res://scene/ui/main_menu/main_menu.gdshader" id="2_lsi7y"]
+[ext_resource type="FontFile" uid="uid://cwalsjuodmj6y" path="res://asset/font/frederick_the_great/FrederickatheGreat-Regular.ttf" id="3_eahxm"]
 [ext_resource type="Script" path="res://scene/ui/main_menu/settings_menu.gd" id="3_sjsop"]
 [ext_resource type="Script" path="res://scene/ui/main_menu/credits_margin.gd" id="4_p0lg4"]
 
@@ -63,7 +64,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [-1000]
+"values": [-1500]
 }
 
 [sub_resource type="Animation" id="Animation_66mwr"]
@@ -79,7 +80,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0.5, 0.9, 1.3),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [-1000, 54.0, 0.0]
+"values": [-1500, 54.0, 0.0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -204,6 +205,9 @@ _data = {
 "default": SubResource("Animation_cg0ts")
 }
 
+[sub_resource type="SystemFont" id="SystemFont_sye1d"]
+font_names = PackedStringArray("Sans-Serif")
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gpgfv"]
 bg_color = Color(0.26, 0.26, 0.26, 1)
 corner_radius_top_left = 8
@@ -235,22 +239,24 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Title" type="Label" parent="."]
-layout_mode = 2
-offset_left = 303.347
-offset_top = 281.1
-offset_right = 839.347
-offset_bottom = 413.1
-pivot_offset = Vector2(268, 66)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_shadow_color = Color(1, 0.612122, 0.199219, 1)
-theme_override_colors/font_outline_color = Color(1, 0.612122, 0.199219, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -340.0
+offset_top = -59.0
+offset_right = 340.0
+offset_bottom = 59.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(340, 59)
 theme_override_constants/outline_size = 5
 theme_override_constants/shadow_outline_size = 5
-theme_override_font_sizes/font_size = 42
-text = "Where am I?
-I wanted to become the strongest!
-Why am I balancing the
-Demon Lord's Scales?!?"
+theme_override_fonts/font = ExtResource("3_eahxm")
+theme_override_font_sizes/font_size = 96
+text = "Demon's Scales"
 horizontal_alignment = 1
 
 [node name="TitleAnimationPlayer" type="AnimationPlayer" parent="."]
@@ -297,6 +303,7 @@ alignment = 2
 [node name="Label" type="Label" parent="MarginContainer/SettingsMargin/Settings Section/MusicSliderBox"]
 layout_mode = 2
 size_flags_vertical = 1
+theme_override_font_sizes/font_size = 20
 text = "Music"
 vertical_alignment = 1
 
@@ -317,6 +324,7 @@ alignment = 2
 [node name="Label" type="Label" parent="MarginContainer/SettingsMargin/Settings Section/SfxSliderBox"]
 layout_mode = 2
 size_flags_vertical = 1
+theme_override_font_sizes/font_size = 20
 text = "SFX"
 vertical_alignment = 1
 
@@ -335,6 +343,7 @@ alignment = 2
 [node name="Label" type="Label" parent="MarginContainer/SettingsMargin/Settings Section/MainSliderBox"]
 layout_mode = 2
 size_flags_vertical = 1
+theme_override_font_sizes/font_size = 20
 text = "Main"
 vertical_alignment = 1
 
@@ -356,13 +365,15 @@ focus_neighbor_left = NodePath(".")
 focus_neighbor_right = NodePath(".")
 focus_neighbor_bottom = NodePath("../MusicSliderBox/HSlider")
 focus_next = NodePath("../MusicSliderBox/HSlider")
+theme_override_font_sizes/font_size = 24
 text = "Back"
 
 [node name="CreditsMargin" type="MarginContainer" parent="MarginContainer"]
 layout_mode = 2
 mouse_filter = 2
-theme_override_constants/margin_right = -1000
+theme_override_constants/margin_right = -1500
 script = ExtResource("4_p0lg4")
+credit_font = SubResource("SystemFont_sye1d")
 
 [node name="PanelContainer" type="PanelContainer" parent="MarginContainer/CreditsMargin"]
 layout_mode = 2
@@ -396,6 +407,7 @@ focus_neighbor_right = NodePath(".")
 focus_neighbor_bottom = NodePath(".")
 focus_next = NodePath(".")
 focus_previous = NodePath(".")
+theme_override_font_sizes/font_size = 24
 text = "Back"
 
 [node name="MainMargin" type="MarginContainer" parent="MarginContainer"]
@@ -416,7 +428,7 @@ focus_neighbor_left = NodePath(".")
 focus_neighbor_top = NodePath("../QuitButton")
 focus_neighbor_right = NodePath(".")
 focus_previous = NodePath("../QuitButton")
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 24
 text = "Begin Balancing"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/MainMargin/Main Section"]
@@ -433,7 +445,7 @@ focus_neighbor_right = NodePath("../CreditsButton")
 focus_neighbor_bottom = NodePath("../../QuitButton")
 focus_next = NodePath("../CreditsButton")
 focus_previous = NodePath("../../PlayButton")
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 24
 text = "Settings"
 
 [node name="CreditsButton" type="Button" parent="MarginContainer/MainMargin/Main Section/HBoxContainer"]
@@ -446,7 +458,7 @@ focus_neighbor_right = NodePath("../SettingsButton")
 focus_neighbor_bottom = NodePath("../../QuitButton")
 focus_next = NodePath("../../QuitButton")
 focus_previous = NodePath("../SettingsButton")
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 24
 text = "Credits"
 
 [node name="QuitButton" type="Button" parent="MarginContainer/MainMargin/Main Section"]
@@ -456,5 +468,5 @@ focus_neighbor_left = NodePath(".")
 focus_neighbor_right = NodePath(".")
 focus_neighbor_bottom = NodePath("../PlayButton")
 focus_next = NodePath("../PlayButton")
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 24
 text = "Quit"

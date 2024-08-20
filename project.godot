@@ -56,6 +56,10 @@ folder_colors={
 weighable="Something that can report its weight back to the caller"
 grabbables=""
 
+[gui]
+
+theme/custom_font="res://asset/font/bodoni_moda/BodoniModaSC-VariableFont_opsz,wght.ttf"
+
 [input]
 
 lockin(debug)={

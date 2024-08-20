@@ -1,6 +1,7 @@
 extends MarginContainer
 
 @onready var settings_section: VBoxContainer = %SettingsSection
+@export var credit_font: Font
 
 func _ready() -> void:
 	var credit_data := CreditsData.get_credits_data()
@@ -13,6 +14,8 @@ func _ready() -> void:
 
 		var left_label := Label.new()
 		left_label.text = section[0]
+		left_label.add_theme_font_size_override("font_size", 16)
+		left_label.add_theme_font_override("font", credit_font)
 		hbox.add_child(left_label)
 
 		hbox.add_spacer(false)
@@ -21,6 +24,8 @@ func _ready() -> void:
 		right_label.text = section[1]
 		right_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		right_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+		right_label.add_theme_font_override("font", credit_font)
+		right_label.add_theme_font_size_override("font_size", 16)
 		hbox.add_child(right_label)
 
 		if right_label.text == "":
@@ -32,6 +37,8 @@ func _ready() -> void:
 			var link := LinkButton.new()
 			link.text = section[2]
 			link.uri = section[3]
+			link.add_theme_font_size_override("font_size", 16)
+			link.add_theme_font_override("font", credit_font)
 			hbox.add_child(link)
 
 		settings_section.add_child(hbox)

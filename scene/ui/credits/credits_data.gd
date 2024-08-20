@@ -7,9 +7,11 @@ static var developers := [
 ]
 
 static var third_party_assets := [
-	["Particle VFX textures", "https://www.kenney.nl/assets/particle-pack"],
-	["Fire Crackle SFX", "https://freesound.org/people/TheWoodlandNomad/sounds/363093/"],
-	["Planet textures", "https://www.solarsystemscope.com", "CC BY 4.0", "https://creativecommons.org/licenses/by/4.0/"]
+	["Particle VFX textures", "Kenny Particle Pack", "kenney.nl",  "https://www.kenney.nl/assets/particle-pack"],
+	["Fire Crackle SFX","TheWoodlandNomad", "freesound.org",  "https://freesound.org/people/TheWoodlandNomad/sounds/363093/"],
+	["Planet textures", "https://www.solarsystemscope.com", "CC BY 4.0", "https://creativecommons.org/licenses/by/4.0/"],
+	["Bodoni Moda SC", "Copyright 2020 The Bodoni Moda Project Authors", "Bodoni Github", "https://github.com/indestructible-type/Bodoni"],
+	["Fredericka the Great", "Copyright (c) 2011, Tart Workshop (a DBA of Font Diner, Inc)", "FontDiner.com", "www.fontdiner.com"]
 ]
 
 
