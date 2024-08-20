@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://ca5j8fw53lwly"]
+[gd_scene load_steps=42 format=3 uid="uid://ca5j8fw53lwly"]
 
 [ext_resource type="PackedScene" uid="uid://ce6b0dfduypqr" path="res://scene/scale/scale.tscn" id="1_ceiqc"]
 [ext_resource type="Script" path="res://scene/main/main.gd" id="1_er31i"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dbr2vgtnsucf0" path="res://scene/grabber/grabber.tscn" id="2_ygo0o"]
 [ext_resource type="Script" path="res://resources/level_definitions/level_definition.gd" id="3_kqovf"]
 [ext_resource type="PackedScene" uid="uid://foljia802g4d" path="res://scene/dungeon/scaled_dungeon_living.tscn" id="4_6qt3t"]
+[ext_resource type="Resource" uid="uid://c184kbs4suval" path="res://resources/level_definitions/planets/planets1.tres" id="4_i6wjg"]
 [ext_resource type="Resource" uid="uid://crkwcikpi3uon" path="res://resources/level_definitions/planets/planets2.tres" id="5_nmpru"]
 [ext_resource type="PackedScene" uid="uid://bhlp8xn50igxa" path="res://scene/flickering_light/flickering_light.tscn" id="5_r3mqi"]
 [ext_resource type="Resource" uid="uid://cb1srulcqgl03" path="res://resources/level_definitions/planets/planets3.tres" id="6_w2tsb"]
@@ -290,7 +291,7 @@ radius = 1.61289
 script = ExtResource("1_er31i")
 
 [node name="LevelManager" parent="." node_paths=PackedStringArray("spawner") instance=ExtResource("2_f8vwc")]
-level_definitions = Array[ExtResource("3_kqovf")]([ExtResource("13_b4kb4"), ExtResource("5_nmpru"), ExtResource("6_w2tsb"), ExtResource("7_4gqfo"), ExtResource("8_tc7aj"), ExtResource("9_t02d8"), ExtResource("10_rg2ns"), ExtResource("11_f5d1n"), ExtResource("12_ij13h"), ExtResource("13_b4kb4")])
+level_definitions = Array[ExtResource("3_kqovf")]([ExtResource("4_i6wjg"), ExtResource("5_nmpru"), ExtResource("6_w2tsb"), ExtResource("7_4gqfo"), ExtResource("8_tc7aj"), ExtResource("9_t02d8"), ExtResource("10_rg2ns"), ExtResource("11_f5d1n"), ExtResource("12_ij13h"), ExtResource("13_b4kb4")])
 spawner = NodePath("../MeasureableSpawner")
 
 [node name="MeasureableSpawner" parent="." node_paths=PackedStringArray("left_spawn_location", "right_spawn_location") instance=ExtResource("12_ysa5h")]
