@@ -63,7 +63,7 @@ func _ready() -> void:
 	#GameEvents.correct_weight_submitted.connect(on_correct_weight_submitted)
 	GameEvents.incorrect_weight_submitted.connect(on_incorrect_weight_submitted)
 	planetsVoiceTimer.wait_time = INITIAL_HELP_BUFFER
-	planetsVoiceTimer.timeout.connect(on_planets_voice_timer_timeout) 
+	planetsVoiceTimer.timeout.connect(on_planets_voice_timer_timeout)
 	lettersVoiceTimer.timeout.connect(on_letters_voice_timer_timeout)
 	finalVoiceTimer.timeout.connect(on_final_voice_timer_timeout)
 
@@ -200,7 +200,7 @@ func on_pan_exited() -> void:
 
 func start_random_timer() -> void:
 	randomVoiceTimer.start()
-	
+
 
 func start_planets_timer() -> void:
 	planetsVoiceTimer.start()
@@ -230,11 +230,11 @@ func on_incorrect_weight_submitted() -> void:
 	voice_ready = false
 	play_random_wrong()
 	voice_cooldown()
-	
-	
+
+
 func play_next_planet() -> void:
 	if voices_planets.size():
-		var chosen_stream: AudioStream = voices_planets.pop_at(0) 
+		var chosen_stream: AudioStream = voices_planets.pop_at(0)
 		voices_planets_trash.append(chosen_stream)
 		stream = chosen_stream
 		play()
@@ -266,7 +266,7 @@ func stop_planets_timer() -> void:
 
 func play_next_letter() -> void:
 	if voices_letters.size():
-		var chosen_stream: AudioStream = voices_letters.pop_at(0) 
+		var chosen_stream: AudioStream = voices_letters.pop_at(0)
 		voices_letters_trash.append(chosen_stream)
 		stream = chosen_stream
 		play()
@@ -295,11 +295,11 @@ func stop_letters_timer() -> void:
 	lettersVoiceTimer.stop()
 	finalVoiceTimer.wait_time = INITIAL_HELP_BUFFER
 	finalVoiceTimer.start()
-	
-	
+
+
 func play_next_final() -> void:
 	if voices_final.size():
-		var chosen_stream: AudioStream = voices_final.pop_at(0) 
+		var chosen_stream: AudioStream = voices_final.pop_at(0)
 		voices_final_trash.append(chosen_stream)
 		stream = chosen_stream
 		play()

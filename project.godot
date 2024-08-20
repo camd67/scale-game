@@ -14,7 +14,7 @@ warnings/check_invalid_track_paths=false
 
 [application]
 
-config/name="scale-game"
+config/name="Demon's Scales"
 run/main_scene="res://scene/main/main.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 boot_splash/bg_color=Color(0.26, 0.1716, 0.1716, 1)

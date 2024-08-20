@@ -17,7 +17,7 @@ func on_correct_weight_submitted() -> void:
 	if current_level_number < level_definitions.size():
 		current_level = level_definitions[current_level_number]
 		spawner.level_definition = current_level
-		
+
 		VoiceManager.on_correct_weight_submitted()
 		VoiceManager.reset_planets_timer()
 		VoiceManager.reset_letters_timer()
