@@ -9,7 +9,7 @@ radius = 0.043
 [resource]
 script = ExtResource("1_rai14")
 id = "uranus"
-tooltip = ""
+tooltip = "Uranus, seventh from the sun"
 weight = 7
 mesh = ExtResource("1_rv0vk")
 shape = SubResource("SphereShape3D_usk5r")

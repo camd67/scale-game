@@ -9,7 +9,7 @@ radius = 0.06
 [resource]
 script = ExtResource("1_ol3ou")
 id = "jupiter"
-tooltip = ""
+tooltip = "The fifth and largest planet, only dwarfed by the star of our solar system"
 weight = 5
 mesh = ExtResource("1_6mdbf")
 shape = SubResource("SphereShape3D_co223")

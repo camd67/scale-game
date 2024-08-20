@@ -1,13 +1,17 @@
-[gd_resource type="Resource" script_class="LevelDefinition" load_steps=6 format=3 uid="uid://cb1srulcqgl03"]
+[gd_resource type="Resource" script_class="LevelDefinition" load_steps=10 format=3 uid="uid://cb1srulcqgl03"]
 
-[ext_resource type="Script" path="res://resources/measureables/measureable.gd" id="1_yr7o6"]
-[ext_resource type="Resource" uid="uid://cf24gwy5cwkpn" path="res://resources/measureables/planets/mercury.tres" id="2_ysfvd"]
-[ext_resource type="Resource" uid="uid://dxrsv3hauso6u" path="res://resources/measureables/planets/earth.tres" id="3_rfv02"]
-[ext_resource type="Resource" uid="uid://dwd3f6lcx78l4" path="res://resources/measureables/planets/mars.tres" id="4_f55ak"]
-[ext_resource type="Script" path="res://resources/level_definitions/level_definition.gd" id="5_yo0w5"]
+[ext_resource type="Script" path="res://resources/measureables/measureable.gd" id="1_6j4tt"]
+[ext_resource type="Resource" uid="uid://d2fox4l1he745" path="res://resources/measureables/planets/venus.tres" id="2_fghsv"]
+[ext_resource type="Resource" uid="uid://dxrsv3hauso6u" path="res://resources/measureables/planets/earth.tres" id="3_5ly26"]
+[ext_resource type="Resource" uid="uid://dwd3f6lcx78l4" path="res://resources/measureables/planets/mars.tres" id="4_1yt5r"]
+[ext_resource type="Resource" uid="uid://dai5dupjgs7hh" path="res://resources/measureables/planets/jupiter.tres" id="5_m03uw"]
+[ext_resource type="Resource" uid="uid://qffr2rdlbluu" path="res://resources/measureables/planets/neptune.tres" id="6_3t3ca"]
+[ext_resource type="Resource" uid="uid://cf24gwy5cwkpn" path="res://resources/measureables/planets/mercury.tres" id="7_oxv0c"]
+[ext_resource type="Resource" uid="uid://dj6of0tjosd2w" path="res://resources/measureables/planets/uranus.tres" id="8_1c63i"]
+[ext_resource type="Script" path="res://resources/level_definitions/level_definition.gd" id="9_ye1lw"]
 
 [resource]
-script = ExtResource("5_yo0w5")
+script = ExtResource("9_ye1lw")
 id = "planets1"
-left_side = Array[ExtResource("1_yr7o6")]([ExtResource("2_ysfvd"), ExtResource("3_rfv02"), ExtResource("4_f55ak"), ExtResource("2_ysfvd")])
-right_side = Array[ExtResource("1_yr7o6")]([ExtResource("4_f55ak"), ExtResource("4_f55ak")])
+left_side = Array[ExtResource("1_6j4tt")]([ExtResource("2_fghsv"), ExtResource("3_5ly26"), ExtResource("4_1yt5r"), ExtResource("5_m03uw"), ExtResource("6_3t3ca")])
+right_side = Array[ExtResource("1_6j4tt")]([ExtResource("7_oxv0c"), ExtResource("8_1c63i")])

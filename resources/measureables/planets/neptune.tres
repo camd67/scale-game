@@ -9,7 +9,7 @@ radius = 0.04
 [resource]
 script = ExtResource("1_51qkg")
 id = "neptune"
-tooltip = ""
+tooltip = "Neptune, furthest giant from the sun and smallest of the outer four"
 weight = 8
 mesh = ExtResource("1_85wrx")
 shape = SubResource("SphereShape3D_qmc4k")
